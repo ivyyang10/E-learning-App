@@ -8,9 +8,9 @@ CREATE TABLE users (
 	user_id SERIAL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
-	is_teacher boolean NOT NULL,
 	name varchar(100) NOT NULL,
 	email varchar(50) NOT NULL,
+	role varchar (20) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
