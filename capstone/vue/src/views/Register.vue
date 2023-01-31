@@ -35,16 +35,27 @@
         required
         autofocus
       />
-      <label for="role" class="sr-only">Role</label>
+
+      <!-- <h3>Role:</h3>
+  <input type="radio" v-model="color" value="0">Student
+  <input type="radio" v-model="color" value="1">Teacher
+  <br /> <br> -->
+
+      <label for="role" class="sr-only">Teacher{{ checked }}</label>
       <input
-        type="role"
+        v-on:click="setRole(checked)"
+        type="checkbox"
+        value="teacher"
         id="role"
         class="form-control"
         placeholder="role"
-        v-model="user.role"
-        required
+        v-model="checked"
         autofocus
       />
+
+      <!-- <button id="teacher-button">Teacher</button>
+      <button id="student-button" v-on:click="">Student</button> -->
+
       <label for="password" class="sr-only">Password</label>
       <input
         type="password"
@@ -85,6 +96,7 @@ export default {
         email: "",
         role: "",
       },
+      checked: false,
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
     };
@@ -112,6 +124,13 @@ export default {
               this.registrationErrorMsg = "Bad Request: Validation Errors";
             }
           });
+      }
+    },
+    setRole(checked) {
+      if (!checked) {
+        this.user.role = "admin";
+      } else if (checked) {
+        this.user.role = "user";
       }
     },
     clearErrors() {
