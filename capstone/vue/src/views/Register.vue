@@ -93,7 +93,7 @@ export default {
         confirmPassword: "",
         name: "",
         email: "",
-        role: "",
+        role: "user",
       },
       checked: false,
       registrationErrors: false,
@@ -128,9 +128,7 @@ export default {
       setRole(checked) {
         if(!checked) {
           this.user.role = "admin";
-        } else if (checked){
-          this.user.role = "user";
-        }
+        } 
     },
     clearErrors() {
       this.registrationErrors = false;
