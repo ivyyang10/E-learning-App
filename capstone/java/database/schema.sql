@@ -26,7 +26,7 @@ CREATE TABLE course (
 	difficulty varchar(10) NOT NULL,
 	cost integer NOT NULL,
 	curriculum_id int NOT NULL,
-	teacher_id int NOT NULL,
+	role varchar (20) NOT NULL,
 	CONSTRAINT PK_course_id PRIMARY KEY (course_id),
 	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id),
 	CONSTRAINT CK_difficulty CHECK (difficulty IN ('Easy', 'Medium', 'Difficult'))
