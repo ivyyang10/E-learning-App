@@ -8,17 +8,21 @@ public class Course {
     private String description;
     private String difficulty;
     private BigDecimal cost;
-
     private int teacherId;
+    private String dailyInstruction;
+    private String links;
+    private String hwAssignment;
 
-    public Course(int courseId, String courseName, String description, String difficulty, BigDecimal cost, int teacherId) {
+    public Course(int courseId, String courseName, String description, String difficulty, BigDecimal cost, int teacherId, String dailyInstruction, String links, String hwAssignment) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.description = description;
         this.difficulty = difficulty;
         this.cost = cost;
-
         this.teacherId = teacherId;
+        this.dailyInstruction = dailyInstruction;
+        this.links = links;
+        this.hwAssignment = hwAssignment;
     }
 
     public Course() {
@@ -73,6 +77,30 @@ public class Course {
         this.teacherId = teacherId;
     }
 
+    public String getDailyInstruction() {
+        return dailyInstruction;
+    }
+
+    public void setDailyInstruction(String dailyInstruction) {
+        this.dailyInstruction = dailyInstruction;
+    }
+
+    public String getLinks() {
+        return links;
+    }
+
+    public void setLinks(String links) {
+        this.links = links;
+    }
+
+    public String getHwAssignment() {
+        return hwAssignment;
+    }
+
+    public void setHwAssignment(String hwAssignment) {
+        this.hwAssignment = hwAssignment;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -82,6 +110,9 @@ public class Course {
                 ", difficulty='" + difficulty + '\'' +
                 ", cost=" + cost +
                 ", teacherId=" + teacherId +
+                ", dailyInstruction='" + dailyInstruction + '\'' +
+                ", links='" + links + '\'' +
+                ", hwAssignment='" + hwAssignment + '\'' +
                 '}';
     }
 }

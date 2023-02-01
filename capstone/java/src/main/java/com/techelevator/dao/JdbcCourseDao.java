@@ -24,11 +24,12 @@ public class JdbcCourseDao  implements CourseDao{
 
     @Override
     public boolean createCourse(String courseName, String description, String difficulty, BigDecimal cost,
-                                 int teacherId) {
+                                 int teacherId, String dailyInstruction, String links, String hwAssignments) {
         String insertCourseSql = "INSERT INTO course (course_name, description, difficulty, cost," +
-                "teacher_id) VALUES (?,?,?,?,?)";
+                "teacher_id, daily_instruction, links, hw_assignment) " +
+                "VALUES (?,?,?,?,?,?,?,?)";
 
-        return jdbcTemplate.update(insertCourseSql, courseName, description, difficulty, cost, teacherId) == 1;
+        return jdbcTemplate.update(insertCourseSql, courseName, description, difficulty, cost, teacherId, dailyInstruction, links, hwAssignments) == 1;
     }
 
     @Override
@@ -44,6 +45,9 @@ public class JdbcCourseDao  implements CourseDao{
         course.setDifficulty(result.getString("difficulty"));
         course.setCost(result.getBigDecimal("cost"));
         course.setTeacherId(result.getInt("teacher_id"));
+        course.setDailyInstruction(result.getString("daily_instruction"));
+        course.setLinks(result.getString("links"));
+        course.setHwAssignment(result.getString("hw_assignment"));
 
         return course;
     }
