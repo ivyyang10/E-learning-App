@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CourseDao {
     boolean createCourse(String courseName, String description, String difficulty, BigDecimal cost,
-                         int curriculumId, int teacherId);
+                          int teacherId);
 
     List<Course> findAllCourses();
 }

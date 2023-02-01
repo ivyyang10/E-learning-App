@@ -8,16 +8,16 @@ public class Course {
     private String description;
     private String difficulty;
     private BigDecimal cost;
-    private int curriculumId;
+
     private int teacherId;
 
-    public Course(int courseId, String courseName, String description, String difficulty, BigDecimal cost, int curriculumId, int teacherId) {
+    public Course(int courseId, String courseName, String description, String difficulty, BigDecimal cost, int teacherId) {
         this.courseId = courseId;
         this.courseName = courseName;
         this.description = description;
         this.difficulty = difficulty;
         this.cost = cost;
-        this.curriculumId = curriculumId;
+
         this.teacherId = teacherId;
     }
 
@@ -64,13 +64,6 @@ public class Course {
         this.cost = cost;
     }
 
-    public int getCurriculumId() {
-        return curriculumId;
-    }
-
-    public void setCurriculumId(int curriculumId) {
-        this.curriculumId = curriculumId;
-    }
 
     public int getTeacherId() {
         return teacherId;
@@ -88,7 +81,6 @@ public class Course {
                 ", description='" + description + '\'' +
                 ", difficulty='" + difficulty + '\'' +
                 ", cost=" + cost +
-                ", curriculumId=" + curriculumId +
                 ", teacherId=" + teacherId +
                 '}';
     }
