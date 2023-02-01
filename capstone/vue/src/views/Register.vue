@@ -41,7 +41,7 @@
   <input type="radio" v-model="color" value="1">Teacher
   <br /> <br> -->
 
-      <label for="role" class="sr-only">Teacher{{ checked }}</label>
+      <label for="role" class="sr-only">Teacher?</label>
       <input
         v-on:click="setRole(checked)"
         type="checkbox"
