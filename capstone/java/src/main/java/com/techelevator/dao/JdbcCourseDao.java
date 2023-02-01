@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.sql.DataSource;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -34,7 +35,15 @@ public class JdbcCourseDao  implements CourseDao{
 
     @Override
     public List<Course> findAllCourses() {
-        return null;
+        List<Course> courses = new ArrayList<>();
+        String listSql = "SELECT * FROM course";
+        SqlRowSet results=jdbcTemplate.queryForRowSet(listSql);
+        while(results.next()){
+            Course course=mapRowToCourse(results);
+            courses.add(course);
+        }
+
+        return courses;
     }
 
     private Course mapRowToCourse(SqlRowSet result){

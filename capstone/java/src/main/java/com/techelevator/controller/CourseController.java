@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @PreAuthorize("isAuthenticated()")
 @RestController
@@ -32,5 +33,10 @@ public class CourseController {
 
         courseDao.createCourse(newCourse.getCourseName(), newCourse.getDescription(), newCourse.getDifficulty(),
                 newCourse.getCost(), teacherID, newCourse.getDailyInstruction(), newCourse.getLinks(), newCourse.getHwAssignment());
+    }
+
+    @GetMapping("/courses")
+    public List<Course> listAllCourse(){
+        return courseDao.findAllCourses();
     }
 }
