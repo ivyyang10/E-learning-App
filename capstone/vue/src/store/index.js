@@ -68,8 +68,8 @@ export default new Vuex.Store({
     SAVE_COURSE(state, course){
       state.courses.push(course);
     },
-    SAVE_CURRICULA(state, curricula){
-      state.curricula.push(curricula);
-    }
+    // SAVE_CURRICULA(state, curricula){
+    //   state.curricula.push(curricula);
+    // }
   }
 })

@@ -1,7 +1,7 @@
 <template>
   <div>
   <form class="course-maker-form" v-on:submit.prevent="saveCourse">
-    <input class="courseName" type="text" placeholder="Course Name" v-model="course.name" />
+    <input class="courseName" type="text" placeholder="Course Name" v-model="course.courseName" />
     <br>
     <div>
         <h3>Description</h3>
@@ -11,43 +11,68 @@
         </div>
     <div id="curricula">
         <h2>Curricula</h2>
-        <curricula-maker-form/>
+
+    <div>
+  <form class="curricula-maker-form" v-on:submit.prevent="saveCourse">
+    <input class="dailyInstruction" type="text" placeholder="Daily Instruction" v-model="course.dailyInstruction" />
+    <input class="link" type="text" placeholder="Classroom Resources" v-model="course.links" />
+    <input class="hwAssignment" type="text" placeholder="HW Assignments" v-model="course.hwAssignment" />
+  </form>
+  </div>
+
     </div>
     <br>
     <div>    
-    <button>Create Course</button>
+    <button type="submit">Create Course</button>
     </div>
   </form>
   </div>
 </template>
 
 <script>
-import CurriculaMakerForm from './CurriculaMakerForm.vue';
+// import CurriculaMakerForm from './CurriculaMakerForm.vue';
+import PortalService from "../services/PortalServices.js"
 export default {
-  components: { CurriculaMakerForm },
+//   components: { CurriculaMakerForm },
     name: "course-maker-form",
     data(){
         return {
             course: {
-                courseId: '',
                 courseName: '',
                 description: '',
                 difficulty: '',
-                cost: ''
+                cost: '',
+                dailyInstruction: '',
+                links: '',
+                hwAssignment: ''
             }
         }
     },
     methods: {
         saveCourse() {
-            this.$store.commit('SAVE_COURSE', this.course);
-            this.course = {
-                  courseId: '',
-                courseName: '',
-                description: '',
-                difficulty: '',
-                cost: ''
-            };
-            this.$router.push({course: 'newCourse'})
+            // this.$store.commit('SAVE_COURSE', this.course);
+            // this.course = {
+            //     courseId: '',
+            //     courseName: '',
+            //     description: '',
+            //     difficulty: '',
+            //     cost: '',
+            //     dailyInstruction: '',
+            //     links: '',
+            //     hwAssignment: ''
+            // };
+            // this.$router.push({course: 'newCourse'})
+
+            PortalService
+            .createCourse(this.course)
+            .then(response => {
+                if(response.status === 201) {
+                    this.$router.push("/home");
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
         }
     }
 

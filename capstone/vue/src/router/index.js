@@ -55,8 +55,8 @@ const router = new Router({
       }
     },
     {
-      path: "/coursemaker",
-      name: "coursemaker",
+      path: "/createcourse",
+      name: "createcourse",
       component: CourseMaker,
       meta: {
         requiresAuth: true

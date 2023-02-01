@@ -21,18 +21,17 @@ export default {
             }
         }
     },
-    methods: {
-        saveCurricula(){
-            this.$store.commit('SAVE_CURRICULA', this.curricula);
-            this.curricula = {
-                dailyInstruction: '',
-                link: '',
-                hwAssignment: ''
-            };
-            this.$router.push({curricula: 'newCurricula'})
-        }
-    }
-
+    // methods: {
+    //     saveCurricula(){
+    //         this.$store.commit('SAVE_CURRICULA', this.curricula);
+    //         this.curricula = {
+    //             dailyInstruction: '',
+    //             link: '',
+    //             hwAssignment: ''
+    //         };
+    //         this.$router.push({curricula: 'newCurricula'})
+    //     }
+    // }
 }
 </script>
 
