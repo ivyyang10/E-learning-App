@@ -1,10 +1,9 @@
 <template>
     <div>
-  <form class="course-maker-form" v-on:submit.prevent="saveCourse">
-    <input class="courseName" type="text" placeholder="Course Name" v-model="course.name" />
-    <input class="description" type="text" placeholder="Description" v-model="course.description" />
-    <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" />
-    <input class="cost" type="text" placeholder="Cost" v-model="course.cost" />    
+  <form class="curricula-maker-form" v-on:submit.prevent="saveCurricula">
+    <input class="dailyInstruction" type="text" placeholder="Daily Instruction" v-model="curricula.dailyInstruction" />
+    <input class="link" type="text" placeholder="Classroom Resources" v-model="curricula.link" />
+    <input class="hwAssignment" type="text" placeholder="HW Assignments" v-model="curricula.hwAssignment" />
     <button>Save</button>
   </form>
   </div>
@@ -12,6 +11,27 @@
 
 <script>
 export default {
+    name: "curricula-maker-form",
+    data(){
+        return {
+            curricula: {
+                dailyInstruction: '',
+                link: '',
+                hwAssignment: ''
+            }
+        }
+    },
+    methods: {
+        saveCurricula(){
+            this.$store.commit('SAVE_CURRICULA', this.curricula);
+            this.curricula = {
+                dailyInstruction: '',
+                link: '',
+                hwAssignment: ''
+            };
+            this.$router.push({curricula: 'newCurricula'})
+        }
+    }
 
 }
 </script>

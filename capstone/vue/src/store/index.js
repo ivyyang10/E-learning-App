@@ -64,6 +64,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SAVE_COURSE(state, course){
+      state.courses.push(course);
+    },
+    SAVE_CURRICULA(state, curricula){
+      state.curricula.push(curricula);
     }
   }
 })

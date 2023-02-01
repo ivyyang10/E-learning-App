@@ -1,7 +1,7 @@
 <template>
   <div class="coursemaker">
       <h1>Course Maker</h1>
-    <course-maker-form></course-maker-form>
+    <course-maker-form/>
   </div>
 </template>
 
