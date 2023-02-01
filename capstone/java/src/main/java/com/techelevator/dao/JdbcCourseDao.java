@@ -21,7 +21,7 @@ public class JdbcCourseDao  implements CourseDao{
     }
 
 
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Override
     public boolean createCourse(String courseName, String description, String difficulty, BigDecimal cost,
                                  int teacherId) {
