@@ -2,17 +2,29 @@
   <div>
       <h2>Courses List</h2>
       <div id="course-list">
-          <course v-for="course in $store.state.courses" v-bind:course="course" v-bind:key="course.id" />
+          <course v-for="course in courses" v-bind:key="course.id" />
       </div>
   </div>
 </template>
 
 <script>
 import Course from './Course.vue'
+import PortalServices from '../services/PortalServices.js'
+
 export default {
     name: "course-list",
     components: {
         Course
+    },
+    data () {
+        return {
+            courses: []
+    } 
+},
+    created() {
+        PortalServices.getAllCourses().then(response => {
+            this.courses = response.data
+        })
     }
 }
 </script>

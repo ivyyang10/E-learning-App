@@ -7,5 +7,8 @@ const http = axios.create(
 export default {
     createCourse(course) {
         return http.post(`/createcourse`, course)
+    },
+    getAllCourses() {
+        return http.get(`/courses`)
     }
 }

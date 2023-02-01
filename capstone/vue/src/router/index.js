@@ -6,6 +6,9 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CourseMaker from '../views/CourseMaker.vue'
+import ViewAllStudents from '../views/ViewAllStudents.vue'
+import HomeworkView from '../views/HomeworkView.vue'
+import CourseList from '../components/CourseList.vue'
 
 Vue.use(Router)
 
@@ -58,6 +61,30 @@ const router = new Router({
       path: "/createcourse",
       name: "createcourse",
       component: CourseMaker,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/viewallstudents",
+      name: "viewallstudents",
+      component: ViewAllStudents,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/homeworkview",
+      name: "homeworkview",
+      component: HomeworkView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/courses",
+      name: "courses",
+      component: CourseList,
       meta: {
         requiresAuth: true
       }
