@@ -125,19 +125,11 @@ export default {
             }
           });
       }
-<<<<<<< HEAD
     },
     setRole(checked) {
       if (!checked) {
         this.user.role = "admin";
       }
-=======
-      },
-      setRole(checked) {
-        if(!checked) {
-          this.user.role = "admin";
-        } 
->>>>>>> main
     },
     clearErrors() {
       this.registrationErrors = false;
