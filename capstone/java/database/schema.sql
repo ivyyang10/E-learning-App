@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users_course, users, course, curricula, quiz, question, quiz_question, answer CASCADE;
+DROP TABLE IF EXISTS users_course, users, course, quiz, question, quiz_question, answer CASCADE;
 
-DROP SEQUENCE IF EXISTS seq_course_id, seq_curricula_id;
+DROP SEQUENCE IF EXISTS seq_course_id;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -26,25 +26,15 @@ CREATE TABLE course (
 	difficulty varchar(10) NOT NULL,
 	cost integer NOT NULL,
 	teacher_id integer NOT NULL,
+	daily_instruction varchar(2000) NOT NULL,
+	links varchar(2000),
+    hw_assignment varchar(16000) NOT NULL,
 	CONSTRAINT PK_course_id PRIMARY KEY (course_id),
 	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id),
 	CONSTRAINT CK_difficulty CHECK (difficulty IN ('Easy', 'Medium', 'Difficult'))
 );
 
-    CREATE SEQUENCE seq_curricula_id
-    INCREMENT BY 1
-    start WITH 3001
-    NO MAXVALUE;
 
-CREATE TABLE curricula (
-	curriculum_id int NOT NULL DEFAULT nextval('seq_curricula_id'),
-	daily_instruction varchar(2000) NOT NULL,
-	links varchar(2000),
-	hw_assignment varchar(16000) NOT NULL,
-	course_id int NOT NULL,
-	CONSTRAINT PK_curricula_id PRIMARY KEY (curriculum_id),
-	CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES course (course_id)
-);
 
 CREATE TABLE users_course (
 	user_id int NOT NULL,

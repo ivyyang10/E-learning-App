@@ -1,8 +1,10 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.CourseDao;
+import com.techelevator.dao.CurriculaDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Course;
+import com.techelevator.model.Curricula;
 import com.techelevator.model.RegisterUserDto;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +25,22 @@ public class CourseController {
     CourseDao courseDao;
     @Autowired
     UserDao userDao;
+    @Autowired
+    CurriculaDao curriculaDao;
 
     @PostMapping("/createcourse")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCourse(@Valid @RequestBody Course newCourse, Principal principal) {
+    public void createCourse(@Valid @RequestBody Course newCourse, @RequestBody Curricula newCurricula,Principal principal) {
         String loggedInUser = principal.getName();
         int teacherID=userDao.findIdByUsername(loggedInUser);
 
       courseDao.createCourse(newCourse.getCourseName(),newCourse.getDescription(),newCourse.getDifficulty(),
               newCourse.getCost(), teacherID) ;
 
+      curriculaDao.createCurricula(newCurricula.getDailyInstruction(), newCurricula.getLinks(), newCurricula.getHwAssignment(), newCurricula.getCourseID());
+
     }
+
 
 
 }
