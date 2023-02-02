@@ -23,7 +23,7 @@
     </div>
     <br>
     <div>    
-    <button type="submit" v-on:click="submitButtonAlert">Create Course</button>
+    <button type="submit">Create Course</button>
     </div>
     <div>    
     <router-link v-bind:to="{ name: 'home' }"><button>Discard Course</button></router-link>
@@ -53,9 +53,6 @@ export default {
     },
     methods: {
     
-        submitButtonAlert: () => {
-                alert('Your course has been submitted')
-            },
         
         saveCourse() {
             // this.$store.commit('SAVE_COURSE', this.course);
@@ -75,11 +72,13 @@ export default {
             .createCourse(this.course)
             .then(response => {
                 if(response.status === 201) {
-                    this.$router.push("/");
+                    this.$router.push("/")
+                    alert('Your course has been submitted');
                 }
             })
             .catch(error => {
                 console.error(error);
+                alert('Please check submission boxes');
             });
         }
     }
