@@ -2,7 +2,7 @@
   <div>
       <h2>Courses List</h2>
       <div id="course-list">
-          <course/>  
+          <course v-for="course in $store.state.courses" v-bind:key="course.id" v-bind:course="course"/>  
       </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
 <style scoped>
 #course-list {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 h2 {
