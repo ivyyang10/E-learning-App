@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.swing.plaf.IconUIResource;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
@@ -37,7 +38,19 @@ public class CourseController {
     }
 
     @GetMapping("/courses")
-    public List<Course> listAllCourse(){
-        return courseDao.findAllCourses();
+    public List<Course> listAllCourse(Principal principal){
+        String user = principal.getName();
+        int teacherId = userDao.findIdByUsername(user);
+        return courseDao.findAllCourses(teacherId);
+    }
+
+    @GetMapping("/course/{id}")
+    public Course getCourseById(@PathVariable int id){
+        Course course = courseDao.findCourseById(id);
+        if(course == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Course Not Found");
+        } else {
+            return course;
+        }
     }
 }
