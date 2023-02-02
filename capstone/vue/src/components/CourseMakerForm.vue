@@ -25,6 +25,9 @@
     <div>    
     <button type="submit" v-on:click="submitButtonAlert">Create Course</button>
     </div>
+    <div>    
+    <router-link v-bind:to="{ name: 'home' }"><button>Discard Course</button></router-link>
+    </div>
   </form>
   </div>
 </template>

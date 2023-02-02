@@ -2,7 +2,7 @@
   <div>
       <h2>Courses List</h2>
       <div id="course-list">
-          <course v-for="course in courses" v-bind:key="course.id" />
+          <course v-for="course in $store.state.courses" v-bind:key="course.id" />
       </div>
   </div>
 </template>
@@ -16,14 +16,10 @@ export default {
     components: {
         Course
     },
-    data () {
-        return {
-            courses: []
-    } 
-},
     created() {
         PortalServices.getAllCourses().then(response => {
-            this.courses = response.data
+            this.$store.state.courses = response.data
+            console.log(response)
         })
     }
 }

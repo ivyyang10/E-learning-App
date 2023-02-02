@@ -1,17 +1,18 @@
 <template>
   <div id="course-style">
-    <h2 id="course-name">{{course.coursename}}</h2>
+    <h2 id="course-name">{{course.courseName}}</h2>
     <p id="description">{{course.description}}</p>
     <p id="difficulty">{{course.difficulty}}</p>
   </div>
 </template>
 
 <script>
+
 export default {
     name: 'course',
     props: {
       course: Object
-    }
+    },
     
 }
 </script>

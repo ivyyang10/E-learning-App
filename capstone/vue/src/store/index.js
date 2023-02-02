@@ -21,32 +21,18 @@ export default new Vuex.Store({
   {
     token: currentToken || '',
     user: currentUser || {},
-    // courses: [
-    //   {
-    //     coursename: "Math 101",
-    //     description: "Yay math stuff!",
-    //     difficulty: "Hard",
-    //     courseid: 2001,
-    //     cost: 0,
-    //     teacherid: 10
-    //   },
-    //   {
-    //     coursename: "Science 101",
-    //     description: "Science!",
-    //     difficulty: "Hard",
-    //     courseid: 2002,
-    //     cost: 0,
-    //     teacherid: 10
-    //   },
-    //   {
-    //     coursename: "Java 101",
-    //     description: "Sweet dude!",
-    //     difficulty: "Easy",
-    //     courseid: 2003,
-    //     cost: 0,
-    //     teacherid: 10
-    //   }
-    // ]
+    course: {
+      courseId: "",
+      courseName: "",
+      description: "",
+      difficulty: "",
+      cost: "",
+      dailyInstruction: "",
+      links: "",
+      hwAssignment: "",
+      teacherId: ""
+    },
+    courses: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
