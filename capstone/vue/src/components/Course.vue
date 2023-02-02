@@ -1,12 +1,17 @@
 <template>
   <div id="course-style">
-    <h2 id="course-name">{{course.courseName}}</h2>
-    <p id="description">{{course.description}}</p>
-    <p id="difficulty">{{course.difficulty}}</p>
+    <div v-for="course in $store.state.courses" v-bind:key="course.id">
+      <router-link v-bind:to="{name: 'courses', params:{id: course.id}}">
+     {{course.courseName}}
+     {{course.description}}
+     {{course.difficulty}}
+    </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+
 
 export default {
     name: 'course',
