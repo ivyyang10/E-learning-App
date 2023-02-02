@@ -2,11 +2,11 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-      <div
+         <div
         class="alert alert-danger"
         role="alert"
         v-if="invalidCredentials"
-      >Invalid username and password!</div>
+      >Invalid username and password!</div>   
       <div
         class="alert alert-success"
         role="alert"
@@ -34,6 +34,9 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
+       <div id= "image">
+        <img src="../assets/istockphoto-636199580-612x612.jpg" alt="login school photo"/>
+      </div>
   </div>
 </template>
 
@@ -74,3 +77,11 @@ export default {
   }
 };
 </script>
+
+
+<style>
+#image {
+  display: flex;
+  justify-content: flex-end;
+}
+</style>
