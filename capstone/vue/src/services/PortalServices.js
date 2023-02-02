@@ -6,5 +6,8 @@ export default {
     },
     getAllCourses() {
         return axios.get(`/courses`)
+    },
+    getCourses(id){
+        return axios.get(`/course/${id}`)
     }
 }
