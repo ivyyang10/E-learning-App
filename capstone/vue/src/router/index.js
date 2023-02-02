@@ -8,8 +8,8 @@ import store from '../store/index'
 import CourseMaker from '../views/CourseMaker.vue'
 import ViewAllStudents from '../views/ViewAllStudents.vue'
 import HomeworkView from '../views/HomeworkView.vue'
-import Course from '../components/Course.vue'
-import TeacherCourseDetail from '../views/TeacherCourseDetail.vue'
+
+// import TeacherCourseDetail from '../views/TeacherCourseDetail.vue'
 import StudentCourseDetail from '../views/StudentCourseDetail.vue'
 
 Vue.use(Router)
@@ -83,30 +83,30 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    {
-      path: "/courses",
-      name: "courses",
-      component: Course,
-      meta: {
-        requiresAuth: true
-      }
-      },
+    // {
+    //   path: "/course/:id",
+    //   name: "course",
+    //   component: Course,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
+    //     {
+    //       path: "/course/:id",
+    //       name: "courseDetails",
+    //       component: TeacherCourseDetail,
+    //       meta: {
+    //         requiresAuth: true
+    //       }
+    //   },
       {
         path: "/course/:id",
         name: "courseDetails",
-        component: TeacherCourseDetail,
+        component: StudentCourseDetail,
         meta: {
           requiresAuth: true
         }
     },
-    {
-      path: "/course/:id",
-      name: "courseDetails",
-      component: StudentCourseDetail,
-      meta: {
-        requiresAuth: true
-      }
-  },
   ]
 })
 
