@@ -2,9 +2,7 @@
   <div>
       <h2>Courses List</h2>
       <div id="course-list">
-         
-          <course v-for="course in $store.state.courses" v-bind:key="course.id" />
-         
+          <course/>  
       </div>
   </div>
 </template>

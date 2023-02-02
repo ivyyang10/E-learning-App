@@ -1,6 +1,6 @@
 <template>
   <div id="course-style">
-    <div v-for="course in $store.state.courses" v-bind:key="course.id">
+    <div v-for="course in $store.state.courses" v-bind:key="course.id" v-bind:course="course">
       <router-link v-bind:to="{name: 'courses', params:{id: course.id}}">
      {{course.courseName}}
      {{course.description}}
