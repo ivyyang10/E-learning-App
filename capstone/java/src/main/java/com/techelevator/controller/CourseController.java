@@ -25,6 +25,7 @@ public class CourseController {
     @Autowired
     UserDao userDao;
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createcourse")
     @ResponseStatus(HttpStatus.CREATED)
     public void createCourse(@Valid @RequestBody Course newCourse,Principal principal) {
