@@ -3,9 +3,11 @@ package com.techelevator.dao;
 import com.techelevator.model.Quiz;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
+@Component
 public class JdbcQuizDao implements QuizDao{
 
     private JdbcTemplate jdbcTemplate;

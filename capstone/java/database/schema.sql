@@ -58,6 +58,12 @@ CREATE TABLE question (
     question_id serial,
     question_text varchar(100) NOT NULL,
     correct_answer int NOT NULL,
+    answer_1 varchar(100) NOT NULL,
+    answer_2 varchar(100) NOT NULL,
+    answer_3 varchar(100),
+    answer_4 varchar(100),
+    answer_5 varchar(100),
+    answer_6 varchar(100),
     CONSTRAINT PK_question PRIMARY KEY(question_id)
 );
 
@@ -70,13 +76,6 @@ CREATE TABLE quiz_question (
 	CONSTRAINT FK_question_id FOREIGN KEY(question_id) REFERENCES question(question_id)
 );
 
-CREATE TABLE answer (
-    question_id int,
-    answer_number int,
-    answer_text varchar(50) NOT NULL,
-    CONSTRAINT PK_answer PRIMARY KEY(question_id, answer_number),
-	CONSTRAINT FK_answer_question FOREIGN KEY (question_id) REFERENCES question(question_id)
-);
 
 INSERT INTO quiz
 (quiz_name)
@@ -85,17 +84,9 @@ VALUES
 
 --Question 1
 INSERT INTO question
-(question_text, correct_answer)
+(question_text, correct_answer, answer_1, answer_2, answer_3, answer_4)
 VALUES
-('What color is the sky?', 2);
-
-INSERT INTO answer
-(question_id, answer_number, answer_text)
-VALUES
-(lastval(), 1, 'yellow'),
-(lastval(), 2, 'blue'),
-(lastval(), 3, 'green'),
-(lastval(), 4, 'red');
+('What color is the sky?', 2,'yellow', 'blue', 'green', 'red');
 
 INSERT INTO quiz_question
 (quiz_id, question_id, question_number)
@@ -104,17 +95,10 @@ VALUES
 
 --Question 2
 INSERT INTO question
-(question_text, correct_answer)
+(question_text, correct_answer, answer_1, answer_2, answer_3, answer_4)
 VALUES
-('A skeleton walks into a bar, and says to the bartender, "Give me a beer and a ..."', 3);
+('A skeleton walks into a bar, and says to the bartender, "Give me a beer and a ..."', 3, 'hair brush', 'dry erase marker', 'mop', 'yo-yo');
 
-INSERT INTO answer
-(question_id, answer_number, answer_text)
-VALUES
-(lastval(), 1, 'hair brush'),
-(lastval(), 2, 'dry erase marker'),
-(lastval(), 3, 'mop'),
-(lastval(), 4, 'yo-yo');
 
 INSERT INTO quiz_question
 (quiz_id, question_id, question_number)
