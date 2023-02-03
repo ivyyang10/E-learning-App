@@ -9,5 +9,8 @@ export default {
     },
     getCourses(id){
         return axios.get(`/course/${id}`)
+    },
+    getUser(){
+        return axios.get('/')
     }
 }

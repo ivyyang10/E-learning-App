@@ -32,7 +32,8 @@ export default new Vuex.Store({
       hwAssignment: "",
       teacherId: ""
     },
-    courses: []
+    courses: [],
+    users:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

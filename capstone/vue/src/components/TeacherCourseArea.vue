@@ -1,6 +1,6 @@
 <template>
   <div id="teacherCenterView">
-    <p v-bind:to="{ name: 'courses', params: { id: course.id } }">
+    <p v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
       {{ course.name }}
       {{ course.dailyInstruction }}
       {{ course.links }}
