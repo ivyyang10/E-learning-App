@@ -5,6 +5,15 @@ public class Question {
     private String questionText;
     private int correctAnswer;
 
+    public Question(int questionId, String questionText, int correctAnswer) {
+        this.questionId = questionId;
+        this.questionText = questionText;
+        this.correctAnswer = correctAnswer;
+    }
+
+    public Question() {
+    }
+
     public int getQuestionId() {
         return questionId;
     }
