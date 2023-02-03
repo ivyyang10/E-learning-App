@@ -116,7 +116,7 @@ const router = new Router({
         }
     },
     {
-      path: "/viewquiz/:id",
+      path: "/viewquiz/",
       name: "viewquiz",
       component: QuizView,
       meta: {

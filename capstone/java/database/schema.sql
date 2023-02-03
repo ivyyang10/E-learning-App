@@ -24,13 +24,14 @@ CREATE TABLE course (
 	course_name varchar(100) NOT NULL UNIQUE,
 	description varchar(200) NOT NULL,
 	difficulty varchar(10) NOT NULL,
-	cost integer NOT NULL,
+	cost numeric(9,2) NOT NULL,
 	teacher_id integer NOT NULL,
 	daily_instruction varchar(2000) NOT NULL,
 	links varchar(2000),
     hw_assignment varchar(16000) NOT NULL,
 	CONSTRAINT PK_course_id PRIMARY KEY (course_id),
-	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id)
+	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id),
+	CONSTRAINT CK_difficulty CHECK (difficulty IN ('Easy', 'Medium', 'Difficult'))
 );
 
 

@@ -1,30 +1,44 @@
 <template>
   <div>
   <form class="course-maker-form" v-on:submit.prevent="saveCourse">
-    <input class="courseName" type="text" placeholder="Course Name" v-model="course.courseName" />
+    <input 
+    class="courseName" 
+    type="text" 
+    placeholder="Course Name" 
+    v-model="course.courseName"
+    required 
+    />
     <br>
     <div>
         <h3>Description</h3>
-        <input class="description" type="text" placeholder="Description" v-model="course.description" />
+        <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
         <!-- <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" /> -->
-        <select name="Difficulty" @Change="onChange($event)" class="form-select">
-            <option value =" "> Select Difficulty Level</option>
+        <select name="Difficulty" v-on:change="onChange($event)" class="form-select">
+            <option value = ""> Select Difficulty Level</option>
             <option value ="Easy"> Easy</option>
-            <option value ="Medium "> Medium</option>
+            <option value ="Medium"> Medium</option>
             <option value ="Difficult"> Difficult</option>
         </select>
 
-        <input class="cost" type="text" placeholder="Cost" v-model="course.cost" />
+        <input 
+        class="cost" 
+        type="number" 
+        placeholder="Cost" 
+        step="0.01"
+        MIN="0" 
+        v-model="course.cost"
+        required 
+        />
         </div>
     <div id="curricula">
         <h2>Curricula</h2>
 
     <div>
-  <form class="curricula-maker-form" v-on:submit.prevent="saveCourse">
-    <input class="dailyInstruction" type="text" placeholder="Daily Instruction" v-model="course.dailyInstruction" />
-    <input class="link" type="text" placeholder="Classroom Resources" v-model="course.links" />
-    <input class="hwAssignment" type="text" placeholder="HW Assignments" v-model="course.hwAssignment" />
-  </form>
+  <!-- <form class="curricula-maker-form" v-on:submit.prevent="saveCourse"> -->
+    <input class="dailyInstruction" type="text" placeholder="Daily Instruction" v-model="course.dailyInstruction" required/>
+    <input class="link" type="text" placeholder="Classroom Resources" v-model="course.links" required/>
+    <input class="hwAssignment" type="text" placeholder="HW Assignments" v-model="course.hwAssignment" required/>
+  <!-- </form> -->
   </div>
 
     </div>
@@ -64,11 +78,16 @@ export default {
     },
     methods: {
 
-        onChange(e){
-            this.difficulty=e.target.value;
+        onChange(event){
+            if(event.target.value === "Easy") {
+                this.course.difficulty = "Easy";
+            } else if (event.target.value === "Medium") {
+                this.course.difficulty = "Medium";
+            } else if (event.target.value === "Difficult") {
+                this.course.difficulty = "Difficult";
+            }
         },
     
-        
         saveCourse() {
             // this.$store.commit('SAVE_COURSE', this.course);
             // this.course = {
@@ -93,7 +112,7 @@ export default {
             })
             .catch(error => {
                 console.error(error);
-                alert('Please check submission boxes');
+                alert('Please Select a Course Difficulty');
             });
         }
     }

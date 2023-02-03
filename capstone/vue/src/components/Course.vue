@@ -3,9 +3,11 @@
     <div>
       <router-link v-bind:to="{name: 'courseDetails', params:{id: course.courseId}}">
      {{course.courseName}}
+     </router-link>
+     <br>
      {{course.description}}
+     <br>
      {{course.difficulty}}
-    </router-link>
     </div>
   </div>
 </template>
