@@ -30,8 +30,7 @@ CREATE TABLE course (
 	links varchar(2000),
     hw_assignment varchar(16000) NOT NULL,
 	CONSTRAINT PK_course_id PRIMARY KEY (course_id),
-	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id),
-	CONSTRAINT CK_difficulty CHECK (difficulty IN ('Easy', 'Medium', 'Difficult'))
+	CONSTRAINT FK_teacher_id FOREIGN KEY (teacher_id) REFERENCES users (user_id)
 );
 
 
