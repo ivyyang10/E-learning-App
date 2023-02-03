@@ -6,7 +6,15 @@
     <div>
         <h3>Description</h3>
         <input class="description" type="text" placeholder="Description" v-model="course.description" />
-        <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" />
+        <!-- <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" /> -->
+        <select name="Difficulty" @Change="onChange($event)" class="form-select">
+            <option value =" "> Select Difficulty Level</option>
+            <option value ="easy"> Easy</option>
+            <option value ="medium "> Medium</option>
+            <option value ="Difficult"> Difficult</option>
+        </select>
+
+
         <input class="cost" type="text" placeholder="Cost" v-model="course.cost" />
         </div>
     <div id="curricula">
@@ -49,9 +57,17 @@ export default {
                 links: '',
                 hwAssignment: ''
             }
+
+            
+
+        
         }
     },
     methods: {
+
+        onChange(e){
+            this.difficulty=e.target.value;
+        },
     
         
         saveCourse() {
