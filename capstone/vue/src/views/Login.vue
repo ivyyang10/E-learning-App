@@ -34,10 +34,11 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
-       <div id= "image">
+     <div id= "image">
         <img src="../assets/istockphoto-636199580-612x612.jpg" alt="login school photo"/>
-      </div>
+      </div>  
   </div>
+  
 </template>
 
 <script>
@@ -83,5 +84,5 @@ export default {
 #image {
   display: flex;
   justify-content: flex-end;
-}
+} 
 </style>
