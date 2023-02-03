@@ -115,6 +115,14 @@ const router = new Router({
           requiresAuth: true
         }
     },
+    {
+      path: "/viewquiz/:id",
+      name: "viewquiz",
+      component: QuizView,
+      meta: {
+        requiresAuth: true
+      }
+  }
   ]
 })
 

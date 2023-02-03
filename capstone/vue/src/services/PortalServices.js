@@ -12,5 +12,11 @@ export default {
     },
     getUser(){
         return axios.get('/')
+    },
+    getQuiz(id) {
+        return axios.get(`/viewquiz/${id}`)
+    },
+    getQuizQuestions(id) {
+        return axios.get(`/quiz/${id}`)
     }
 }
