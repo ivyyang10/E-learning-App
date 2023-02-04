@@ -16,12 +16,34 @@ public class JdbcQuestionDao implements QuestionDao {
 
     public JdbcQuestionDao (DataSource dataSource) { jdbcTemplate = new JdbcTemplate(dataSource) ; }
 
+    @Override
+    public  Question getQuestion(int questionID){
+        Question question = null;
+        String sql = "SELECT * FROM question WHERE question_id = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql,questionID);
+        if(result.next()){
+            question=mapRowToQuestion(result);
+        }
+        return question;
+
+}
+    @Override
+    public Question createQuestion(Question newQuestion) {
+        String sql = "INSERT INTO question (question_text, correct_answer, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING question_id;";
+
+        Integer questionID = jdbcTemplate.queryForObject(sql, Integer.class, newQuestion.getQuestionText(),newQuestion.getCorrectAnswer(), newQuestion.getAnswer1(),
+                newQuestion.getAnswer2(),newQuestion.getAnswer3(),newQuestion.getAnswer4(),newQuestion.getAnswer5(),newQuestion.getAnswer6());
+
+        return getQuestion(questionID);
+
+    }
 
     @Override
-    public boolean createQuestion(String questionText, int correctAnswer, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6) {
-        String sql = "INSERT INTO question (question_text, correct_answer, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(sql, questionText, correctAnswer, answer1, answer2, answer3, answer4, answer5, answer6) == 1;
+    public boolean updateQuizQuestionTable(int quizID, int questionID){
+        String sql="INSERT INTO quiz_question(quiz_id, question_id) VALUES (?,?)";
+
+       return jdbcTemplate.update(sql,quizID,questionID)==1;
     }
 
     @Override

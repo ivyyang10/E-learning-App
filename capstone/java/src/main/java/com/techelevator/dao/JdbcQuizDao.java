@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Quiz;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -29,10 +30,14 @@ public class JdbcQuizDao implements QuizDao{
     }
 
     @Override
-    public boolean createQuiz(String quizName, int courseId) {
+    public Quiz createQuiz(Quiz newQuiz) {
         String sql = "INSERT INTO quiz (quiz_name, course_id)" +
-                "VALUES (?, ?)";
-        return jdbcTemplate.update(sql, quizName, courseId) == 1;
+                "VALUES (?, ?) RETURNING quiz_id";
+
+        Integer quizID =jdbcTemplate.queryForObject(sql, Integer.class, newQuiz.getQuizName(),newQuiz.getCourseId());
+
+        return findQuizById(quizID);
+
     }
 
     private Quiz mapToRowQuiz(SqlRowSet result){
