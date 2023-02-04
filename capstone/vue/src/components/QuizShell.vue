@@ -3,7 +3,7 @@
     <h1>Quiz</h1>
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
-        <span class="question">{{ getCurrentQuestion.question }}</span>
+        <span class="question">{{getCurrentQuestion.question}}</span>
         <span class="score">Score {{ score }}/{{ questions.length }}</span>
       </div>
 
@@ -31,13 +31,13 @@
             :value="index"
             v-model="getCurrentQuestion.selected"
             :disabled="getCurrentQuestion.selected"
-            @change="SetAnswer"
+            v-on:change="SetAnswer"
           />
           <span>{{ option }}</span>
         </label>
       </div>
 
-      <button @click="NextQuestion" :disabled="!getCurrentQuestion.selected">
+      <button v-on:click="NextQuestion" :disabled="!getCurrentQuestion.selected">
         {{
           getCurrentQuestion.index == questions.length - 1
             ? "Finish"
@@ -88,9 +88,9 @@ export default {
         },
       ],
       quizCompleted: false,
-      currentQuestion: 0,
+      currentQuestion: [0],
       score: 0,
-      getCurrentQuestion: "",
+      
     };
   },
   computed: {
@@ -104,20 +104,20 @@ export default {
       });
       return value;
     },
-    findCurrentQuestion() {
-      let question = this.questions.value[this.currentQuestion.value];
-      question.index = this.currentQuestion.value;
+    getCurrentQuestion() {
+      let question = this.questions[this.currentQuestion];
+      question.index = this.currentQuestion;
       return question;
     },
   },
   methods: {
     chooseAnswer(evt) {
-      this.questions.value[this.currentQuestion.value].selected =
+      this.questions[this.currentQuestion].selected =
         evt.target.value;
       evt.target.value = null;
     },
-    nextQuestion() {
-      if (this.currentQuestion < this.questions.value.length - 1) {
+    NextQuestion() {
+      if (this.currentQuestion < this.questions.length - 1) {
         this.currentQuestion++;
       } else {
         this.quizCompleted = true;
