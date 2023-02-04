@@ -3,9 +3,9 @@
     <h1>Quiz</h1>
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
-        <span class="question">{{ getCurrentQuestion.question }}</span>
+        <span class="question">{{ getCurrentQuestion.questionText }}</span>
         <span class="score"
-          >Score {{ calculateScore }}/{{ questions.length }}</span
+          >Score {{ calculateScore }}/{{ $store.state.questions.length }}</span
         >
       </div>
 
@@ -40,11 +40,11 @@
       </div>
 
       <button
-        v-on:click="NextQuestion"
+        v-on:click="NextQuestion, SetNextQuestion"
         :disabled="!getCurrentQuestion.selected"
       >
         {{
-          getCurrentQuestion.index == questions.length - 1
+          getCurrentQuestion.index == this.$store.questions.length - 1
             ? "Finish"
             : getCurrentQuestion.selected == null
             ? "Select an option"
@@ -55,7 +55,9 @@
 
     <section v-else>
       <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ calculateScore }}/{{ questions.length }}</p>
+      <p>
+        Your score is {{ calculateScore }}/{{ $store.state.questions.length }}
+      </p>
     </section>
   </div>
 </template>
@@ -64,44 +66,16 @@
 export default {
   data() {
     return {
-      questions: [
-        {
-          question: "What is Vue?",
-          answer: 0,
-          options: ["A framework", "A library", "A type of hat"],
-          selected: null,
-        },
-        {
-          question: "What is Vuex used for?",
-          answer: 2,
-          options: [
-            "Eating a delicious snack",
-            "Viewing things",
-            "State management",
-          ],
-          selected: null,
-        },
-        {
-          question: "What is Vue Router?",
-          answer: 1,
-          options: [
-            "An ice cream maker",
-            "A routing library for Vue",
-            "Burger sauce",
-          ],
-          selected: null,
-        },
-      ],
       quizCompleted: false,
-      currentQuestion: [0],
+      currentQuestion: 0,
       score: 0,
     };
   },
   computed: {
     calculateScore() {
       let value = 0;
-      this.questions.map((q) => {
-        if (q.selected != null && q.answer == q.selected) {
+      this.$store.state.questions.map((q) => {
+        if (q.selected != null && q.correctAnswer == q.selected) {
           console.log("correct");
           value++;
         }
@@ -109,14 +83,15 @@ export default {
       return value;
     },
     getCurrentQuestion() {
-      let question = this.questions[this.currentQuestion];
-      question.index = this.currentQuestion;
+      let question = this.$store.state.questions[this.currentQuestion];
+      // question.index = this.currentQuestion;
       return question;
     },
   },
   methods: {
     SetAnswer(evt) {
-      this.questions[this.currentQuestion].selected = evt.target.value;
+      this.$store.state.questions[this.currentQuestion].selected =
+        evt.target.value;
       evt.target.value = null;
     },
     NextQuestion() {
@@ -126,6 +101,9 @@ export default {
         this.quizCompleted = true;
       }
     },
+  },
+  SetNextQuestion() {
+    this.currentQuestion++;
   },
 };
 </script>
