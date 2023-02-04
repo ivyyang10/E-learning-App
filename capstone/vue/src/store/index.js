@@ -12,12 +12,12 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
 export default new Vuex.Store({
-  state: 
+  state:
   {
     token: currentToken || '',
     user: currentUser || {},
@@ -33,7 +33,25 @@ export default new Vuex.Store({
       teacherId: ""
     },
     courses: [],
-    users:[]
+    users: [],
+    quizes: [],
+    quiz: {
+      quizId: "",
+      quizName: "",
+      courseId: ""
+    },
+    questions: [],
+    question: {
+      questionId: "",
+      questionText: "",
+      correctAnswer: "",
+      answer1: "",
+      answer2: "",
+      answer3: "",
+      answer4: "",
+      answer5: "",
+      answer6: ""
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -43,7 +61,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -52,7 +70,7 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SAVE_COURSE(state, course){
+    SAVE_COURSE(state, course) {
       state.courses.push(course);
     },
     // SAVE_CURRICULA(state, curricula){
