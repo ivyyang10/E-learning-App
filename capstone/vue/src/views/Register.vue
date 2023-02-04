@@ -30,7 +30,7 @@
         type="email"
         id="email"
         class="form-control"
-        placeholder="email"
+        placeholder="Email"
         v-model="user.email"
         required
         autofocus
@@ -41,7 +41,7 @@
   <input type="radio" v-model="color" value="1">Teacher
   <br /> <br> -->
 
-      <label for="role" class="sr-only">Teacher?</label>
+      <label for="role" class="sr-only">Are you an educator?</label>
       <input
         v-on:click="setRole(checked)"
         type="checkbox"
@@ -65,6 +65,7 @@
         v-model="user.password"
         required
       />
+      <br>
       <input
         type="password"
         id="confirmPassword"
@@ -73,10 +74,14 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
+            <br>
+            <br>
+      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <br>
     </form>
   </div>
 </template>
@@ -139,4 +144,22 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+* {
+  font-family: Roboto, Verdana, Segoe, sans-serif;
+}
+#register {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-color: #75b9be;
+  padding-bottom: 20px;
+}
+input, label {
+  display: block;
+}
+label {
+  padding-top: 15px;
+}
+
+</style>
