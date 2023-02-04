@@ -12,7 +12,7 @@
       <div id="form-container">
         <div id="login" class="text-center">
           <form class="form-signin" @submit.prevent="login">
-            <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+            <h1 id="sign-in-text" class="h3 mb-3 font-weight-normal">Please Sign In</h1>
             <div
               class="alert alert-danger"
               role="alert"
@@ -27,7 +27,7 @@
             >
               Thank you for registering, please sign in.
             </div>
-            <label for="username" class="sr-only">Username</label>
+            <label id="username-prompt" for="username" class="sr-only"></label>
             <input
               type="text"
               id="username"
@@ -37,7 +37,8 @@
               required
               autofocus
             />
-            <label for="password" class="sr-only">Password</label>
+            <br>
+            <label id="password-prompt" for="password" class="sr-only"></label>
             <input
               type="password"
               id="password"
@@ -46,14 +47,15 @@
               v-model="user.password"
               required
             />
-            <button type="submit">Sign in</button>
+            <br>
+            <button id="submit-button" type="submit">Sign in</button>
+            <div id="need-account">
+      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+    </div>
           </form>
         </div>
       </div>
     </div>
-    <footer>
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-    </footer>
   </main>
 </template>
 
@@ -96,51 +98,77 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+main {
+  background-color: #ffffff;
+}
 #middle-grid {
-  display: flex;
-  grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   row-gap: 20px;
   column-gap: 35px;
   /* align-items: vertical;
   align-items: center; */
-  grid-template-areas: "image-container form-container";
+  grid-template-areas: 'image-container form-container';
 }
 #login-photo {
-  display: flex;
-  height: 500px;
+  display: grid;
+  /* border-radius: 25px; */
+  height: 100%;
+  width: 100%;
+}
+#sign-in-text {
+  text-align: center;
+}
+#login {
+  padding: 50px;
+  /* border-radius: 25px;
+  background-color: #A8CCC9;
+  border-style: solid;
+  border-color: #75b9be; */
+}
+input, label {
+  display: block;
+}
+input {
+  border-radius: 25px;
+  border-bottom: solid 3px;
+  padding: 15px;
 }
 #image-container {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  /* padding-top: 10px; */
+  justify-content: center;
   /* max-width: 35%; */
 }
 
 #form-container {
-  display: flex;
-  justify-content: right;
+  display: grid;
+  justify-content: center;
   padding: 50px;
   align-items: center;
+  padding-bottom: 20px;
 }
-#footer {
-  display: flex;
+
+footer {
+  display: grid;
+  padding-top: 25px;
+  padding-bottom: 10px;
   justify-content: center;
+}
+#username {
+  text-align: center;
+}
+#password {
+  text-align: center;
+}
+#submit-button {
+  border-radius: 25px;
+  padding: 15px;
+}
+#need-account {
+  padding: 7px;
 }
 </style>
 
-// #main-grid {
-//   width: 90%;
-//   margin: auto;
-//   display: grid; 
-//   grid-template-columns: repeat(3, 1fr); 
-//   grid-template-rows: 1fr; 
-//   gap: 20px; 
-//   grid-template-areas: 
-//     'image-container image-container login-container'; 
-// }
-// #image-container {
-//   grid-area: image-container;
-// }
-// #login-container {
-//   grid-area: login-container;
-// }
+
