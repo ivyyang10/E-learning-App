@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users_course, users, course, quiz, question, quiz_question, answer CASCADE;
+DROP TABLE IF EXISTS users_course, users, course, quiz, question, quiz_question CASCADE;
 
 DROP SEQUENCE IF EXISTS seq_course_id;
 
@@ -70,7 +70,6 @@ CREATE TABLE question (
 CREATE TABLE quiz_question (
     quiz_id int,
     question_id int,
-    question_number int NOT NULL,
     CONSTRAINT PK_quiz_question PRIMARY KEY(quiz_id, question_id),
 	CONSTRAINT FK_quiz_id FOREIGN KEY(quiz_id) REFERENCES quiz(quiz_id),
 	CONSTRAINT FK_question_id FOREIGN KEY(question_id) REFERENCES question(question_id)
@@ -89,9 +88,9 @@ VALUES
 ('What color is the sky?', 2,'yellow', 'blue', 'green', 'red');
 
 INSERT INTO quiz_question
-(quiz_id, question_id, question_number)
+(quiz_id, question_id)
 VALUES
-((SELECT quiz_id FROM quiz WHERE quiz_name = 'test_quiz'), lastval(), 1);
+((SELECT quiz_id FROM quiz WHERE quiz_name = 'test_quiz'), lastval());
 
 --Question 2
 INSERT INTO question
@@ -101,9 +100,9 @@ VALUES
 
 
 INSERT INTO quiz_question
-(quiz_id, question_id, question_number)
+(quiz_id, question_id)
 VALUES
-((SELECT quiz_id FROM quiz WHERE quiz_name = 'test_quiz'), lastval(), 2);
+((SELECT quiz_id FROM quiz WHERE quiz_name = 'test_quiz'), lastval());
 
 
 COMMIT TRANSACTION;
