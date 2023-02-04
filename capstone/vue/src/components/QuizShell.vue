@@ -3,8 +3,10 @@
     <h1>Quiz</h1>
     <section class="quiz" v-if="!quizCompleted">
       <div class="quiz-info">
-        <span class="question">{{getCurrentQuestion.question}}</span>
-        <span class="score">Score {{ score }}/{{ questions.length }}</span>
+        <span class="question">{{ getCurrentQuestion.question }}</span>
+        <span class="score"
+          >Score {{ calculateScore }}/{{ questions.length }}</span
+        >
       </div>
 
       <div>
@@ -37,7 +39,10 @@
         </label>
       </div>
 
-      <button v-on:click="NextQuestion" :disabled="!getCurrentQuestion.selected">
+      <button
+        v-on:click="NextQuestion"
+        :disabled="!getCurrentQuestion.selected"
+      >
         {{
           getCurrentQuestion.index == questions.length - 1
             ? "Finish"
@@ -50,7 +55,7 @@
 
     <section v-else>
       <h2>You have finished the quiz!</h2>
-      <p>Your score is {{ score }}/{{ questions.length }}</p>
+      <p>Your score is {{ calculateScore }}/{{ questions.length }}</p>
     </section>
   </div>
 </template>
@@ -90,13 +95,12 @@ export default {
       quizCompleted: false,
       currentQuestion: [0],
       score: 0,
-      
     };
   },
   computed: {
     calculateScore() {
       let value = 0;
-      this.questions.value.map((q) => {
+      this.questions.map((q) => {
         if (q.selected != null && q.answer == q.selected) {
           console.log("correct");
           value++;
@@ -111,9 +115,8 @@ export default {
     },
   },
   methods: {
-    chooseAnswer(evt) {
-      this.questions[this.currentQuestion].selected =
-        evt.target.value;
+    SetAnswer(evt) {
+      this.questions[this.currentQuestion].selected = evt.target.value;
       evt.target.value = null;
     },
     NextQuestion() {
