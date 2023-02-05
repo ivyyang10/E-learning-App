@@ -48,6 +48,18 @@ export default {
 </script>
 
 <style scoped>
+* {
+  background-color: #75b9be;
+}
+label {
+  background-color: white;  
+}
+#links {
+  background-color: white;  
+}
+#instruction {
+  background-color: white;  
+}
 #student-right-view {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -58,12 +70,14 @@ export default {
 #description {
   border: solid;
   border-radius: 20px;
+  background-color: white;
   padding: 15px;
   grid-area: description;
 }
 #curricula {
   border: solid;
   border-radius: 20px;
+  background-color: white;
   padding: 15px;
   grid-area: curricula;
 }

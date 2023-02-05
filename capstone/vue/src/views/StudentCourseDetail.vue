@@ -1,33 +1,41 @@
 <template>
-
-    <div id="student-working-area">  
-
-      <div id="course-show">
-        <student-course-area id="student-course-area" v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
-        <teacher-course-area id="teacher-course-area" v-show="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"/>
-      </div>
-
-      <div id="side-bar-show">
-        <student-right-side-bar id="student-side-bar" v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
-        <teacher-right-side-bar id="teacher-side-bar" v-show="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"/>
-      </div>
-      
+  <div id="student-working-area">
+    <div id="course-show">
+      <student-course-area
+        id="student-course-area"
+        v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"
+      />
+      <teacher-course-area
+        id="teacher-course-area"
+        v-show="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
+      />
     </div>
 
+    <div id="side-bar-show">
+      <student-right-side-bar
+        id="student-side-bar"
+        v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"
+      />
+      <teacher-right-side-bar
+        id="teacher-side-bar"
+        v-show="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
 import StudentRightSideBar from "../components/StudentRightSideBar.vue";
 import StudentCourseArea from "../components/StudentCourseArea.vue";
-import TeacherCourseArea from '../components/TeacherCourseArea.vue';
-import TeacherRightSideBar from '../components/TeacherRightSideBar.vue'
+import TeacherCourseArea from "../components/TeacherCourseArea.vue";
+import TeacherRightSideBar from "../components/TeacherRightSideBar.vue";
 
 export default {
   components: {
     StudentRightSideBar,
     StudentCourseArea,
     TeacherCourseArea,
-    TeacherRightSideBar
+    TeacherRightSideBar,
   },
 };
 </script>
@@ -36,14 +44,12 @@ export default {
 #student-working-area {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  grid-template-areas: 
-  "student-course-area student-side-bar";
+  grid-template-areas: "student-course-area student-side-bar";
 }
 #teacher-working-area {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  grid-template-areas: 
-  "teacher-course-area teacher-side-bar";
+  grid-template-areas: "teacher-course-area teacher-side-bar";
 }
 #class-title-header {
   grid-area: class-title-header;
@@ -52,9 +58,9 @@ export default {
   grid-area: student-working-area;
 }
 #student-course-area {
-    border-right: solid;
-    padding-right: 15px;
-  border-color: #75B9BE;
+  border-right: solid;
+  padding-right: 15px;
+  border-color: #75b9be;
   grid-area: student-course-area;
 }
 #student-side-bar {
@@ -64,7 +70,7 @@ export default {
 #teacher-course-area {
   border-right: solid;
   padding-right: 15px;
-  border-color: #75B9BE;
+  border-color: #75b9be;
   grid-area: teacher-course-area;
 }
 #teacher-side-bar {

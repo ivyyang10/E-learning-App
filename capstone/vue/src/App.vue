@@ -1,9 +1,17 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }"><img src="./assets/inquisitlogo.png" alt="School Logo"/></router-link>&nbsp;&nbsp;
-       <span id="nav-right"><router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      <p id="viewerName">{{$store.state.user.username}}</p></span>
+      <router-link v-bind:to="{ name: 'home' }"
+        ><img src="./assets/inquisitlogo.png" alt="School Logo" /></router-link
+      >&nbsp;&nbsp;
+      <span id="nav-right"
+        ><router-link
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+          >Logout</router-link
+        >
+        <p id="viewerName">{{ $store.state.user.username }}</p></span
+      >
     </div>
     <router-view />
     <footer></footer>
@@ -11,15 +19,14 @@
 </template>
 
 <style scoped>
-img{
-    width: 100px;
-    
+img {
+  width: 100px;
 }
 #nav {
-    border-bottom: solid;
-    border-color: #75b9be;
-    display: flex;
-    justify-content: space-between;
+  border-bottom: solid;
+  border-color: #75b9be;
+  display: flex;
+  justify-content: space-between;
 }
 #viewerName {
   display: flex;
@@ -32,6 +39,9 @@ img{
 footer {
   border-top: solid;
   border-color: #75b9be;
+  height: 35px;
 }
-
+#app {
+  height: 100%;
+}
 </style>
