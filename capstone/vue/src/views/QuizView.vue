@@ -1,27 +1,14 @@
 <template>
   <div>
     <h1>Quiz View</h1>
-    <quiz-shell />
+    <quiz-shell-2 />
   </div>
 </template>
 
 <script>
-import PortalServices from "../services/PortalServices";
-import QuizShell from "../components/QuizShell.vue";
+import QuizShell2 from "../components/QuizShell2.vue";
 export default {
-  components: { QuizShell },
-  created() {
-    PortalServices.getQuiz(this.$route.params.id).then((response) => {
-      this.$store.state.quiz = response.data;
-      console.log(response);
-    }),
-      PortalServices.getQuizQuestions(this.$route.params.id).then(
-        (response) => {
-          this.$store.state.questions = response.data;
-          console.log(response);
-        }
-      );
-  },
+  components: { QuizShell2 },
 };
 </script>
 

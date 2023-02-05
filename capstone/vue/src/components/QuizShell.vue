@@ -9,13 +9,13 @@
         >
       </div>
 
-      <div>
+      <!-- <div>
         <label
           v-for="(option, index) in getCurrentQuestion.options"
           v-bind:key="'option' + index"
           :class="`option ${
             getCurrentQuestion.selected == index
-              ? index == getCurrentQuestion.answer
+              ? index == getCurrentQuestion.CorrectAnswer
                 ? 'correct'
                 : 'wrong'
               : ''
@@ -24,20 +24,20 @@
             index != getCurrentQuestion.selected
               ? 'disabled'
               : ''
-          }`"
-        >
-          <input
-            type="radio"
-            :id="'option' + index"
-            :name="getCurrentQuestion.index"
-            :value="index"
-            v-model="getCurrentQuestion.selected"
-            :disabled="getCurrentQuestion.selected"
-            v-on:change="SetAnswer"
-          />
-          <span>{{ option }}</span>
-        </label>
-      </div>
+          }`" -->
+      <!-- > -->
+      <!-- <input
+        type="radio"
+        :id="'option' + index"
+        :name="getCurrentQuestion.index"
+        :value="index"
+        v-model="getCurrentQuestion.selected"
+        :disabled="getCurrentQuestion.selected"
+        v-on:change="SetAnswer"
+      />
+      <span>{{ $store.state.questions.answer1 }}</span> -->
+      <!-- </label> -->
+      <!-- </div> -->
 
       <button
         v-on:click="NextQuestion, SetNextQuestion"
@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import PortalServices from "../services/PortalServices";
 export default {
   data() {
     return {
@@ -104,6 +105,18 @@ export default {
   },
   SetNextQuestion() {
     this.currentQuestion++;
+  },
+  created() {
+    PortalServices.getQuiz(this.$route.params.id).then((response) => {
+      this.$store.state.quiz = response.data;
+      console.log(response);
+    }),
+      PortalServices.getQuizQuestions(this.$route.params.id).then(
+        (response) => {
+          this.$store.state.questions = response.data;
+          console.log(response);
+        }
+      );
   },
 };
 </script>
