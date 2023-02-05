@@ -2,13 +2,18 @@
   <div>
     <h1 class="title"></h1>
 
-     <input type="radio" v-for="answer in questionObject.answers" v-bind:key="answer" text="answer">{{answer}} 
-
     <main class="main-box">
       <p class="question">{{ getCurrentQuestion.questionText }}</p>
       <span class="score"
         >Score {{ calculateScore }}/{{ $store.state.questions.length }}</span
       >
+
+      <input
+        type="radio"
+        v-for="answer in answersArray"
+        v-bind:key="answer.value"
+        value="answer"
+      />{{ answer }}
       <!-- <div class="answers">
         <input type="radio" id="answer1" value="1" v-model="checked" />
         <label for="answer1">{{ getCurrentQuestion.answer1 }}</label> <br />
@@ -19,9 +24,7 @@
         <input type="radio" id="answer4" value="4" v-model="checked" />
         <label for="answer4">{{ getCurrentQuestion.answer4 }}</label> <br />
       </div> -->
-      <button v-on:click="setNextQuestion">
-       Next Question
-      </button>
+      <button v-on:click="setNextQuestion">Next Question</button>
     </main>
   </div>
 </template>
@@ -43,6 +46,7 @@ export default {
       currentIndex: 0,
       checked: "",
       quizCompleted: false,
+      answersArray: [],
     };
   },
   created() {
@@ -55,7 +59,8 @@ export default {
           this.$store.state.questions = response.data;
           console.log(response);
         }
-      );
+      ),
+      this.sortAnswer();
   },
   computed: {
     enableDisableAnswerOption6() {
@@ -87,13 +92,15 @@ export default {
         this.quizCompleted = true;
       }
     },
+    sortAnswer() {
+      this.answersArray = this.getCurrentQuestion.answers.split(",");
+    },
 
     // checkAnswer(){
     //   if (this.checked == this.getCurrentQuestion.correctAnswer){
 
     //   }
-      
-    }
+  },
   // },
 };
 </script>
