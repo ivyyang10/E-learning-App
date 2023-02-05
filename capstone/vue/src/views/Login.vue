@@ -105,11 +105,14 @@ main {
 #middle-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
+ 
   row-gap: 20px;
   column-gap: 35px;
   /* align-items: vertical;
   align-items: center; */
-  grid-template-areas: 'image-container form-container';
+  grid-template-areas:
+ 
+  'image-container form-container';
 }
 #login-photo {
   display: grid;

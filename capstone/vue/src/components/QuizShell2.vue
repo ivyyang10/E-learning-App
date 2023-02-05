@@ -1,17 +1,16 @@
 <template>
   <div>
     <h1 class="title"></h1>
+
+     <input type="radio" v-for="answer in questionObject.answers" v-bind:key="answer" text="answer">{{answer}} 
+
     <main class="main-box">
       <p class="question">{{ getCurrentQuestion.questionText }}</p>
-      <blockquote class="answers">
-        <br />
-        <input
-          type="radio"
-          id="answer1"
-          value="1"
-          v-model="checked"
-          :disabled="getCurrentQuestion.selected"
-        />
+      <span class="score"
+        >Score {{ calculateScore }}/{{ $store.state.questions.length }}</span
+      >
+      <!-- <div class="answers">
+        <input type="radio" id="answer1" value="1" v-model="checked" />
         <label for="answer1">{{ getCurrentQuestion.answer1 }}</label> <br />
         <input type="radio" id="answer2" value="2" v-model="checked" />
         <label for="answer2">{{ getCurrentQuestion.answer2 }}</label> <br />
@@ -19,11 +18,10 @@
         <label for="answer3">{{ getCurrentQuestion.answer3 }}</label> <br />
         <input type="radio" id="answer4" value="4" v-model="checked" />
         <label for="answer4">{{ getCurrentQuestion.answer4 }}</label> <br />
-        <input type="radio" id="answer5" value="5" v-model="checked" />
-        <label for="answer5">{{ getCurrentQuestion.answer5 }}</label> <br />
-        <input type="radio" id="answer6" value="6" v-model="checked" />
-        <label for="answer6">{{ getCurrentQuestion.answer6 }}</label> <br />
-      </blockquote>
+      </div> -->
+      <button v-on:click="setNextQuestion">
+       Next Question
+      </button>
     </main>
   </div>
 </template>
@@ -33,8 +31,18 @@ import PortalServices from "../services/PortalServices";
 export default {
   data() {
     return {
+      // questionObject: {
+      //     questionId: 999,
+      //     questionText: 'How much wood could a wood chuck chuck?',
+      //     correctAnswer: 2,
+      //     answers: [
+      //       90, 10, 50, 1
+      //     ]
+      // },
+
       currentIndex: 0,
       checked: "",
+      quizCompleted: false,
     };
   },
   created() {
@@ -50,18 +58,43 @@ export default {
       );
   },
   computed: {
+    enableDisableAnswerOption6() {
+      if (!this.showAnswer6) {
+        return false;
+      }
+      return true;
+    },
     getCurrentQuestion() {
       let question = this.$store.state.questions[this.currentIndex];
       return question;
+    },
+    calculateScore() {
+      let value = 0;
+      this.$store.state.questions.map((q) => {
+        if (q.checked != null && q.correctAnswer == q.checked) {
+          console.log("correct");
+          value++;
+        }
+      });
+      return value;
     },
   },
   methods: {
     setNextQuestion() {
       if (this.currentIndex < this.$state.store.questions.length - 1) {
         this.currentIndex++;
+      } else {
+        this.quizCompleted = true;
       }
     },
-  },
+
+    // checkAnswer(){
+    //   if (this.checked == this.getCurrentQuestion.correctAnswer){
+
+    //   }
+      
+    }
+  // },
 };
 </script>
 

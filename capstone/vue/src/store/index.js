@@ -41,16 +41,12 @@ export default new Vuex.Store({
       courseId: ""
     },
     questions: [],
+  
     question: {
       questionId: "",
       questionText: "",
       correctAnswer: "",
-      answer1: "",
-      answer2: "",
-      answer3: "",
-      answer4: "",
-      answer5: "",
-      answer6: ""
+      answers:""
     }
   },
   mutations: {

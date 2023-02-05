@@ -58,12 +58,7 @@ CREATE TABLE question (
     question_id serial,
     question_text varchar(100) NOT NULL,
     correct_answer int NOT NULL,
-    answer_1 varchar(100) NOT NULL,
-    answer_2 varchar(100) NOT NULL,
-    answer_3 varchar(100),
-    answer_4 varchar(100),
-    answer_5 varchar(100),
-    answer_6 varchar(100),
+    answers VARCHAR,
     CONSTRAINT PK_question PRIMARY KEY(question_id)
 );
 
@@ -83,9 +78,9 @@ VALUES
 
 --Question 1
 INSERT INTO question
-(question_text, correct_answer, answer_1, answer_2, answer_3, answer_4)
+(question_text, correct_answer,  answers)
 VALUES
-('What color is the sky?', 2,'yellow', 'blue', 'green', 'red');
+('What color is the sky?', 2,'yellow, blue, green, red');
 
 INSERT INTO quiz_question
 (quiz_id, question_id)
@@ -94,9 +89,9 @@ VALUES
 
 --Question 2
 INSERT INTO question
-(question_text, correct_answer, answer_1, answer_2, answer_3, answer_4)
+(question_text, correct_answer, answers)
 VALUES
-('A skeleton walks into a bar, and says to the bartender, "Give me a beer and a ..."', 3, 'hair brush', 'dry erase marker', 'mop', 'yo-yo');
+('A skeleton walks into a bar, and says to the bartender, "Give me a beer and a ..."', 3,'hair brush, dry erase marker, mop, yo-yo');
 
 
 INSERT INTO quiz_question

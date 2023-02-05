@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +30,10 @@ public class JdbcQuestionDao implements QuestionDao {
 }
     @Override
     public Question createQuestion(Question newQuestion) {
-        String sql = "INSERT INTO question (question_text, correct_answer, answer_1, answer_2, answer_3, answer_4, answer_5, answer_6) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING question_id;";
+        String sql = "INSERT INTO question (question_text, correct_answer, answers) " +
+                "VALUES (?, ?, ?) RETURNING question_id;";
 
-        Integer questionID = jdbcTemplate.queryForObject(sql, Integer.class, newQuestion.getQuestionText(),newQuestion.getCorrectAnswer(), newQuestion.getAnswer1(),
-                newQuestion.getAnswer2(),newQuestion.getAnswer3(),newQuestion.getAnswer4(),newQuestion.getAnswer5(),newQuestion.getAnswer6());
+        Integer questionID = jdbcTemplate.queryForObject(sql, Integer.class, newQuestion.getQuestionText(),newQuestion.getCorrectAnswer(),newQuestion.getAnswers());
 
         return getQuestion(questionID);
 
@@ -65,12 +65,8 @@ public class JdbcQuestionDao implements QuestionDao {
         int questionId = result.getInt("question_id");
         String questionText = result.getString("question_text");
         int correctAnswer = result.getInt("correct_answer");
-        String answer1 = result.getString("answer_1");
-        String answer2 = result.getString("answer_2");
-        String answer3 = result.getString("answer_3");
-        String answer4 = result.getString("answer_4");
-        String answer5 = result.getString("answer_5");
-        String answer6 = result.getString("answer_6");
-        return new Question(questionId, questionText, correctAnswer, answer1, answer2, answer3,answer4,answer5,answer6);
+        String answers = result.getString("answers");
+
+        return new Question(questionId, questionText, correctAnswer,answers);
     }
 }
