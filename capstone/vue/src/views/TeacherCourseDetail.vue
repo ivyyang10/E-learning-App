@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Teacher Right Side Bar</h1>
     <teacher-right-side-bar />
     <teacher-course-area />
   </div>
@@ -19,4 +18,5 @@ export default {
 </script>
 
 <style>
+
 </style>
