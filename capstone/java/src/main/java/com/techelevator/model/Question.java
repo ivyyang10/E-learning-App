@@ -10,7 +10,15 @@ public class Question {
     private String questionText;
     private int correctAnswer;
     private String answers;
+    private String[] answersArr;
 
+    public String[] getAnswersArr() {
+        return answers.split("\\,");
+    }
+
+    public void setAnswersArr(String[] answersArr) {
+        this.answersArr = answersArr;
+    }       
 
     public Question(int questionId, String questionText, int correctAnswer, String answers) {
         this.questionId = questionId;
