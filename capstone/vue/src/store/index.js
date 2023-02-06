@@ -38,8 +38,10 @@ export default new Vuex.Store({
       id: "",
       username: "",
       password: "",
+      name: "",
       email: "",
-      activated: false
+      role: ""
+      // activated: false
     },
     quizes: [],
     quiz: {
