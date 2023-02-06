@@ -14,11 +14,6 @@ export default {
   components: {
       Student
   },
-  data() {
-    return {
-      allUsers: [],
-    };
-  },
   methods: {
     listAllUsers() {
       PortalServices.listAllUsers().then((response) => {
