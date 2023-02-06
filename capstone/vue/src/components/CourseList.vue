@@ -16,11 +16,11 @@ export default {
     components: {
         Course
     },
-    data(){
-        return{
-       Courses:[]
-    }
-    },
+    // data(){
+    //     return{
+    //    Courses:[]
+    // }
+    // },
     methods:{
     getAllCourses() {
         PortalServices.getAllCourses().then(response => {
