@@ -70,4 +70,10 @@ public class CourseController {
         int studentId = userDao.findIdByUsername(loggedInUser);
         return homeworkDao.submitHomework(courseId,studentId,hwSubmission);
     }
+
+    @PostMapping("/course/{customId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void submitStudentIntoCourse(@PathVariable int customId, @RequestBody User newUser){
+        courseDao.submitStudentIntoCourse(customId, newUser);
+    }
 }

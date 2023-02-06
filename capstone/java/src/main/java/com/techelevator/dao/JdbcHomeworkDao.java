@@ -3,7 +3,9 @@ package com.techelevator.dao;
 import com.techelevator.model.Homework;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcHomeworkDao implements HomeworkDao{
     private JdbcTemplate jdbcTemplate;
 
@@ -26,7 +28,7 @@ public class JdbcHomeworkDao implements HomeworkDao{
     @Override
     public Homework submitHomework(int courseId, int studentId, String hwSubmission) {
         String sql= "INSERT INTO homework (course_id, student_id, hw_submission)"+
-                "VALUES (?,?,?)";
+                "VALUES (?,?,?) RETURNING homework_id";
         Integer homeworkId= jdbcTemplate.queryForObject(sql,Integer.class,courseId,studentId,hwSubmission);
 
         return findHomeworkById(homeworkId);

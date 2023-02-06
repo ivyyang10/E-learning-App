@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Course;
 import com.techelevator.model.Homework;
+import com.techelevator.model.User;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +15,7 @@ public interface CourseDao {
 
     Course findCourseById(int courseId);
 
+    boolean submitStudentIntoCourse(int courseId, User newuser);
 
 
 
