@@ -22,7 +22,7 @@ export default {
     listAllUsers() {
         return axios.get(`/users`)
     },
-    addStudentToCourse(userObject) {
-        return axios.post(`/enrollStudent`, userObject)
+    addStudentToCourse(id, userObject) {
+        return axios.post(`/course/${id}`, userObject)
     }
 }

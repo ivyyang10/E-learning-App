@@ -3,14 +3,24 @@
     <h1>List of Students Goes Here</h1>
 
 
-    
 
-      <student 
-    v-for="userObject in $store.state.users"
-    v-bind:key="userObject.id"
-    v-bind:userObject="userObject"
-    />
 
+    <student
+        v-for="userObject in $store.state.users"
+        v-bind:key="userObject.id"
+        v-bind:userObject="userObject"
+      />
+  
+    <!-- <button
+      v-on:click="addStudentToCourse()"
+    >
+      <student
+        v-for="userObject in $store.state.users"
+        v-bind:key="userObject.id"
+        v-bind:userObject="userObject"
+      />
+
+    </button> -->
 
     <!-- <student 
     v-for="userObject in $store.state.users"
@@ -18,6 +28,12 @@
     v-bind:userObject="userObject"
     /> -->
 
+    <!-- <student 
+    v-for="userObject in $store.state.users"
+    v-bind:key="userObject.id"
+    v-bind:userObject="userObject"
+    /> -->
+    
   </div>
 </template>
 
