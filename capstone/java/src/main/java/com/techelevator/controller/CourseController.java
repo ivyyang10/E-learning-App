@@ -65,10 +65,10 @@ public class CourseController {
 
     @PostMapping("/course/{courseId}/homework")
     @ResponseStatus(HttpStatus.CREATED)
-    public Homework submitHomework(@PathVariable int courseId, Principal principal,@RequestBody String hwSubmission){
+    public Homework submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
         String loggedInUser = principal.getName();
         int studentId = userDao.findIdByUsername(loggedInUser);
-        return homeworkDao.submitHomework(courseId,studentId,hwSubmission);
+        return homeworkDao.submitHomework(courseId,studentId,hw.getHwSubmission());
     }
 
     @PostMapping("/course/{customId}")
