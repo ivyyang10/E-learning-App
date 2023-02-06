@@ -19,13 +19,18 @@
           ><button id="create-quiz-button">Create Quiz</button></router-link
         >
     </div>
+
+    <add-students-to-course id="add-students"/>
+
   </div>
 </template>
 
 <script>
 import PortalServices from "../services/PortalServices";
+import AddStudentsToCourse from '../components/AddStudentsToCourse.vue';
 
 export default {
+  components: { AddStudentsToCourse },
   data() {
     return {
       course: {
@@ -79,4 +84,7 @@ export default {
 #create-quiz-button {
   padding: 10px;
 }
+/* #add-students {
+  border: solid;
+} */
 </style>

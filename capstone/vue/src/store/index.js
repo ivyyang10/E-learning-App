@@ -34,6 +34,13 @@ export default new Vuex.Store({
     },
     courses: [],
     users: [],
+    userObject: {
+      id: "",
+      username: "",
+      password: "",
+      email: "",
+      activated: false
+    },
     quizes: [],
     quiz: {
       quizId: "",

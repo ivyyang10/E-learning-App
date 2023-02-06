@@ -1,6 +1,6 @@
 <template>
   <div class="coursemaker">
-      <h1>Course Maker</h1>
+      <h1 id="page-title">Course Maker</h1>
     <course-maker-form/>
   </div>
 </template>
@@ -18,5 +18,11 @@ export default {
 </script>
 
 <style>
-
+.coursemaker {
+  padding: 10px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+}
 </style>
