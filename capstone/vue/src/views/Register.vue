@@ -151,10 +151,9 @@ export default {
   font-family: Roboto, Verdana, Segoe, sans-serif;
 }
 main {
-  background-color: #75b9be;
+  /* background-color: #75b9be; */
 }
 #register {
-  grid-area: register;
   display: flex;
   justify-content: center;
   /* border-style: solid;

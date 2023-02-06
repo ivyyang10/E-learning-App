@@ -48,9 +48,13 @@
               required
             />
             <br>
+            <br>
             <button id="submit-button" type="submit">Sign in</button>
+           <br>
+           <br>
             <div id="need-account">
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
+   
     </div>
           </form>
         </div>
@@ -104,7 +108,7 @@ main {
 }
 #middle-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
  
   row-gap: 20px;
   column-gap: 35px;
@@ -167,7 +171,9 @@ footer {
 }
 #submit-button {
   border-radius: 25px;
+  border-color: white;
   padding: 15px;
+  background-color: #75b9be;
 }
 #need-account {
   padding: 7px;
