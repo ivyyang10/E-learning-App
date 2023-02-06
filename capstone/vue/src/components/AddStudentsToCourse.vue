@@ -56,7 +56,6 @@ export default {
       PortalServices.listAllUsers().then((response) => {
         this.users = response.data;
         this.$store.commit("SAVE_USERS", this.users);
-        console.log(response);
       });
     },
   },

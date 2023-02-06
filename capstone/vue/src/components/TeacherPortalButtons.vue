@@ -16,7 +16,6 @@ export default {
       PortalServices.getUser()
       .then((response) =>{
         this.$store.state.users = response.data;
-        console.log(response)
       })
   }
 

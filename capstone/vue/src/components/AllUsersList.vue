@@ -18,7 +18,6 @@ export default {
         listAllUsers() {
             PortalServices.listAllUsers().then(response =>{
                 this.$store.state.users = response.data
-                console.log(response)
             })
         }
     }

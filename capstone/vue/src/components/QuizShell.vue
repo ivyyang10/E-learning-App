@@ -109,12 +109,12 @@ export default {
   created() {
     PortalServices.getQuiz(this.$route.params.id).then((response) => {
       this.$store.state.quiz = response.data;
-      console.log(response);
+      
     }),
       PortalServices.getQuizQuestions(this.$route.params.id).then(
         (response) => {
           this.$store.state.questions = response.data;
-          console.log(response);
+          
         }
       );
   },
