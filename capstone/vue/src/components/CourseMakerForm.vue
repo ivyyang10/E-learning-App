@@ -1,6 +1,7 @@
 <template>
   <div id="course-maker-all">
-  <form class="course-maker-form" v-on:submit.prevent="saveCourse">
+  <form class="course-maker-form" id="courseform" v-on:submit.prevent="saveCourse">
+    <h2>Course Description</h2>
     <input 
     class="courseName" 
     type="text" 
@@ -8,9 +9,9 @@
     v-model="course.courseName"
     required 
     />
-    <br>
+   <br>
     <div id="all-description">
-        <h2>Course Description</h2>
+        
         <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
         <!-- <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" /> -->
         <br>
@@ -31,6 +32,7 @@
             <option value ="Difficult"> Difficult</option>
         </select>
         <br>
+        <br>
         </div>
     <div id="curricula">
         <h2>Curricula</h2>
@@ -47,11 +49,8 @@
 
     </div>
     <br>
-    <div>    
+    <div id="buttons">    
     <button type="submit">Create Course</button>
-    </div>
-    <br>
-    <div>    
     <router-link v-bind:to="{ name: 'home' }"><button>Discard Course</button></router-link>
     </div>
   </form>
@@ -132,8 +131,18 @@ export default {
   justify-content: center;
   padding-bottom: 20px;
 }
+#courseform {
+align-items: center;
+      border-style: solid;
+  border-radius: 25px;
+  padding: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
+  margin: 10px;
+}
 .description {
-    padding: 30px;
+    padding-top: 30px;
+padding-bottom: 30px;
 }
 input, label {
   display: block;
@@ -142,7 +151,16 @@ label {
   padding-top: 15px;
 }
 input {
+    padding: 8px;
   border-radius: 25px;
   border-bottom: solid 3px;
+  display: grid;
+  justify-content: center;
+}
+#buttons {
+    display: inline-block;
+}
+button {
+margin-right: 20px;
 }
 </style>

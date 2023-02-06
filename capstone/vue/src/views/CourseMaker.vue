@@ -19,6 +19,7 @@ export default {
 
 <style>
 .coursemaker {
+  background: linear-gradient(90deg, #75b9be 0%, #c7d66d 100%);
   padding: 10px;
 }
 h1 {
