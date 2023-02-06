@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.CourseDao;
+import com.techelevator.dao.HomeworkDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Course;
 import com.techelevator.model.Homework;
@@ -26,6 +27,8 @@ public class CourseController {
     CourseDao courseDao;
     @Autowired
     UserDao userDao;
+    @Autowired
+    HomeworkDao homeworkDao;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createcourse")
@@ -62,7 +65,9 @@ public class CourseController {
 
     @PostMapping("/course/{courseId}/homework")
     @ResponseStatus(HttpStatus.CREATED)
-    public Homework submitHomework(@PathVariable int courseId,@RequestBody Homework newHomework){
-        return null;
+    public Homework submitHomework(@PathVariable int courseId, Principal principal,@RequestBody String hwSubmission){
+        String loggedInUser = principal.getName();
+        int studentId = userDao.findIdByUsername(loggedInUser);
+        return homeworkDao.submitHomework(courseId,studentId,hwSubmission);
     }
 }

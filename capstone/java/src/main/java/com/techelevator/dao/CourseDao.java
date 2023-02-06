@@ -14,7 +14,7 @@ public interface CourseDao {
 
     Course findCourseById(int courseId);
 
-    Homework findHomeworkById(int HomeworkId);
 
-    Homework submitHomework(Homework newHomework);
+
+
 }
