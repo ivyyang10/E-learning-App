@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users_course, users, course, quiz, question, quiz_question CASCADE;
+DROP TABLE IF EXISTS users_course, users, course, quiz, question, quiz_question, homework CASCADE;
 
 DROP SEQUENCE IF EXISTS seq_course_id;
 
@@ -45,6 +45,16 @@ CREATE TABLE users_course (
 	CONSTRAINT FK_users_course_course FOREIGN KEY (course_id) REFERENCES course (course_id)
 );
 
+CREATE TABLE homework (
+     homework_id serial,
+     course_id int NOT NULL,
+     student_id int NOT NULL,
+     hw_submission VARCHAR(16000),
+     CONSTRAINT PK_homework_id PRIMARY KEY (homework_id),
+     CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES course (course_id),
+     CONSTRAINT FK_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)
+     );
+
 
 CREATE TABLE quiz (
     quiz_id serial,
@@ -69,6 +79,8 @@ CREATE TABLE quiz_question (
 	CONSTRAINT FK_quiz_id FOREIGN KEY(quiz_id) REFERENCES quiz(quiz_id),
 	CONSTRAINT FK_question_id FOREIGN KEY(question_id) REFERENCES question(question_id)
 );
+
+
 
 
 INSERT INTO quiz

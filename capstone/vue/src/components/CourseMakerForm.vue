@@ -13,7 +13,7 @@
     <div id="all-description">
         
         <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
-        <!-- <input class="difficulty" type="text" placeholder="Difficulty Level" v-model="course.difficulty" /> -->
+        
         <br>
         <input 
         class="cost" 
@@ -58,10 +58,10 @@
 </template>
 
 <script>
-// import CurriculaMakerForm from './CurriculaMakerForm.vue';
+
 import PortalService from "../services/PortalServices.js"
 export default {
-//   components: { CurriculaMakerForm },
+
     name: "course-maker-form",
     data(){
         return {
@@ -77,7 +77,7 @@ export default {
 
             
 
-        
+
         }
     },
     methods: {

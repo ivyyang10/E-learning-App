@@ -21,5 +21,8 @@ export default {
     },
     listAllUsers() {
         return axios.get(`/users`)
+    },
+    addStudentToCourse(userObject) {
+        return axios.post(`/enrollStudent`, userObject)
     }
 }
