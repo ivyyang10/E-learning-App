@@ -1,8 +1,10 @@
 <template>
   <div id="course-style">
 
+    
 
-<button>{{userObject.username}}</button>
+
+<button v-on:click="addStudentToCourse()">{{userObject.username}}</button>
 
     <!-- <p>
     {{userObject.username}}
