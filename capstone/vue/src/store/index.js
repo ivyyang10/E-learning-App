@@ -77,9 +77,8 @@ export default new Vuex.Store({
     SAVE_COURSE(state, payload) {
       state.courses = payload;
     },
-    SAVE_USERS(state, payload)
-    // SAVE_CURRICULA(state, curricula){
-    //   state.curricula.push(curricula);
-    // }
+    SAVE_USERS(state, payload){
+      state.users = payload;
+    }
   }
 })

@@ -1,16 +1,16 @@
 <template>
   <div id="course-style">
-    <div v-bind:to="{name: 'studentDetails', params:{id: userObject.id}}">
-     {{userObject.username}}
+    <div v-bind:to="{name: 'studentDetails', params:{id: $store.state.users.id}}">
+     {{$store.state.users.username}}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "course",
+  name: "student",
   props: {
-    course: Object,
+    student: Object,
   },
 
 };
