@@ -18,5 +18,8 @@ export default {
     },
     getQuizQuestions(id) {
         return axios.get(`/quiz/${id}`)
+    },
+    listAllUsers() {
+        return axios.get(`/users`)
     }
 }
