@@ -54,7 +54,7 @@ public class CourseController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/users")
     public List<User> listAllUsers() {
         return userDao.findAll();
     }

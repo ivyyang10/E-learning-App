@@ -1,10 +1,19 @@
 <template>
   <div>
     <h1>List of Students Goes Here</h1>
-    <student
+    
+    <student 
+    v-for="userObject in $store.state.users"
+    v-bind:key="userObject.id"
+    v-bind:userObject="userObject"
+    />
+  
+    <!-- <p
       v-for="userObject in $store.state.users"
       v-bind:key="userObject.id"
-    />
+    >{{userObject.username}}
+    </p> -->
+
   </div>
 </template>
 

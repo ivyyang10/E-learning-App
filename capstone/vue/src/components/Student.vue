@@ -1,17 +1,23 @@
 <template>
   <div id="course-style">
-    <div v-bind:to="{name: 'studentDetails', params:{id: $store.state.users.id}}">
-     {{$store.state.users.username}}
-    </div>
+
+
+<button>{{userObject.username}}</button>
+
+    <!-- <p>
+    {{userObject.username}}
+    </p> -->
+    <!-- v-bind:to="{name: 'studentDetails', params:{id: $store.state.userObject.id}}" -->
   </div>
+  
 </template>
 
 <script>
 export default {
   name: "student",
   props: {
-    student: Object,
-  },
+    userObject: Object,
+  }
 
 };
 </script>
