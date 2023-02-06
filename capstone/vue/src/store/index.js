@@ -74,12 +74,10 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SAVE_COURSE(state, course) {
-      state.courses.push(course);
+    SAVE_COURSE(state, payload) {
+      state.courses = payload;
     },
-    SAVE_ANSWERS_ARRAY(state) {
-      state.answersArray.push(state.questions.answers.split(","))
-    }
+    SAVE_USERS(state, payload)
     // SAVE_CURRICULA(state, curricula){
     //   state.curricula.push(curricula);
     // }

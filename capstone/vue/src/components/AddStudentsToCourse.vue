@@ -1,23 +1,32 @@
 <template>
   <div>
     <h1>List of Students Goes Here</h1>
-    <student v-for="userObject in $store.state.users" v-bind:key="userObject.id"/>
+    <student
+      v-for="userObject in $store.state.users"
+      v-bind:key="userObject.id"
+    />
   </div>
 </template>
 
 <script>
 import PortalServices from "../services/PortalServices";
-import Student from "../components/Student.vue"
+import Student from "../components/Student.vue";
 
 export default {
   name: "add-students-to-course",
   components: {
-      Student
+    Student,
+  },
+  data() {
+    return {
+      users: [],
+    };
   },
   methods: {
     listAllUsers() {
       PortalServices.listAllUsers().then((response) => {
-        this.$store.state.users = response.data;
+        this.users = response.data;
+        this.$store.commit("SAVE_USERS", this.users);
         console.log(response);
       });
     },
