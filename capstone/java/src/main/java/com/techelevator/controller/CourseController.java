@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.CourseDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Course;
+import com.techelevator.model.Homework;
 import com.techelevator.model.RegisterUserDto;
 import com.techelevator.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,5 +58,11 @@ public class CourseController {
     @GetMapping("/users")
     public List<User> listAllUsers() {
         return userDao.findAll();
+    }
+
+    @PostMapping("/course/{courseId}/homework")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Homework submitHomework(@PathVariable int courseId,@RequestBody Homework newHomework){
+        return null;
     }
 }
