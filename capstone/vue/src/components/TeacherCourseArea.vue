@@ -47,7 +47,6 @@ export default {
   created() {
     PortalServices.getCourses(this.$route.params.id).then((response) => {
       this.course = response.data;
-      console.log(response);
     });
   },
 };

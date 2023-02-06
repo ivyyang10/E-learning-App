@@ -69,16 +69,14 @@ export default {
     PortalServices.getQuiz(this.$route.params.id).then((response) => {
       this.$store.state.quiz = response.data;
 
-      console.log(response);
+    
     }),
       PortalServices.getQuizQuestions(this.$route.params.id).then(
         (response) => {
           //TODO: Add Mutator
           this.$store.state.questions = response.data;
           this.questions = response.data;
-          console.log(response);
-          console.log("Andy Debug");
-          console.log(this.questions);
+          
         }
       ),
       this.sortAnswer();

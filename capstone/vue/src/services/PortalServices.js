@@ -24,5 +24,8 @@ export default {
     },
     addStudentToCourse(id, userObject) {
         return axios.post(`/course/${id}`, userObject)
+    },
+    submitHomework(id, homeworkObject) {
+        return axios.post(`/course/${id}/homework`, homeworkObject)
     }
 }

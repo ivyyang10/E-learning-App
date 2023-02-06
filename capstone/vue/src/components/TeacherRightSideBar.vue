@@ -31,8 +31,7 @@
 
     <div id="homework-notification">
       <label id="hw-notification-labelID" for="hw-notification-label"
-        >Homework Notification:</label
-      >
+        >Homework Notification:</label>
     </div>
   </div>
 </template>
@@ -60,7 +59,6 @@ export default {
   created() {
     PortalServices.getCourses(this.$route.params.id).then((response) => {
       this.course = response.data;
-      console.log(response);
     });
   },
 };

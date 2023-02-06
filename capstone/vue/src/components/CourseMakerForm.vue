@@ -74,10 +74,6 @@ export default {
                 links: '',
                 hwAssignment: ''
             }
-
-            
-
-
         }
     },
     methods: {
@@ -93,18 +89,6 @@ export default {
         },
     
         saveCourse() {
-            // this.$store.commit('SAVE_COURSE', this.course);
-            // this.course = {
-            //     courseId: '',
-            //     courseName: '',
-            //     description: '',
-            //     difficulty: '',
-            //     cost: '',
-            //     dailyInstruction: '',
-            //     links: '',
-            //     hwAssignment: ''
-            // };
-            // this.$router.push({course: 'newCourse'})
 
             PortalService
             .createCourse(this.course)

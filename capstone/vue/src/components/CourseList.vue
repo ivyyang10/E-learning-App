@@ -29,7 +29,6 @@ export default {
       PortalServices.getAllCourses().then((response) => {
         this.courses = response.data;
         this.$store.commit("SAVE_COURSE", this.courses);
-        console.log(response);
       });
     },
   },
