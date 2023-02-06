@@ -6,6 +6,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
+      <div id="registerform">
       <label for="username" class="sr-only"></label>
       <input
         type="text"
@@ -81,8 +82,9 @@
       </button>
             <br>
             <br>
+            
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <br>
+     </div>
     </form>
   </div>
 </main>
@@ -154,13 +156,21 @@ main {
   /* background-color: #75b9be; */
 }
 #register {
+  grid-area: register;
   display: flex;
   justify-content: center;
+    background: linear-gradient(90deg, #75b9be 0%, #c7d66d 100%);
   /* border-style: solid;
   border-color: #75b9be; */
   padding-bottom: 20px;
 }
-
+#registerform {
+  border-style: solid;
+  border-radius: 25px;
+  padding: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
 input, label {
   display: block;
 }
