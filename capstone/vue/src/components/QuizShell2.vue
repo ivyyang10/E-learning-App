@@ -11,9 +11,10 @@
       <input
         type="radio"
         v-for="answer in answersArray"
-        v-bind:key="answer.value"
+        v-bind:key="answer.index"
         value="answer"
-      />{{ answer }}
+        v-model="getCurrentQuestion.checked"
+      />{{ getCurrentQuestion.answers }} 
       <!-- <div class="answers">
         <input type="radio" id="answer1" value="1" v-model="checked" />
         <label for="answer1">{{ getCurrentQuestion.answer1 }}</label> <br />
@@ -60,15 +61,9 @@ export default {
           console.log(response);
         }
       ),
-      this.sortAnswer();
+    this.sortAnswer();
   },
   computed: {
-    enableDisableAnswerOption6() {
-      if (!this.showAnswer6) {
-        return false;
-      }
-      return true;
-    },
     getCurrentQuestion() {
       let question = this.$store.state.questions[this.currentIndex];
       return question;
@@ -86,7 +81,7 @@ export default {
   },
   methods: {
     setNextQuestion() {
-      if (this.currentIndex < this.$state.store.questions.length - 1) {
+      if (this.currentIndex < this.$store.state.questions.length - 1) {
         this.currentIndex++;
       } else {
         this.quizCompleted = true;
@@ -94,7 +89,8 @@ export default {
     },
     sortAnswer() {
       this.answersArray = this.getCurrentQuestion.answers.split(",");
-    },
+       console.log('pass')
+     },
 
     // checkAnswer(){
     //   if (this.checked == this.getCurrentQuestion.correctAnswer){
