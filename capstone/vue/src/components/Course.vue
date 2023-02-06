@@ -5,7 +5,9 @@
      {{course.courseName}}
      </router-link>
      <br>
+     <br>
      {{course.description}}
+     <br>
      <br>
      {{course.difficulty}}
     </div>
@@ -26,6 +28,9 @@ export default {
 #course-style {
   border: 2px solid black;
   border-radius: 10px;
+    width: 150px;
+  height: 250px;
+  margin: 20px;
   padding: 15px;
 }
 </style>

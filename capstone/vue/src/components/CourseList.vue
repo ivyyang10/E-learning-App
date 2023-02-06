@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>Courses List</h2>
     <div id="course-list">
       <course
         v-for="course in $store.state.courses"
@@ -43,11 +42,7 @@ export default {
 <style scoped>
 #course-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
-}
-h2 {
-  display: flex;
-  justify-content: center;
 }
 </style>
