@@ -79,6 +79,7 @@ export default new Vuex.Store({
     },
     SAVE_USERS(state, payload){
       state.users = payload;
-    }
+    },
+    
   }
 })

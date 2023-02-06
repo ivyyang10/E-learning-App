@@ -8,10 +8,18 @@
         >Score {{ calculateScore }}/{{ $store.state.questions.length }}</span
       >
 
-      <div v-for="answer in getCurrentQuestion.answersArr" v-bind:key="answer">
-        <input type="radio" v-bind:id="answer" />
+      <p
+        v-for="answer in getCurrentQuestion.answersArr"
+        v-bind:key="answer"
+      >
+        <input
+          type="radio"
+          v-bind:id="answer"
+          value="answer"
+          name="answername"
+        />
         <label v-bind:for="answer">{{ answer }}</label>
-      </div>
+      </p>
 
       <!-- <input
         type="radio"
