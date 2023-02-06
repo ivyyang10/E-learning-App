@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Course;
 import com.techelevator.model.Homework;
+import com.techelevator.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -57,6 +58,16 @@ public class JdbcCourseDao  implements CourseDao{
             course = mapRowToCourse(results);
         }
         return course;
+    }
+
+    @Override
+    public boolean submitStudentIntoCourse(int courseId, User newuser){
+        int userId =  newuser.getId();
+        boolean hwBoolean = false;
+        String sql = "INSERT INTO users_course (user_id, course_id, completed) " +
+                "VALUES (?,?,?)";
+        return jdbcTemplate.update(sql, userId, courseId, hwBoolean) == 1;
+
     }
 
 
