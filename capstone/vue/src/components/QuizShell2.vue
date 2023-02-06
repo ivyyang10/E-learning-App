@@ -8,13 +8,19 @@
         >Score {{ calculateScore }}/{{ $store.state.questions.length }}</span
       >
 
-      <input
+      <div v-for="answer in getCurrentQuestion.answersArr" v-bind:key="answer">
+        <input type="radio" v-bind:id="answer" />
+        <label v-bind:for="answer">{{ answer }}</label>
+      </div>
+
+      <!-- <input
         type="radio"
         v-for="answer in answersArray"
         v-bind:key="answer.index"
         value="answer"
         v-model="getCurrentQuestion.checked"
-      />{{ getCurrentQuestion.answers }} 
+      />{{ $store.state.answersArray }} -->
+
       <!-- <div class="answers">
         <input type="radio" id="answer1" value="1" v-model="checked" />
         <label for="answer1">{{ getCurrentQuestion.answer1 }}</label> <br />
@@ -48,24 +54,37 @@ export default {
       checked: "",
       quizCompleted: false,
       answersArray: [],
+      questions: [],
     };
   },
   created() {
     PortalServices.getQuiz(this.$route.params.id).then((response) => {
       this.$store.state.quiz = response.data;
+
       console.log(response);
     }),
       PortalServices.getQuizQuestions(this.$route.params.id).then(
         (response) => {
+          //TODO: Add Mutator
           this.$store.state.questions = response.data;
+          this.questions = response.data;
           console.log(response);
+          console.log("Andy Debug");
+          console.log(this.questions);
         }
       ),
-    this.sortAnswer();
+      this.sortAnswer();
   },
   computed: {
     getCurrentQuestion() {
-      let question = this.$store.state.questions[this.currentIndex];
+      // let question = this.$store.state.questions[this.currentIndex]; //TODO: Use the store
+      // let question = {};
+      // question.questionText = this.questions[this.currentIndex].questionText;
+      // question.listOfAnswers =
+      //   this.questions[this.currentIndex].answers.split(",");
+      //TODO: Use the store
+      let question = this.questions[this.currentIndex];
+
       return question;
     },
     calculateScore() {
@@ -88,9 +107,9 @@ export default {
       }
     },
     sortAnswer() {
-      this.answersArray = this.getCurrentQuestion.answers.split(",");
-       console.log('pass')
-     },
+      this.$state.answersArray = this.getCurrentQuestion.answers.split(",");
+      console.log("pass");
+    },
 
     // checkAnswer(){
     //   if (this.checked == this.getCurrentQuestion.correctAnswer){

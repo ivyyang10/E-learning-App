@@ -41,13 +41,14 @@ export default new Vuex.Store({
       courseId: ""
     },
     questions: [],
-  
+
     question: {
       questionId: "",
       questionText: "",
       correctAnswer: "",
-      answers:""
-    }
+      answers: ""
+    },
+    answersArray: [],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -69,6 +70,9 @@ export default new Vuex.Store({
     SAVE_COURSE(state, course) {
       state.courses.push(course);
     },
+    SAVE_ANSWERS_ARRAY(state) {
+      state.answersArray.push(state.questions.answers.split(","))
+    }
     // SAVE_CURRICULA(state, curricula){
     //   state.curricula.push(curricula);
     // }
