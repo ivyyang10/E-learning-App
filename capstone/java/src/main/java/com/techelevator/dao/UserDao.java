@@ -15,4 +15,6 @@ public interface UserDao {
     int findIdByUsername(String username);
 
     boolean create(String username, String password, String name, String email, String role);
+
+    List<User> getAllStudents();
 }

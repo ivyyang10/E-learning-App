@@ -3,10 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.CourseDao;
 import com.techelevator.dao.HomeworkDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.Course;
-import com.techelevator.model.Homework;
-import com.techelevator.model.RegisterUserDto;
-import com.techelevator.model.User;
+import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -67,7 +64,7 @@ public class CourseController {
 
     @GetMapping("/users")
     public List<User> listAllUsers() {
-        return userDao.findAll();
+        return userDao.getAllStudents();
     }
 
     @PostMapping("/course/{courseId}/homework")
@@ -81,7 +78,7 @@ public class CourseController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/course/{customId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public void submitStudentIntoCourse(@PathVariable int customId, @RequestBody User newUser){
-        courseDao.submitStudentIntoCourse(customId, newUser);
+    public void submitStudentIntoCourse(@PathVariable int customId, @RequestBody UserDTO userDTO){
+        courseDao.submitStudentIntoCourse(customId, userDTO);
     }
 }
