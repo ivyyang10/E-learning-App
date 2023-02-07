@@ -58,23 +58,26 @@ export default {
   grid-area: student-working-area;
 }
 #student-course-area {
-  border-right: solid;
-  padding-right: 15px;
+  /* border-right: solid; */
+  padding: 15px;
   border-color: #75b9be;
   grid-area: student-course-area;
 }
 #student-side-bar {
   grid-area: student-side-bar;
   padding: 10px;
+  height: 100%;
+  margin: 20px;
 }
 #teacher-course-area {
-  border-right: solid;
-  padding-right: 15px;
+  /* border-right: solid; */
+  padding: 15px;
   border-color: #75b9be;
   grid-area: teacher-course-area;
 }
 #teacher-side-bar {
   grid-area: teacher-side-bar;
   padding: 10px;
+  height: 100%;
 }
 </style>

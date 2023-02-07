@@ -2,6 +2,8 @@
 
 
   <div id="teacher-right-view">
+    <h2 id="class-details">Class Details</h2>
+    <br>
     <div
       id="description"
       v-bind:to="{ name: 'courses', params: { id: course.id } }"
@@ -26,10 +28,19 @@
 
     <div id="enrolled-students">
       <label id="enrolled-labelID" for="enrolled-label">Homework Progress:</label>
-      <p v-for="student in hwNotificationArr" v-bind:key="student.id">
-        {{student.name}}
+      <!-- <table>
+        <tr v-for="student in hwNotificationArr" v-bind:key="student.id">{{student.name}}</tr>
+      </table> -->
+      <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
+       <!-- <th scope="column"></th>   -->
+       <td>{{student.name}}</td> 
+       <td>{{student.completed}}</td>  
+    </tr>
+
+      <!-- <p id="student-para" v-for="student in hwNotificationArr" v-bind:key="student.id">
+        {{student.name}} ~ {{student.completed}}
         <span id="hw-completed">{{student.completed}}</span>
-      </p>
+      </p> -->
     </div>
     <br />
   </div>
@@ -75,11 +86,20 @@ export default {
 </script>
 
 <style scoped>
-* {
+/* * {
   background-color: #75b9be;
+} */
+td {
+  background-color: white;
 }
 label {
   background-color: white;
+  text-decoration: underline;
+}
+#class-details {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
 }
 #teacher-right-view {
   display: grid;
@@ -96,6 +116,7 @@ label {
   background-color: white;
   padding: 15px;
   grid-area: description;
+  border-color: rgb(221, 221, 221);
 }
 #difficulty {
   border: solid;
@@ -103,6 +124,7 @@ label {
   background-color: white;
   padding: 15px;
   grid-area: difficulty;
+  border-color: rgb(221, 221, 221);
 }
 #enrolled-students {
   border: solid;
@@ -110,7 +132,34 @@ label {
   background-color: white;
   padding: 15px;
   grid-area: enrolled-students;
+  border-color: rgb(221, 221, 221);
+
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  'enrolled-labelID enrolled-labelID'
+  'student-para hw-completed'; */
 }
+ /* #enrolled-labelID {
+  grid-area: enrolled-labelID;
+}
+#hw-completed {
+  grid-area: hw-completed;
+}
+#student-para {
+  grid-area: student-para;
+  white-space: nowrap;
+} */
+#hw-completed {
+  display: flex;
+  justify-content: right;
+}
+/* #student-para {
+  display: flex;
+  justify-content: left;
+} */
+
 #homework-notification {
   border: solid;
   border-radius: 20px;
@@ -118,7 +167,7 @@ label {
   padding: 15px;
   grid-area: homework-notification;
 }
-p {
+p, span {
   background-color: white;
 }
 </style>

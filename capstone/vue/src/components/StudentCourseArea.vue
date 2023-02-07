@@ -27,8 +27,11 @@
           required
         />
         <br />
-        <br />
-        <button type="submit" class="u-margin-y">Submit Homework</button>
+
+        <div id="button-div-2">
+          <button type="submit" class="u-margin-y">Submit Homework</button>
+        </div>
+        
       </form>
     </div>
   </div>
@@ -101,5 +104,9 @@ export default {
 }
 #homework-textbox {
   padding: 150px;
+}
+#button-div-2 {
+  display: flex;
+  justify-content: center;
 }
 </style>

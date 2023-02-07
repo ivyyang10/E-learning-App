@@ -1,5 +1,7 @@
 <template>
   <div id="student-right-view">
+    <h2 id="student-class-details-title">Class Details</h2>
+    <br>
     <div id="description"
       v-bind:to="{ name: 'courses', params: { id: course.id } }"
     >
@@ -47,17 +49,24 @@ export default {
 </script>
 
 <style scoped>
-* {
+/* * {
   background-color: #75b9be;
+} */
+#student-class-details-title {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
 }
 label {
-  background-color: white;  
+  background-color: white;
+  text-decoration: underline;  
 }
 #links {
   background-color: white;  
 }
 #instruction {
-  background-color: white;  
+  background-color: white;
+    
 }
 #student-right-view {
   display: grid;
@@ -70,6 +79,7 @@ label {
   border: solid;
   border-radius: 20px;
   background-color: white;
+  border-color: rgb(221, 221, 221);
   padding: 15px;
   grid-area: description;
 }
@@ -77,6 +87,7 @@ label {
   border: solid;
   border-radius: 20px;
   background-color: white;
+  border-color: rgb(221, 221, 221);
   padding: 15px;
   grid-area: curricula;
 }
