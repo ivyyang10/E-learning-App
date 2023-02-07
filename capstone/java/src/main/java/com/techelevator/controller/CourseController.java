@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.CourseDao;
 import com.techelevator.dao.HomeworkDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.dao.UsersCourseDao;
 import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,8 @@ public class CourseController {
     UserDao userDao;
     @Autowired
     HomeworkDao homeworkDao;
+    @Autowired
+    UsersCourseDao usersCourseDao;
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createcourse")
@@ -85,5 +88,19 @@ public class CourseController {
     @GetMapping("/students/{id}")
     public List<User> getStudentsByCourseId(@PathVariable int id){
         return userDao.getStudentByCourse(id);
+    }
+
+    @GetMapping("/homework")
+    public List<UsersCourse> checkHwByStudentId(Principal principal){
+        String loggedInUser = principal.getName();
+        int studentId = userDao.findIdByUsername(loggedInUser);
+        
+        return usersCourseDao.checkHwByStudentId(studentId);
+    }
+
+
+    @GetMapping("/homework/{id}")
+    public  List<UsersCourse> checkHwByCourseId(int id){
+        return usersCourseDao.checkHwByCourseId(id);
     }
 }
