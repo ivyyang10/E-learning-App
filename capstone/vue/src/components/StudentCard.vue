@@ -3,6 +3,8 @@
     <h3>
           {{userObject.username}}
     </h3>
+    <img src="../assets/smiley.jpg" alt="smiley-face">
+    
   </div>
 </template>
 
@@ -24,5 +26,9 @@ props: {
   margin: 20px;
   padding: 15px;
   display: inline-block;
+}
+img {
+  width: 50px;
+  
 }
 </style>

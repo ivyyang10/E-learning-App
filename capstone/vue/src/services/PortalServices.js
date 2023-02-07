@@ -27,5 +27,8 @@ export default {
     },
     getCourseByStudentId() {
         return axios.get(`/studentcourses`)
+    },
+    getStudentByCourseId(id) {
+        return axios.get(`/students/${id}`)
     }
 }

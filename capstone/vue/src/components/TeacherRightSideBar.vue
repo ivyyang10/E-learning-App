@@ -23,9 +23,10 @@
     <br />
 
     <div id="enrolled-students">
-      <label id="enrolled-labelID" for="enrolled-label"
-        >Enrolled Students:</label
-      >
+      <label id="enrolled-labelID" for="enrolled-label">Enrolled Students:</label>
+      <p v-for="student in enrolledStudents" v-bind:key="student.id">
+        {{student.name}}
+      </p>
     </div>
     <br />
 
@@ -42,6 +43,7 @@ export default {
   name: "teacher-right-side-bar",
   data() {
     return {
+      enrolledStudents: [],
       course: {
         courseId: "",
         courseName: "",
@@ -60,6 +62,11 @@ export default {
     PortalServices.getCourses(this.$route.params.id).then((response) => {
       this.course = response.data;
     });
+    PortalServices.getStudentByCourseId(this.$route.params.id).then(
+      (response) => {
+        this.enrolledStudents = response.data;
+      }
+    )
   },
 };
 </script>
@@ -107,5 +114,8 @@ label {
   background-color: white;
   padding: 15px;
   grid-area: homework-notification;
+}
+p {
+  background-color: white;
 }
 </style>
