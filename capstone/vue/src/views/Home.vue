@@ -3,6 +3,7 @@
     <h1 id="school-name">Inquisit Course Page</h1>
 
     <teacher-portal-buttons id="teacher-buttons" />
+    <student-progress v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
 
     <course-list id="course-list" />
   </div>
@@ -11,9 +12,10 @@
 <script>
 import CourseList from "../components/CourseList.vue";
 import TeacherPortalButtons from "../components/TeacherPortalButtons.vue";
+import StudentProgress from "../components/StudentProgress.vue"
 
 export default {
-  components: { CourseList, TeacherPortalButtons },
+  components: { CourseList, TeacherPortalButtons, StudentProgress },
   name: "home",
 };
 </script>
