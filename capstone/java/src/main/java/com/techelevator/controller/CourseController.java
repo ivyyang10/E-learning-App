@@ -63,7 +63,7 @@ public class CourseController {
     }
 
     @GetMapping("/users")
-    public List<User> listAllUsers() {
+    public List<User> listAllStudents() {
         return userDao.getAllStudents();
     }
 
@@ -80,5 +80,10 @@ public class CourseController {
     @ResponseStatus(HttpStatus.CREATED)
     public void submitStudentIntoCourse(@PathVariable int customId, @RequestBody UserDTO userDTO){
         courseDao.submitStudentIntoCourse(customId, userDTO);
+    }
+
+    @GetMapping("/students/{id}")
+    public List<User> getStudentsByCourseId(@PathVariable int id){
+        return userDao.getStudentByCourse(id);
     }
 }
