@@ -1,9 +1,8 @@
 <template>
-  <div> 
-    <p>
-      Hello?
-    </p>
-    {{userObject.username}}
+  <div id="card"> 
+    <h3>
+          {{userObject.username}}
+    </h3>
   </div>
 </template>
 
@@ -17,5 +16,13 @@ props: {
 </script>
 
 <style>
-
+#card {
+    border: 2px solid black;
+  border-radius: 10px;
+    width: 100px;
+  height: 150px;
+  margin: 20px;
+  padding: 15px;
+  display: inline-block;
+}
 </style>
