@@ -7,7 +7,6 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import CourseMaker from '../views/CourseMaker.vue'
 import ViewAllStudents from '../views/ViewAllStudents.vue'
-import HomeworkView from '../views/HomeworkView.vue'
 import QuizView from '../views/QuizView.vue'
 // import TeacherCourseDetail from '../views/TeacherCourseDetail.vue'
 import StudentCourseDetail from '../views/StudentCourseDetail.vue'
@@ -75,14 +74,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    {
-      path: "/homeworkview",
-      name: "homeworkview",
-      component: HomeworkView,
-      meta: {
-        requiresAuth: true
-      }
-    },
+    // {
+    //   path: "/homeworkview",
+    //   name: "homeworkview",
+    //   component: HomeworkView,
+    //   meta: {
+    //     requiresAuth: true
+    //   }
+    // },
     {
       path: "/course/:id",
       name: "courseDetails",

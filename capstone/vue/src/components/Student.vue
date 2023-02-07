@@ -33,9 +33,9 @@ export default {
 </script>
 
 <style>
-#course-style {
+/* #course-style {
   border: 2px solid black;
   border-radius: 10px;
   padding: 15px;
-}
+} */
 </style>

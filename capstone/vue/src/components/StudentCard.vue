@@ -3,7 +3,9 @@
     <h3>
           {{userObject.username}}
     </h3>
-    <img src="../assets/smiley.jpg" alt="smiley-face">
+    <h1 id ="emoji"> 🧑‍🎓</h1>
+   
+    <!-- <img src="../assets/smiley.jpg" alt="smiley-face"> -->
     
   </div>
 </template>
@@ -27,8 +29,11 @@ props: {
   padding: 15px;
   display: inline-block;
 }
-img {
+/* img {
   width: 50px;
   
+} */
+#emoji {
+  width: 80px;
 }
 </style>
