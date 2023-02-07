@@ -48,6 +48,13 @@ public class CourseController {
         return courseDao.findAllCourses(teacherId);
     }
 
+    @GetMapping("/studentcourses")
+    public List<Course> findCourseByStudentId(Principal principal){
+        String user = principal.getName();
+        int studentId = userDao.findIdByUsername(user);
+        return courseDao.findCourseByStudentId(studentId);
+    }
+
     @GetMapping("/course/{id}")
     public Course getCourseById(@PathVariable int id){
         Course course = courseDao.findCourseById(id);
@@ -71,6 +78,7 @@ public class CourseController {
         return homeworkDao.submitHomework(courseId,studentId,hw.getHwSubmission());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/course/{customId}")
     @ResponseStatus(HttpStatus.CREATED)
     public void submitStudentIntoCourse(@PathVariable int customId, @RequestBody User newUser){

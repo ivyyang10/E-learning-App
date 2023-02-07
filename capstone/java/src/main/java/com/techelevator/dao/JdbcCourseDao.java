@@ -50,6 +50,20 @@ public class JdbcCourseDao  implements CourseDao{
     }
 
     @Override
+    public List<Course> findCourseByStudentId(int studentId){
+        List<Course> courses = new ArrayList<>();
+        String sql = "SELECT * FROM course AS c " +
+                "JOIN users_course AS uc ON c.course_id = uc.course_id " +
+                "WHERE uc.user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, studentId);
+        while (results.next()){
+            Course course = mapRowToCourse(results);
+            courses.add(course);
+        }
+        return courses;
+    }
+
+    @Override
     public Course findCourseById(int courseId){
         Course course = null;
         String sql = "Select * from course where course_id = ?";
@@ -59,6 +73,7 @@ public class JdbcCourseDao  implements CourseDao{
         }
         return course;
     }
+
 
     @Override
     public boolean submitStudentIntoCourse(int courseId, User newuser){

@@ -15,6 +15,8 @@ public interface CourseDao {
 
     Course findCourseById(int courseId);
 
+    List<Course> findCourseByStudentId(int studentId);
+
     boolean submitStudentIntoCourse(int courseId, User newuser);
 
 
