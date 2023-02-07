@@ -1,6 +1,6 @@
 <template>
   <div id="teacher-center-view">
-    <div id="working-area-header">
+    <div id="teacher-area-header">
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
       </h1>
@@ -18,25 +18,28 @@
 
       <!-- <router-link v-bind:to="{ name: 'quizview' }"
           ><button id="create-quiz-button">Create Quiz</button></router-link> -->
-
     </div>
-    
-      <h3>Add Students to Class</h3>
-    
-    <add-students-to-course id="add-students"/>
 
+    <button
+      id="show-form-button"
+      v-on:click.prevent="showForm = !showForm">
+      Add Students to Class
+    </button>
+
+    <add-students-to-course id="add-students" v-if="showForm === true" />
+    
   </div>
 </template>
 
 <script>
 import PortalServices from "../services/PortalServices";
-import AddStudentsToCourse from '../components/AddStudentsToCourse.vue';
+import AddStudentsToCourse from "../components/AddStudentsToCourse.vue";
 
 export default {
   components: { AddStudentsToCourse },
   data() {
     return {
-      hideform: false,
+      showForm: false,
       course: {
         courseId: "",
         courseName: "",
@@ -62,15 +65,15 @@ export default {
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr 1fr;
   grid-template-areas:
-    "working-area-header"
+    "teacher-area-header"
     "row-two";
 }
-#working-area-header {
-  grid-area: working-area-header;
+#teacher-area-header {
+  grid-area: teacher-area-header;
 }
 #row-two {
   grid-area: row-two;
-  padding: 10px
+  padding: 10px;
 }
 #instruction {
   padding: 25px;
@@ -90,5 +93,6 @@ export default {
 
 #add-students {
   display: flex;
+  justify-content: center;
 }
 </style>

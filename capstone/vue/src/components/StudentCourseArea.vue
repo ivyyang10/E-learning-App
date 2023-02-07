@@ -1,6 +1,6 @@
 <template>
   <div id="student-center-view">
-    <div id="working-area-header" >
+    <div id="student-area-header" >
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
 
@@ -86,13 +86,13 @@ export default {
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr 1fr;
   grid-template-areas:
-    "working-area-header"
+    "student-area-header"
     "homework-submission";
 }
-#working-area-header {
+#student-area-header {
   display: flex;
   justify-content: center;
-  grid-area: working-area-header;
+  grid-area: student-area-header;
 }
 #homework-submission {
   display: block;

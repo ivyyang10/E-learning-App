@@ -1,5 +1,5 @@
 <template>
-  <div id="course-style">
+  <div id="student-style">
 
     <button v-on:click="addStudentToCourse">{{userObject.username}}</button>
 
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* #course-style {
   border: 2px solid black;
   border-radius: 10px;

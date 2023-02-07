@@ -45,11 +45,11 @@
   margin-right: 25px;
   margin-top: 25px;
 }
-/* footer {
+footer {
   border-top: solid;
   border-color: #75b9be;
   height: 35px;
-} */
+}
 #app {
   height: 100%;
 }

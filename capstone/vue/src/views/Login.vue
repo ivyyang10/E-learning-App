@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <body>
     <div id="middle-grid">
       <div id="image-container">
         <img
@@ -60,7 +60,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </body>
 </template>
 
 <script>
@@ -120,7 +120,6 @@ main {
 }
 #login-photo {
   display: grid;
-  /* border-radius: 25px; */
   height: 100%;
   width: 100%;
 }
@@ -158,12 +157,12 @@ input {
   padding-bottom: 20px;
 }
 
-footer {
+/* footer {
   display: grid;
   padding-top: 25px;
   padding-bottom: 10px;
   justify-content: center;
-}
+} */
 #username {
   text-align: center;
 }
