@@ -42,7 +42,7 @@
   <input type="radio" v-model="color" value="0">Student
   <input type="radio" v-model="color" value="1">Teacher
   <br /> <br> -->
-
+<br>
       <label for="role" class="sr-only">Are you an educator?</label>
       <input
         v-on:click="setRole(checked)"
@@ -77,12 +77,13 @@
         required
       />
       <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <br>
+      <button class="btn btn-lg btn-primary btn-block"  type="submit">
         Create Account
       </button>
             <br>
             <br>
-            
+         <br>   
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
      </div>
     </form>
@@ -163,18 +164,21 @@ main {
   /* border-style: solid;
   border-color: #75b9be; */
   padding-bottom: 20px;
+  padding-top: 30px;
 }
 #registerform {
   border-style: solid;
   border-radius: 25px;
-  padding: 20px;
+  padding: 30px;
   padding-right: 100px;
   padding-left: 100px;
+  margin: 50px 50px;
 }
 input, label {
   display: block;
 }
 label {
+  padding: 5px;
   padding-top: 15px;
 }
 input {
@@ -182,5 +186,6 @@ input {
   border-bottom: solid 3px;
   padding: 15px;
 }
+
 
 </style>

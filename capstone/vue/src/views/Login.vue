@@ -108,7 +108,7 @@ main {
 }
 #middle-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
  
   row-gap: 20px;
   column-gap: 35px;
@@ -169,12 +169,6 @@ footer {
 }
 #password {
   text-align: center;
-}
-#submit-button {
-  border-radius: 25px;
-  border-color: white;
-  padding: 15px;
-  background-color: #75b9be;
 }
 #need-account {
   padding: 7px;

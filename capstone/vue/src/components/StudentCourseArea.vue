@@ -1,6 +1,6 @@
 <template>
   <div id="student-center-view">
-    <div id="working-area-header">
+    <div id="working-area-header" >
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
 
