@@ -8,17 +8,11 @@
 </template>
 
 <script>
-import PortalServices from '../services/PortalServices';
+
 
 export default {
   name: "teacher-portal-buttons",
-    created(){
-      PortalServices.getUser()
-      .then((response) =>{
-        this.$store.state.users = response.data;
-      })
-  }
-
+  
 }
 </script>
 

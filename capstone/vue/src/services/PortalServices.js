@@ -10,9 +10,6 @@ export default {
     getCourses(id){
         return axios.get(`/course/${id}`)
     },
-    getUser(){
-        return axios.get('/')
-    },
     getQuiz(id) {
         return axios.get(`/viewquiz/${id}`)
     },
@@ -27,5 +24,8 @@ export default {
     },
     submitHomework(id, homeworkObject) {
         return axios.post(`/course/${id}/homework`, homeworkObject)
+    },
+    getCourseByStudentId() {
+        return axios.get(`/studentcourses`)
     }
 }
