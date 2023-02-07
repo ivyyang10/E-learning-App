@@ -82,8 +82,7 @@
         Create Account
       </button>
             <br>
-            <br>
-         <br>   
+            <br>  
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
      </div>
     </form>
@@ -164,12 +163,12 @@ main {
   /* border-style: solid;
   border-color: #75b9be; */
   padding-bottom: 20px;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 #registerform {
   border-style: solid;
   border-radius: 25px;
-  padding: 30px;
+  padding: 20px;
   padding-right: 100px;
   padding-left: 100px;
   margin: 50px 50px;

@@ -103,9 +103,6 @@ export default {
 
 
 <style scoped>
-main {
-  background-color: #ffffff;
-}
 #middle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -128,10 +125,6 @@ main {
 }
 #login {
   padding: 50px;
-  /* border-radius: 25px;
-  background-color: #A8CCC9;
-  border-style: solid;
-  border-color: #75b9be; */
 }
 input, label {
   display: block;

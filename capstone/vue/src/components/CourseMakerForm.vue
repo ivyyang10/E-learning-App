@@ -113,16 +113,16 @@ export default {
 #course-maker-all {
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+   padding-bottom: 20px;
+  padding-top: 20px;
 }
 #courseform {
-align-items: center;
-      border-style: solid;
+  border-style: solid;
   border-radius: 25px;
   padding: 20px;
   padding-right: 100px;
   padding-left: 100px;
-  margin: 10px;
+  margin: 50px 50px;
 }
 .description {
     padding-top: 30px;
@@ -132,14 +132,13 @@ input, label {
   display: block;
 }
 label {
+    padding: 5px;
   padding-top: 15px;
 }
 input {
-    padding: 8px;
-  border-radius: 25px;
+    border-radius: 25px;
   border-bottom: solid 3px;
-  display: grid;
-  justify-content: center;
+  padding: 15px;
 }
 #buttons {
     display: inline-block;

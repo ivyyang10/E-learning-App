@@ -6,7 +6,7 @@
       >&nbsp;&nbsp;&nbsp;
      
       <router-link v-bind:to="{ name: 'home' }"
-        ><img id="logo2" src="./assets/leftspacelogo.png" alt="School Logo2" align="left" /></router-link
+        ><img id="logo2" src="./assets/leftspacelogo.png" alt="School Logo2" align="right" /></router-link
       >
     
       <span id="nav-right"
@@ -35,7 +35,7 @@
   border-color: #75b9be;
   display: flex;
   justify-content: space-between;
-  background-color:#FFFF;
+  background-color: #FAF9F6;
 }
 #viewerName {
   display: flex;

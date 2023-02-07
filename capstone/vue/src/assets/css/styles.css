@@ -4,7 +4,6 @@
     background-color: #FAF9F6;
 }
 
-
 /* Flex / Layout */
 .flex-container{
     display: flex;
@@ -39,8 +38,6 @@ button {
     transition-duration: 0.4s;
     position: relative;
 }
-
-  
   button:hover {
     background-color: #75b9be; /* Green */
     color: white;
