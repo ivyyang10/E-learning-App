@@ -1,4 +1,6 @@
 <template>
+
+
   <div id="teacher-right-view">
     <div
       id="description"
@@ -24,8 +26,9 @@
 
     <div id="enrolled-students">
       <label id="enrolled-labelID" for="enrolled-label">Homework Progress:</label>
-      <p v-for="student in enrolledStudents" v-bind:key="student.id">
+      <p v-for="student in hwNotificationArr" v-bind:key="student.id">
         {{student.name}}
+        <span id="hw-completed">{{student.completed}}</span>
       </p>
     </div>
     <br />
@@ -38,6 +41,7 @@ export default {
   name: "teacher-right-side-bar",
   data() {
     return {
+      hwNotificationArr: [],
       enrolledStudents: [],
       course: {
         courseId: "",
@@ -60,6 +64,11 @@ export default {
     PortalServices.getStudentByCourseId(this.$route.params.id).then(
       (response) => {
         this.enrolledStudents = response.data;
+      }
+    );
+    PortalServices.hwSubmissionNotificationTeacher(this.$route.params.id).then(
+      (response) => {
+        this.hwNotificationArr = response.data;
       }
     )
   },

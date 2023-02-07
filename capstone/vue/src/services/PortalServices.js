@@ -30,5 +30,11 @@ export default {
     },
     getStudentByCourseId(id) {
         return axios.get(`/students/${id}`)
+    },
+    hwSubmissionNotificationTeacher(id) {
+        return axios.get(`/homework/${id}`)
+    },
+    studentProgress() {
+        return axios.get(`/homework`)
     }
 }

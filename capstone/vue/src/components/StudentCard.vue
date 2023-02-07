@@ -26,7 +26,7 @@ export default {
   padding: 15px;
   display: inline-block;
 }
- /* img {
+ img {
   width: 50px;
-} */
+}
 </style>
