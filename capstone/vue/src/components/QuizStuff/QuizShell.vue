@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import PortalServices from "../services/PortalServices";
+import PortalServices from "../../services/PortalServices";
 export default {
   data() {
     return {

@@ -15,9 +15,10 @@
       <label id="resources-label" for="resources">Class Resources</label>
 
       <p id="resources">{{ course.links }}</p>
-      <router-link v-bind:to="{ name: 'quizview' }"
-          ><button id="create-quiz-button">Create Quiz</button></router-link
-        >
+
+      <!-- <router-link v-bind:to="{ name: 'quizview' }"
+          ><button id="create-quiz-button">Create Quiz</button></router-link> -->
+
     </div>
 
     <add-students-to-course id="add-students"/>

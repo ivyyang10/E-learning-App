@@ -83,30 +83,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "/quiz",
-    //   name: "quizview",
-    //   component: QuizView,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
-    // {
-    //   path: "/course/:id",
-    //   name: "course",
-    //   component: Course,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
-    //     {
-    //       path: "/course/:id",
-    //       name: "courseDetails",
-    //       component: TeacherCourseDetail,
-    //       meta: {
-    //         requiresAuth: true
-    //       }
-    //   },
     {
       path: "/course/:id",
       name: "courseDetails",

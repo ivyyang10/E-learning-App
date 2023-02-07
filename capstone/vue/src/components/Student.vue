@@ -1,12 +1,8 @@
 <template>
   <div id="course-style">
-    <!-- <p>
-      {{ userObject.username }}
-    </p> -->
 
     <button v-on:click="addStudentToCourse">{{userObject.username}}</button>
 
-    <!-- v-bind:to="{name: 'studentDetails', params:{id: $store.state.userObject.id}}" -->
   </div>
 </template>
 

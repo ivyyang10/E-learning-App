@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import QuizShell2 from "../components/QuizShell2.vue";
+import QuizShell2 from "../components/QuizStuff/QuizShell2.vue";
 export default {
   components: { QuizShell2 },
 };
