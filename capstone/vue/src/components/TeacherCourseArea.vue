@@ -20,7 +20,9 @@
           ><button id="create-quiz-button">Create Quiz</button></router-link> -->
 
     </div>
-
+    
+      <h3>Add Students to Class</h3>
+    
     <add-students-to-course id="add-students"/>
 
   </div>
@@ -34,6 +36,7 @@ export default {
   components: { AddStudentsToCourse },
   data() {
     return {
+      hideform: false,
       course: {
         courseId: "",
         courseName: "",
@@ -84,7 +87,8 @@ export default {
 #create-quiz-button {
   padding: 10px;
 }
-/* #add-students {
-  border: solid;
-} */
+
+#add-students {
+  display: flex;
+}
 </style>

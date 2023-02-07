@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>List of Students Goes Here</h1>
+    
 
 
 
