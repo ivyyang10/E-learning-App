@@ -6,6 +6,11 @@
         v-bind:key="course.id"
         v-bind:course="course"
       />
+      <course
+        v-for="course in studentCourses"
+        v-bind:key="course.id"
+        v-bind:course="course"
+      />
     </div>
   </div>
 </template>
@@ -22,6 +27,7 @@ export default {
   data() {
     return {
       courses: [],
+      studentCourses: []
     };
   },
   methods: {
@@ -34,6 +40,11 @@ export default {
   },
   created() {
     this.getAllCourses();
+    PortalServices.getCourseByStudentId().then(
+      (response) => {
+        this.studentCourses = response.data;
+      }
+    )
   },
 };
 </script>
