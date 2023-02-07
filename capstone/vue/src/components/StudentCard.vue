@@ -1,29 +1,26 @@
 <template>
-  <div id="card"> 
+  <div id="card">
     <h3>
-          {{userObject.username}}
+      {{ userObject.username }}
     </h3>
-    <h1 id ="emoji"> 🧑‍🎓</h1>
-   
-    <!-- <img src="../assets/smiley.jpg" alt="smiley-face"> -->
-    
+    <img src="../assets/smiley.jpg" alt="smiley-face" />
   </div>
 </template>
 
 <script>
 export default {
-name: "studentCard",
-props: {
-  userObject: Object 
-}
-}
+  name: "studentCard",
+  props: {
+    userObject: Object,
+  },
+};
 </script>
 
 <style>
 #card {
-    border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10px;
-    width: 100px;
+  width: 100px;
   height: 150px;
   margin: 20px;
   padding: 15px;
@@ -31,9 +28,5 @@ props: {
 }
 /* img {
   width: 50px;
-  
-} */
-#emoji {
-  width: 80px;
 }
 </style>
