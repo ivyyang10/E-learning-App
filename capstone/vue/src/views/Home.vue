@@ -1,44 +1,47 @@
 <template>
   <div class="home">
-    <h1 id="school-name">Welcome to Thwin Secondary School</h1>
+    <h1 id="school-name">Inquisit Course Page</h1>
 
-    <div>
-    <teacher-portal-buttons id="teacher-buttons"/>
-    </div>
-    
-    <course-list id="course-list"/>
+    <teacher-portal-buttons id="teacher-buttons" />
+
+    <course-list id="course-list" />
   </div>
 </template>
 
 <script>
-import CourseList from '../components/CourseList.vue';
-import TeacherPortalButtons from '../components/TeacherPortalButtons.vue';
-// import PortalServices from '../services/PortalServices';
+import CourseList from "../components/CourseList.vue";
+import TeacherPortalButtons from "../components/TeacherPortalButtons.vue";
 
 export default {
-  
   components: { CourseList, TeacherPortalButtons },
-  name: "home"
+  name: "home",
 };
 </script>
 
 <style scoped>
 .home {
   display: grid;
+  padding-bottom: 100px;
   grid-auto-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 1fr 1fr;
-  grid-template-areas: 
-  'school-name school-name teacher-buttons'
-  'course-list course-list course-list';
+  grid-auto-rows: 150px 1fr;
+  grid-template-areas:
+    "school-name school-name teacher-buttons"
+    "course-list course-list course-list";
 }
 #school-name {
   grid-area: school-name;
+  justify-content: left;
+  padding: 10px;
+  margin-left: 0px;
 }
 #teacher-buttons {
   grid-area: teacher-buttons;
-  padding: 25px;
+  padding: 35px;
+  padding-right: 50px;
+  margin-top: 20px;
 }
 #course-list {
   grid-area: course-list;
+  margin-bottom: 150px;
 }
 </style>
