@@ -100,7 +100,7 @@ public class CourseController {
 
 
     @GetMapping("/homework/{id}")
-    public  List<UsersCourse> checkHwByCourseId(int id){
+    public  List<UsersCourse> checkHwByCourseId(@PathVariable int id){
         return usersCourseDao.checkHwByCourseId(id);
     }
 }

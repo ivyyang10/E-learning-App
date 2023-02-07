@@ -33,7 +33,7 @@ public class JdbcUsersCourseDao implements UsersCourseDao{
     @Override
     public List<UsersCourse> checkHwByCourseId(int id) {
         List<UsersCourse> usersCourses =new ArrayList<>();
-        String sql= "SELECT name, completed, course_id FROM users AS u " +
+        String sql= "SELECT name, completed, course_id, FROM users AS u " +
                 "JOIN users_course AS uc ON u.user_id = uc.user_id " +
                 "WHERE course_id = ?;";
 
