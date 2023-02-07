@@ -1,17 +1,17 @@
 <template>
   <div id="course-maker-all">
   <form class="course-maker-form" id="courseform" v-on:submit.prevent="saveCourse">
-    <h2>Course Description</h2>
-    <input 
+
+   
+    <div id="all-description">
+            <input 
     class="courseName" 
     type="text" 
     placeholder="Course Name" 
     v-model="course.courseName"
     required 
     />
-   <br>
-    <div id="all-description">
-        
+    <br>
         <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
         
         <br>
@@ -35,7 +35,7 @@
         <br>
         </div>
     <div id="curricula">
-        <h2>Curricula</h2>
+      
 
     <div>
   
@@ -114,17 +114,42 @@ export default {
   display: flex;
   justify-content: center;
    padding-bottom: 20px;
-  padding-top: 20px;
+   justify-items: center;
+   
 }
 #courseform {
+     display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 2fr 1fr; */
+  grid-template-areas: "coursedescription curricula"
+  "buttons buttons";
+    justify-items: center;
+    align-items: center;
+    align-content: space-between;
   border-style: solid;
+   padding: 30px;
   border-radius: 25px;
-  padding: 20px;
-  padding-right: 100px;
+ 
+  /* padding-right: 10px;
   padding-left: 100px;
-  margin: 50px 50px;
+  margin: 10px; */
+  background-color: white;
 }
 .description {
+    padding-top: 30px;
+padding-bottom: 30px;
+}
+#all-description {
+        grid-area: coursedescription;
+        display: grid;
+   align-items: center;
+}
+#curricula {
+    grid-area: curricula;
+       display: grid;
+   align-items: center;
+}
+.hwAssignment {
     padding-top: 30px;
 padding-bottom: 30px;
 }
@@ -132,18 +157,24 @@ input, label {
   display: block;
 }
 label {
-    padding: 5px;
   padding-top: 15px;
 }
 input {
+    padding: 8px;
+    padding-right: 10px;
     border-radius: 25px;
   border-bottom: solid 3px;
-  padding: 15px;
+  display: grid;
+
 }
 #buttons {
+    grid-area: buttons;
     display: inline-block;
 }
 button {
 margin-right: 20px;
+}
+.course-maker-form {
+      background-color: transparent;
 }
 </style>
