@@ -27,9 +27,12 @@ public class JdbcHomeworkDao implements HomeworkDao{
 
     @Override
     public Homework submitHomework(int courseId, int studentId, String hwSubmission) {
-        String sql= "INSERT INTO homework (course_id, student_id, hw_submission)"+
+        String sql1= "INSERT INTO homework (course_id, student_id, hw_submission)"+
                 "VALUES (?,?,?) RETURNING homework_id";
-        Integer homeworkId= jdbcTemplate.queryForObject(sql,Integer.class,courseId,studentId,hwSubmission);
+        Integer homeworkId= jdbcTemplate.queryForObject(sql1,Integer.class,courseId,studentId,hwSubmission);
+
+        String sql2= "UPDATE users_course SET completed = true WHERE user_id=? and course_id =?";
+        jdbcTemplate.update(sql2,studentId,courseId);
 
         return findHomeworkById(homeworkId);
     }
