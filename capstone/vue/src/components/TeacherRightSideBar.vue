@@ -23,17 +23,12 @@
     <br />
 
     <div id="enrolled-students">
-      <label id="enrolled-labelID" for="enrolled-label">Enrolled Students:</label>
+      <label id="enrolled-labelID" for="enrolled-label">Homework Progress:</label>
       <p v-for="student in enrolledStudents" v-bind:key="student.id">
         {{student.name}}
       </p>
     </div>
     <br />
-
-    <div id="homework-notification">
-      <label id="hw-notification-labelID" for="hw-notification-label"
-        >Homework Notification:</label>
-    </div>
   </div>
 </template>
 

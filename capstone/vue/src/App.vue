@@ -20,7 +20,7 @@
 
 <style scoped>
 img {
-  width: 100px;
+  width: 60px;
 }
 #nav {
   border-bottom: solid;

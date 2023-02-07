@@ -1,28 +1,36 @@
 <template>
   <div id="student-center-view">
-    <div id="working-area-header" >
+    <div id="working-area-header">
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
 
         <!-- <router-link v-bind:to="{ name: 'quizview' }"
           ><button>Go To Quiz</button>
           </router-link> -->
-
       </h1>
     </div>
-    <h3>
-      {{ course.hwAssignment }}
-    </h3>
-    <form 
-    id="homework-submission" v-on:submit.prevent="saveHomework">
-      <label id="hw-label" for="homework">Homework Submission Area</label>
-      <br />
-      <br />
-      <input placeholder="Please write your essay here" id="homework-textbox" type="text" v-model="homeworkObject.hwSubmission" required/>
-      <br />
-      <br />
-      <button type="submit">Submit Homework</button>
-    </form>
+    <div class="flex-container-column flex-container-center">
+      <h3 class="u-text-center u-margin-top">
+        {{ course.hwAssignment }}
+      </h3>
+      <form id="homework-submission" v-on:submit.prevent="saveHomework">
+        <label id="hw-label" for="homework" class="u-text-center"
+          >Homework Submission Area</label
+        >
+        <br />
+        <br />
+        <input
+          placeholder="Please write your essay here"
+          id="homework-textbox"
+          type="text"
+          v-model="homeworkObject.hwSubmission"
+          required
+        />
+        <br />
+        <br />
+        <button type="submit" class="u-margin-y">Submit Homework</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -42,33 +50,33 @@ export default {
         teacherId: "",
       },
       homeworkObject: {
-        homeworkId: '',
-        courseId: '',
-        studentId: '',
-        hwSubmission: ''
-      }
+        homeworkId: "",
+        courseId: "",
+        studentId: "",
+        hwSubmission: "",
+      },
     };
   },
   methods: {
     saveHomework() {
-      console.log(this.homeworkObject)
+      console.log(this.homeworkObject);
       PortalServices.submitHomework(this.$route.params.id, this.homeworkObject)
-      .then(response => {
-        if(response.status === 201) {
-          alert('Your homework has been submitted!')
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        alert('Uh oh, please try to submit your homework again!');
-      })
-    }
+        .then((response) => {
+          if (response.status === 201) {
+            alert("Your homework has been submitted!");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Uh oh, please try to submit your homework again!");
+        });
+    },
   },
   created() {
     PortalServices.getCourses(this.$route.params.id).then((response) => {
       this.course = response.data;
     });
-  }
+  },
 };
 </script>
 
