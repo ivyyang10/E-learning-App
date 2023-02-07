@@ -108,7 +108,7 @@ main {
 }
 #middle-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
  
   row-gap: 20px;
   column-gap: 35px;
@@ -147,6 +147,7 @@ input {
   /* padding-top: 10px; */
   justify-content: center;
   /* max-width: 35%; */
+  
 }
 
 #form-container {
