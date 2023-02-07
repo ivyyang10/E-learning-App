@@ -20,13 +20,16 @@ export default {
       PortalServices.addStudentToCourse(this.$route.params.id, this.userObject)
       .then((response) => {
           if(response.status === 201) {
-            alert('Student has been added');
+            alert('Student has been added')
           }
         })
         .catch(error => {
           console.error(error);
           alert('Sorry, this student has not been added');
         })
+    },
+    refreshPage() {
+      window.location.reload()
     }
   }
 };

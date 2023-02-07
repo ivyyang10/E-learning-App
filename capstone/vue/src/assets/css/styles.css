@@ -1,7 +1,9 @@
 *, html {
     padding: 0px;
     margin: 0px;
+    background-color: #FAF9F6;
 }
+
 
 /* Flex / Layout */
 .flex-container{
@@ -34,10 +36,10 @@ label {
 button {
     outline: unset;
     border: unset;
-}
-button {
     transition-duration: 0.4s;
-  }
+    position: relative;
+}
+
   
   button:hover {
     background-color: #75b9be; /* Green */

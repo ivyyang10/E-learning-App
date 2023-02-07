@@ -15,19 +15,17 @@
       <label id="resources-label" for="resources">Class Resources</label>
 
       <p id="resources">{{ course.links }}</p>
+      <br />
 
-      <!-- <router-link v-bind:to="{ name: 'quizview' }"
-          ><button id="create-quiz-button">Create Quiz</button></router-link> -->
+      <div id="button-div">
+        <button id="show-form-button" v-on:click.prevent="showForm = !showForm">
+        Add Students to Class
+      </button>
+      </div>
+      
     </div>
 
-    <button
-      id="show-form-button"
-      v-on:click.prevent="showForm = !showForm">
-      Add Students to Class
-    </button>
-
     <add-students-to-course id="add-students" v-if="showForm === true" />
-    
   </div>
 </template>
 
@@ -92,6 +90,10 @@ export default {
 }
 
 #add-students {
+  display: flex;
+  justify-content: center;
+}
+#button-div {
   display: flex;
   justify-content: center;
 }

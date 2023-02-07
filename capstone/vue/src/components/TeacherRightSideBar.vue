@@ -53,10 +53,9 @@ export default {
         links: "",
         hwAssignment: "",
         teacherId: "",
-      },
+      }
     };
   },
-
   created() {
     PortalServices.getCourses(this.$route.params.id).then((response) => {
       this.course = response.data;
