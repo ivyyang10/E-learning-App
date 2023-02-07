@@ -1,6 +1,6 @@
 <template>
   <div id="student-center-view">
-    <div id="working-area-header">
+    <div id="working-area-header" >
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
 
@@ -10,7 +10,11 @@
 
       </h1>
     </div>
-    <form id="homework-submission" v-on:submit.prevent="saveHomework">
+    <h3>
+      {{ course.hwAssignment }}
+    </h3>
+    <form 
+    id="homework-submission" v-on:submit.prevent="saveHomework">
       <label id="hw-label" for="homework">Homework Submission Area</label>
       <br />
       <br />
@@ -60,6 +64,11 @@ export default {
       })
     }
   },
+  created() {
+    PortalServices.getCourses(this.$route.params.id).then((response) => {
+      this.course = response.data;
+    });
+  }
 };
 </script>
 
