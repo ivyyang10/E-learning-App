@@ -1,6 +1,9 @@
 <template>
   <div>
-    {{ calculateProgress }}
+    <p id="calculate-progress-show">
+      Course Progress: {{ calculateProgress }}
+    </p>
+    
   </div>
 </template>
 
@@ -36,4 +39,13 @@ export default {
 </script>
 
 <style>
+#calculate-progress-show {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  border: solid;
+  padding: 10px;
+  border-radius: 25px;
+}
 </style>

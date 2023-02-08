@@ -40,12 +40,10 @@ export default {
   grid-area: progress;
   justify-content: right;
   margin: 50px;
-  text-decoration: underline;
 }
 #teacher-buttons {
   grid-area: teacher-buttons;
   justify-content: center;
-  /* padding: 10px; */
   padding-right: 50px;
   margin-top: 33px;
 }
