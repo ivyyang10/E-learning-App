@@ -2,12 +2,18 @@
   <div>
     <h1>Homework Submissions:</h1>
     {{ homework.hwSubmission }}
+    <grade-homework/>
   </div>
 </template>
 
 <script>
 import PortalServices from "../services/PortalServices";
+import GradeHomework from"./GradeForm.vue";
+
 export default {
+    components: {
+        GradeHomework
+    },
   data() {
     return {
       homework: {},
