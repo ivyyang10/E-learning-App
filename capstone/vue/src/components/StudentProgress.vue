@@ -16,6 +16,9 @@ export default {
   computed: {
     calculateProgress() {
       let score = 0;
+      if (this.progressArr.length === 0) {
+        return 0 + "%";
+      }
       for (let i = 0; i < this.progressArr.length; i++) {
         if (this.progressArr[i].completed == true) {
           score++;

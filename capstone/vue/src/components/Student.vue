@@ -1,8 +1,13 @@
 <template>
   <div id="student-style">
-
-    <button v-on:click="addStudentToCourse(); refreshPage()">{{userObject.username}}</button>
-
+    <button
+      v-on:click="
+        addStudentToCourse();
+        refreshPage();
+      "
+    >
+      {{ userObject.name }}
+    </button>
   </div>
 </template>
 
@@ -16,22 +21,22 @@ export default {
   },
   methods: {
     addStudentToCourse() {
-      console.log(this.userObject)
+      console.log(this.userObject);
       PortalServices.addStudentToCourse(this.$route.params.id, this.userObject)
-      .then((response) => {
-          if(response.status === 201) {
-            alert('Student has been added')
+        .then((response) => {
+          if (response.status === 201) {
+            alert("Student has been added");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
-          alert('Sorry, this student has not been added');
-        })
+          alert("Sorry, this student has not been added");
+        });
     },
     refreshPage() {
-      window.location.reload()
-    }
-  }
+      window.location.reload();
+    },
+  },
 };
 </script>
 
