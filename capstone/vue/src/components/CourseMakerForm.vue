@@ -119,37 +119,25 @@ export default {
    
 }
 #courseform {
-     display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* grid-template-rows: 2fr 1fr; */
-  grid-template-areas: "coursedescription curricula"
-  "buttons buttons";
-  grid-column-gap: 1.5rem;
-    justify-items: center;
-    align-items: center;
-    align-content: space-between;
-  border-style: solid;
-   padding: 30px;
-  border-radius: 25px;
- 
-  /* padding-right: 10px;
-  padding-left: 100px;
-  margin: 10px; */
-  background-color: white;
+ display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-areas: 
+"description curricula"
+"button button" ;
+grid-column-gap: 2em;
+border-style: solid;
+padding: 2em;
+
 }
 .description {
     padding-top: 30px;
 padding-bottom: 30px;
 }
 #all-description {
-        grid-area: coursedescription;
-        display: grid;
-   align-items: center;
+        grid-area: description;
 }
 #curricula {
     grid-area: curricula;
-       display: grid;
-   align-items: center;
 }
 .hwAssignment {
     padding-top: 30px;
@@ -163,20 +151,24 @@ label {
 }
 input {
     padding: 8px;
-    padding-right: 10px;
     border-radius: 25px;
   border-bottom: solid 3px;
   display: grid;
+  justify-content: center;
 
 }
 #buttons {
-    grid-area: buttons;
-    display: inline-block;
+ display: flex;
+justify-content:space-around ;
+grid-area: button;
+margin-top: 1em;
+
+
 }
-button {
+/* button {
 margin-right: 20px;
-}
-.course-maker-form {
+} */
+/* .course-maker-form {
       background-color: transparent;
-}
+} */
 </style>
