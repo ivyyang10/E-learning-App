@@ -51,6 +51,7 @@
           class="form-control"
           placeholder="role"
           v-model="checked"
+          v-bind:role="setRole"
           autofocus
         />
 
@@ -141,8 +142,8 @@ export default {
           });
       }
     },
-    setRole(checked) {
-      if (checked) {
+    setRole() {
+      if (this.checked==true) {
         this.user.role = "admin";
       }
     },
