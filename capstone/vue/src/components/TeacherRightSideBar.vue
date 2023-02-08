@@ -34,7 +34,8 @@
       <br>
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
        <td>{{student.name}}</td> 
-       <td>{{student.completed}}</td>  
+       <td v-if="student.completed == true">Submitted</td>  
+       <td v-else-if="student.completed == false">Not Submitted</td> 
     </tr>
     </div>
     <br />
