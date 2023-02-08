@@ -28,12 +28,13 @@ export default {
   grid-template-areas:
     "school-name progress teacher-buttons "
     "course-list course-list course-list";
+  background-color: #f5f5f5;
 }
 #school-name {
   grid-area: school-name;
   justify-content: left;
   margin: 50px;
-  /* text-decoration: underline; */
+  text-decoration: underline;
   white-space: nowrap;
 }
 #progress {

@@ -65,9 +65,11 @@ export default {
   grid-template-areas:
     "teacher-area-header"
     "row-two";
+    
 }
 #teacher-area-header {
   grid-area: teacher-area-header;
+  
 }
 #row-two {
   grid-area: row-two;

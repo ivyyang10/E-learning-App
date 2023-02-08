@@ -46,7 +46,7 @@
   border-color: #75b9be;
   display: flex;
   justify-content: space-between;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
 }
 #viewerName {
   display: flex;

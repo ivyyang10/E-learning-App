@@ -37,7 +37,8 @@ export default {
 #course-card {
  
    background-color: white;
-   justify-content: flex-start; 
+   justify-content: flex-start;
+   border-radius: 10px; 
 }
 #books-image {
   display: flex;

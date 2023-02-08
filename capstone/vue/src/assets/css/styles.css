@@ -36,7 +36,7 @@ button {
     outline: unset;
     border: unset;
     transition-duration: 0.4s;
-    position: relative;
+    padding: 18px;
 }
   button:hover {
     background-color: #75b9be; /* Green */
