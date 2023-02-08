@@ -1,6 +1,5 @@
 <template>
   <div id="teacher-right-view">
-    {{ hwNotificationArr[0] }}
     <h2 id="class-details">Class Details</h2>
     <br />
     <div
