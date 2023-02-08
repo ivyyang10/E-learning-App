@@ -19,15 +19,6 @@ public class Homework {
         this.name = name;
     }
 
-    public Homework(int homeworkId, int courseId, int studentId, String hwSubmission, boolean completed, int grade) {
-        this.homeworkId = homeworkId;
-        this.courseId = courseId;
-        this.studentId = studentId;
-        this.hwSubmission = hwSubmission;
-        this.completed = completed;
-        this.grade = grade;
-    }
-
 
     public Homework() {
     }
@@ -64,20 +55,20 @@ public class Homework {
         this.hwSubmission = hwSubmission;
     }
 
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
     public boolean isCompleted() {
         return completed;
     }
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
     public String getName() {
