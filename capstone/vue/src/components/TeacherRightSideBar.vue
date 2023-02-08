@@ -1,9 +1,7 @@
 <template>
-
-
   <div id="teacher-right-view">
     <h2 id="class-details">Class Details</h2>
-    <br>
+    <br />
     <div
       id="description"
       v-bind:to="{ name: 'courses', params: { id: course.id } }"
@@ -29,14 +27,18 @@
     <br />
 
     <div id="enrolled-students">
-      <label id="enrolled-labelID" for="enrolled-label">Homework Progress:</label>
-      
-      <br>
+      <label id="enrolled-labelID" for="enrolled-label"
+        >Homework Progress:</label
+      >
+
+      <br />
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
-       <td>{{student.name}}</td> 
-       <td v-if="student.completed == true">Submitted</td>  
-       <td v-else-if="student.completed == false">Not Submitted</td> 
-    </tr>
+        <td>{{ student.name }}</td>
+        <td id="submitted" v-if="student.completed == true">Submitted</td>
+        <td id="notsubmitted" v-else-if="student.completed == false">
+          Not Submitted
+        </td>
+      </tr>
     </div>
     <br />
   </div>
@@ -60,7 +62,7 @@ export default {
         links: "",
         hwAssignment: "",
         teacherId: "",
-      }
+      },
     };
   },
   created() {
@@ -76,7 +78,7 @@ export default {
       (response) => {
         this.hwNotificationArr = response.data;
       }
-    )
+    );
   },
 };
 </script>
@@ -130,7 +132,7 @@ label {
   background-color: white;
 }
 td {
-  padding: 0 15px
+  padding: 0 15px;
 }
 #enrolled-students {
   border: solid;
@@ -147,7 +149,7 @@ td {
   'enrolled-labelID enrolled-labelID'
   'student-para hw-completed'; */
 }
- /* #enrolled-labelID {
+/* #enrolled-labelID {
   grid-area: enrolled-labelID;
 }
 #hw-completed {
@@ -173,7 +175,15 @@ td {
   padding: 15px;
   grid-area: homework-notification;
 }
-p, span {
+p,
+span {
   background-color: white;
+}
+
+#submitted {
+  color: rgb(22, 141, 22);
+}
+#notsubmitted {
+  color: red;
 }
 </style>
