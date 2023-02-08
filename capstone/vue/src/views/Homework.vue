@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HomeworkSubmission from './HomeWorkSubmission.vue'
+import HomeworkSubmission from '../components/HomeworkSubmission.vue'
 
 export default {
     components: {

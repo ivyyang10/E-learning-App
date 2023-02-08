@@ -10,7 +10,7 @@ import ViewAllStudents from '../views/ViewAllStudents.vue'
 import QuizView from '../views/QuizView.vue'
 // import TeacherCourseDetail from '../views/TeacherCourseDetail.vue'
 import StudentCourseDetail from '../views/StudentCourseDetail.vue'
-import Homework from '../views/Home.vue'
+import Homework from '../views/Homework.vue'
 
 Vue.use(Router)
 
