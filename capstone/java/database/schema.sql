@@ -39,7 +39,6 @@ CREATE TABLE course (
 CREATE TABLE users_course (
 	user_id int NOT NULL,
 	course_id int NOT NULL,
-	completed boolean NOT NULL,
 	CONSTRAINT PK_users_course PRIMARY KEY (user_id, course_id),
 	CONSTRAINT FK_users_course_user FOREIGN KEY (user_id) REFERENCES users (user_id),
 	CONSTRAINT FK_users_course_course FOREIGN KEY (course_id) REFERENCES course (course_id)
@@ -50,6 +49,7 @@ CREATE TABLE homework (
      course_id int NOT NULL,
      student_id int NOT NULL,
      hw_submission VARCHAR(16000),
+     completed boolean NOT NULL,
      grade int,
      CONSTRAINT PK_homework_id PRIMARY KEY (homework_id),
      CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES course (course_id),

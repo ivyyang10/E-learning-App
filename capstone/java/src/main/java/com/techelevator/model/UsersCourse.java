@@ -3,19 +3,19 @@ package com.techelevator.model;
 public class UsersCourse {
     private int userId;
     private int courseId;
-    private boolean completed;
+
     private String name;
 
-    public UsersCourse(int courseId, boolean completed, String name) {
+    public UsersCourse(int courseId, String name) {
         this.courseId = courseId;
-        this.completed = completed;
+
         this.name = name;
     }
 
     public UsersCourse(int userId, int courseId, boolean completed) {
         this.userId = userId;
         this.courseId = courseId;
-        this.completed = completed;
+
     }
 
     public UsersCourse() {
@@ -37,13 +37,7 @@ public class UsersCourse {
         this.courseId = courseId;
     }
 
-    public boolean isCompleted() {
-        return completed;
-    }
 
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
 
     public String getName() {
         return name;
@@ -58,7 +52,7 @@ public class UsersCourse {
         return "UsersCourse{" +
                 "userId=" + userId +
                 ", courseId=" + courseId +
-                ", completed=" + completed +
+
                 '}';
     }
 }

@@ -51,7 +51,6 @@ public class JdbcUsersCourseDao implements UsersCourseDao{
         UsersCourse usersCourse = new UsersCourse();
         usersCourse.setCourseId(result.getInt("course_id"));
         usersCourse.setName(result.getString("name"));
-        usersCourse.setCompleted(result.getBoolean("completed"));
         usersCourse.setUserId(result.getInt("user_id"));
 
         return usersCourse;
@@ -61,7 +60,7 @@ public class JdbcUsersCourseDao implements UsersCourseDao{
         UsersCourse usersCourse = new UsersCourse();
         usersCourse.setCourseId(result.getInt("course_id"));
         usersCourse.setUserId(result.getInt("user_id"));
-        usersCourse.setCompleted(result.getBoolean("completed"));
+
 
         return usersCourse;
     }

@@ -5,6 +5,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcHomeworkDao implements HomeworkDao{
     private JdbcTemplate jdbcTemplate;
@@ -27,12 +30,12 @@ public class JdbcHomeworkDao implements HomeworkDao{
 
     @Override
     public Homework submitHomework(int courseId, int studentId, String hwSubmission) {
-        String sql1= "INSERT INTO homework (course_id, student_id, hw_submission)"+
-                "VALUES (?,?,?) RETURNING homework_id";
-        Integer homeworkId= jdbcTemplate.queryForObject(sql1,Integer.class,courseId,studentId,hwSubmission);
+        String sql1= "INSERT INTO homework (course_id, student_id, hw_submission, completed)"+
+                "VALUES (?,?,?,?) RETURNING homework_id";
+        boolean isCompleted=true;
 
-        String sql2= "UPDATE users_course SET completed = true WHERE user_id=? and course_id =?";
-        jdbcTemplate.update(sql2,studentId,courseId);
+        Integer homeworkId= jdbcTemplate.queryForObject(sql1,Integer.class,courseId,studentId,hwSubmission,isCompleted);
+
 
         return findHomeworkById(homeworkId);
     }
@@ -57,12 +60,41 @@ public class JdbcHomeworkDao implements HomeworkDao{
         jdbcTemplate.update(sql, hw.getGrade(), hw.getHomeworkId());
     }
 
+    @Override
+    public List<Homework> checkHwByStudentId(int id) {
+        List<Homework> homeworks = new ArrayList<>();
+        String sql="SELECT * FROM homework WHERE student_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+        while(results.next()){
+            Homework homework=mapRowToHomework(results);
+            homeworks.add(homework);
+        }
+
+        return homeworks;
+    }
+
+    @Override
+    public List<Homework> checkHwByCourseId(int id) {
+        List<Homework> homeworks = new ArrayList<>();
+        String sql="SELECT course_id, completed, user_id, name FROM homework AS h " +
+                "JOIN users AS u on h.student_id = u.user_id " +
+                "WHERE course_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+        while(results.next()){
+            Homework homework=mapRowToHomework(results);
+            homeworks.add(homework);
+        }
+        return homeworks;
+    }
+
     private Homework mapRowToHomework(SqlRowSet result){
         Homework homework = new Homework();
         homework.setHomeworkId(result.getInt("homework_id"));
         homework.setCourseId(result.getInt("course_id"));
         homework.setStudentId(result.getInt("student_id"));
         homework.setHwSubmission(result.getString("hw_submission"));
+        homework.setCompleted(result.getBoolean("completed"));
+        homework.setName(result.getString("name"));
 
         return homework;
     }

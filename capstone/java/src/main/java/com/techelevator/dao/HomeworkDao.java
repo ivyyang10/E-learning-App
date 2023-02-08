@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Homework;
+import com.techelevator.model.UsersCourse;
 
 import java.util.List;
 
@@ -13,7 +14,9 @@ public interface HomeworkDao {
 
     void postGrade(Homework hw);
 
-    List<Homework> getGradeByStudentId(int id);
+    List<Homework> checkHwByStudentId(int id);
+
+    List<Homework> checkHwByCourseId(int id);
 
     
 
