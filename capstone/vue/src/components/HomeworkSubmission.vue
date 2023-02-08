@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Homework Submissions:</h1>
-    {{ homework }}
+    {{ homework.hwSubmission }}
   </div>
 </template>
 
@@ -15,8 +15,8 @@ export default {
   },
   created() {
     PortalServices.getHWByCourseStudentId(
-      this.$router.params.courseId,
-      this.$router.params.studentId
+      this.$route.params.courseId,
+      this.$route.params.studentId
     ).then((response) => {
       this.homework = response.data;
       console.log(response);
