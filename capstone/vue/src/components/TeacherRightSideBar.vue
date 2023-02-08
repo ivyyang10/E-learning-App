@@ -1,8 +1,6 @@
 <template>
   <div id="teacher-right-view">
-    {{ hwNotificationArr }}
-
-    {{ routeId }}
+    {{ hwNotificationArr[0] }}
     <h2 id="class-details">Class Details</h2>
     <br />
     <div
@@ -41,7 +39,10 @@
         <router-link
           v-bind:to="{
             name: 'homework',
-            params: { courseId: routeId, studentid: student.id },
+            params: {
+              courseId: routeId,
+              studentId: student.userId,
+            },
           }"
         >
           <td id="submitted" v-if="student.completed == true">Submitted</td>

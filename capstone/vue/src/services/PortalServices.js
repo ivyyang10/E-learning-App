@@ -7,7 +7,7 @@ export default {
     getAllCourses() {
         return axios.get(`/courses`)
     },
-    getCourses(id){
+    getCourses(id) {
         return axios.get(`/course/${id}`)
     },
     getQuiz(id) {
@@ -36,5 +36,8 @@ export default {
     },
     studentProgress() {
         return axios.get(`/homework`)
+    },
+    getHWByCourseStudentId(courseId, studentId) {
+        return axios.get(`/homework/${courseId}/${studentId}`)
     }
 }
