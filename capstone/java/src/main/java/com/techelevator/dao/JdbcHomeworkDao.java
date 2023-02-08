@@ -50,6 +50,13 @@ public class JdbcHomeworkDao implements HomeworkDao{
         return homework;
     }
 
+    @Override
+    public void postGrade(Homework hw){
+
+        String sql = "UPDATE homework SET grade = ? WHERE homework_id = ?";
+        jdbcTemplate.update(sql, hw.getGrade(), hw.getHomeworkId());
+    }
+
     private Homework mapRowToHomework(SqlRowSet result){
         Homework homework = new Homework();
         homework.setHomeworkId(result.getInt("homework_id"));

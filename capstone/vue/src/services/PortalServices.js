@@ -39,5 +39,8 @@ export default {
     },
     getHWByCourseStudentId(courseId, studentId) {
         return axios.get(`/homework/${courseId}/${studentId}`)
+    },
+    postGrade(homework) {
+        return axios.put(`/grade`, homework)
     }
 }
