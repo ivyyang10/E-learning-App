@@ -2,7 +2,7 @@
   <div class="home">
     <h1 id="school-name">Thwin's Secondary School</h1>
     <teacher-portal-buttons id="teacher-buttons" />
-    <student-progress id="progress" v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
+    <student-progress id="progress" v-if="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
 
     <course-list id="course-list"/>
   </div>

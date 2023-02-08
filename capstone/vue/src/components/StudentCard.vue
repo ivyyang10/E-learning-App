@@ -3,7 +3,7 @@
     <h3>
       {{ userObject.username }}
     </h3>
-    <img src="../assets/smiley.jpg" alt="smiley-face" />
+
   </div>
 </template>
 
@@ -25,8 +25,10 @@ export default {
   margin: 20px;
   padding: 15px;
   display: inline-block;
+  background-image: url("../assets/smiley.jpg");
+  background-size: 140px;
 }
- img {
+ /* img {
   width: 50px;
-}
+} */
 </style>

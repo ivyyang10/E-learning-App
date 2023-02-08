@@ -14,7 +14,7 @@
         {{ course.description }}
       </div>
       <br>
-    <img id="books-image" src="../assets/books2.jpg" alt="school-books">
+    <!-- <img id="books-image" src="../assets/books2.jpg" alt="school-books"> -->
     <br>
       <div id="course-card-difficulty">
           {{ course.difficulty }}
@@ -35,7 +35,7 @@ export default {
 
 <style>
 #course-card {
-  background-color: white;
+  background-color: transparent;
 }
 #books-image {
   display: flex;
@@ -45,12 +45,12 @@ export default {
   border-radius: 25px;
 }
 #course-name-card-title {
-  background-color: white;
+  background-color: transparent;
 }
 #course-name-card-link {
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color: transparent;
 }
 #course-card-difficulty {
   display: flex;
@@ -62,10 +62,10 @@ export default {
 #course-card-description {
   display: flex;
   justify-content: center;
-  background-color: white;
+  background-color:transparent;
 }
 #course-name-card {
-  background-color: white;
+  background-color: transparent;
 }
 #course-style {
   border: 2px solid;
@@ -76,5 +76,9 @@ export default {
   height: 250px;
   margin: 20px;
   padding: 15px;
+  background-image: url("../assets/books2.jpg");
+  background-size: 300px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 </style>
