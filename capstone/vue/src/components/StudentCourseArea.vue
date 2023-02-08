@@ -3,21 +3,17 @@
     <div id="student-area-header" >
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
-
-        <!-- <router-link v-bind:to="{ name: 'quizview' }"
-          ><button>Go To Quiz</button>
-          </router-link> -->
       </h1>
     </div>
+    <br>
     <div class="flex-container-column flex-container-center">
-      <h3 class="u-text-center u-margin-top">
+      <h3 class="u-text-center u-margin-top" id="hw-prompt-text">
+        <h3>Homework Prompt:</h3>
+        <br>
         {{ course.hwAssignment }}
       </h3>
       <form id="homework-submission" v-on:submit.prevent="saveHomework">
-        <label id="hw-label" for="homework" class="u-text-center"
-          >Homework Submission Area</label
-        >
-        <br />
+        
         <br />
         <input
           placeholder="Please write your essay here"

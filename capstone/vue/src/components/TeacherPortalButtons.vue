@@ -22,7 +22,7 @@ button {
   border-radius: 15px;
     border-radius: 25px;
   border-color: white;
-  padding: 15px;
+  margin: 10px;
   background-color: #75b9be;
 }
 </style>

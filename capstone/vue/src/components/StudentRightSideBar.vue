@@ -10,11 +10,13 @@
       {{ course.description }}
     </div>
     <br>
-    <div id="curricula">
+    <div id="curricula-side">
       <label id="class-instructions-labelID" for="instruction">Class Instructions:</label>
-      <div id="instruction">{{ course.dailyInstruction }}</div>
+      <br>
+      <div id="instruction-student">{{ course.dailyInstruction }}</div>
       <br>
       <label id="links-labelID" for="links-label">Class Resources:</label>
+      <br>
       <div id="links">{{ course.links }}</div>
     </div>
   </div>
@@ -49,9 +51,7 @@ export default {
 </script>
 
 <style scoped>
-/* * {
-  background-color: #75b9be;
-} */
+
 #student-class-details-title {
   display: flex;
   justify-content: center;
@@ -64,9 +64,8 @@ label {
 #links {
   background-color: white;  
 }
-#instruction {
+#instruction-student {
   background-color: white;
-    
 }
 #student-right-view {
   display: grid;
@@ -83,7 +82,7 @@ label {
   padding: 15px;
   grid-area: description;
 }
-#curricula {
+#curricula-side {
   border: solid;
   border-radius: 20px;
   background-color: white;
