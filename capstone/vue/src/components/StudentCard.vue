@@ -18,15 +18,15 @@ export default {
 
 <style>
 #card {
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   width: 100px;
   height: 150px;
   margin: 20px;
   padding: 15px;
   display: inline-block;
-  background-image: url("../assets/smiley.jpg");
-  background-size: 140px;
+  background-image: url("../assets/studentSymbol.png");
+  background-size: 160px;
 }
  /* img {
   width: 50px;

@@ -126,6 +126,7 @@ grid-template-areas:
 "button button" ;
 grid-column-gap: 2em;
 border-style: solid;
+border-radius: 25px;
 padding: 2em;
 
 }
