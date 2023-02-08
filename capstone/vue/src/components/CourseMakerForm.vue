@@ -113,7 +113,8 @@ export default {
 #course-maker-all {
   display: flex;
   justify-content: center;
-   padding-bottom: 20px;
+  padding-top: 30px;
+   padding-bottom: 500px;
    justify-items: center;
    
 }
@@ -123,6 +124,7 @@ export default {
   /* grid-template-rows: 2fr 1fr; */
   grid-template-areas: "coursedescription curricula"
   "buttons buttons";
+  grid-column-gap: 1.5rem;
     justify-items: center;
     align-items: center;
     align-content: space-between;

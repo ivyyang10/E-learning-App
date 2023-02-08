@@ -103,6 +103,7 @@ export default {
 
 
 <style scoped>
+
 #middle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

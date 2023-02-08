@@ -79,7 +79,7 @@
           <br />
           <br />
           <div id="createbutton">
-          <button v-on:click="setRole(checked)" class="btn btn-lg btn-primary btn-block" type="submit">
+          <button v-on:click="setRole()" class="btn btn-lg btn-primary btn-block" type="submit">
             Create Account
           </button>
           <br />
