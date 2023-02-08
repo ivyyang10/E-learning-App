@@ -18,8 +18,9 @@ export default {
 
 <style>
 button {
-  padding: 15px;
-  border-radius: 15px;
+  margin: 15px;
+  
+  /* border-radius: 15px; */
     border-radius: 25px;
   border-color: white;
   margin: 10px;
