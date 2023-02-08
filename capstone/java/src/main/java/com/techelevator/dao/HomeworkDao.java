@@ -7,4 +7,6 @@ public interface HomeworkDao {
 
     Homework submitHomework(int courseId, int studentId, String hwSubmission);
 
+    Homework getHwById(int courseId, int studentId);
+
 }

@@ -37,6 +37,19 @@ public class JdbcHomeworkDao implements HomeworkDao{
         return findHomeworkById(homeworkId);
     }
 
+    @Override
+    public Homework getHwById(int courseId, int studentId) {
+         Homework homework= null;
+        String sql="SELECT * FROM homework WHERE course_id=? and student_id=?";
+
+        SqlRowSet result= jdbcTemplate.queryForRowSet(sql,courseId,studentId);
+
+        if(result.next()){
+            homework =mapRowToHomework(result);
+        }
+        return homework;
+    }
+
     private Homework mapRowToHomework(SqlRowSet result){
         Homework homework = new Homework();
         homework.setHomeworkId(result.getInt("homework_id"));

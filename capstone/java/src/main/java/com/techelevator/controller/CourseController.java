@@ -103,4 +103,9 @@ public class CourseController {
     public  List<UsersCourse> checkHwByCourseId(@PathVariable int id){
         return usersCourseDao.checkHwByCourseId(id);
     }
+
+    @GetMapping("/homework/{courseId}/{studentId}")
+    public Homework getHwById(@PathVariable int courseId, @PathVariable int studentId){
+        return homeworkDao.getHwById(courseId,studentId);
+    }
 }
