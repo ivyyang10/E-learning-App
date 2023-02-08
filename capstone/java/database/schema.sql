@@ -50,6 +50,7 @@ CREATE TABLE homework (
      course_id int NOT NULL,
      student_id int NOT NULL,
      hw_submission VARCHAR(16000),
+     grade int,
      CONSTRAINT PK_homework_id PRIMARY KEY (homework_id),
      CONSTRAINT FK_course_id FOREIGN KEY (course_id) REFERENCES course (course_id),
      CONSTRAINT FK_student_id FOREIGN KEY (student_id) REFERENCES users (user_id)
