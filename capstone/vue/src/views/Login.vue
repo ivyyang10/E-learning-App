@@ -48,13 +48,13 @@
               required
             />
             <br>
-            <br>
+            <div id ="loginbutton">
             <button id="submit-button" type="submit">Sign in</button>
-           <br>
+          
            <br>
             <div id="need-account">
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-   
+    </div>
     </div>
           </form>
         </div>
@@ -103,6 +103,7 @@ export default {
 
 
 <style scoped>
+
 #middle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -141,7 +142,6 @@ input {
   /* max-width: 35%; */
   
 }
-
 #form-container {
   display: grid;
   justify-content: center;
@@ -149,13 +149,6 @@ input {
   align-items: center;
   padding-bottom: 20px;
 }
-
-/* footer {
-  display: grid;
-  padding-top: 25px;
-  padding-bottom: 10px;
-  justify-content: center;
-} */
 #username {
   text-align: center;
 }
@@ -164,6 +157,12 @@ input {
 }
 #need-account {
   padding: 7px;
+  padding-top: 10px;
+}
+#loginbutton {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;;
 }
 </style>
 

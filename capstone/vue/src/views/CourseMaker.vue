@@ -1,7 +1,8 @@
 <template>
   <div class="coursemaker">
       <h1 id="page-title">Course Maker</h1>
-    <course-maker-form/>
+    <course-maker-form />
+
   </div>
 </template>
 
@@ -26,4 +27,5 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
 </style>

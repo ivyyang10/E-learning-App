@@ -1,17 +1,17 @@
 <template>
   <div id="course-maker-all">
   <form class="course-maker-form" id="courseform" v-on:submit.prevent="saveCourse">
-    <h2>Course Description</h2>
-    <input 
+
+   
+    <div id="all-description">
+            <input 
     class="courseName" 
     type="text" 
     placeholder="Course Name" 
     v-model="course.courseName"
     required 
     />
-   <br>
-    <div id="all-description">
-        
+    <br>
         <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
         
         <br>
@@ -35,7 +35,7 @@
         <br>
         </div>
     <div id="curricula">
-        <h2>Curricula</h2>
+      
 
     <div>
   
@@ -113,18 +113,33 @@ export default {
 #course-maker-all {
   display: flex;
   justify-content: center;
-   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 30px;
+   padding-bottom: 500px;
+   justify-items: center;
+   
 }
 #courseform {
-  border-style: solid;
-  border-radius: 25px;
-  padding: 20px;
-  padding-right: 100px;
-  padding-left: 100px;
-  margin: 50px 50px;
+ display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-areas: 
+"description curricula"
+"button button" ;
+grid-column-gap: 2em;
+border-style: solid;
+padding: 2em;
+
 }
 .description {
+    padding-top: 30px;
+padding-bottom: 30px;
+}
+#all-description {
+        grid-area: description;
+}
+#curricula {
+    grid-area: curricula;
+}
+.hwAssignment {
     padding-top: 30px;
 padding-bottom: 30px;
 }
@@ -132,18 +147,28 @@ input, label {
   display: block;
 }
 label {
-    padding: 5px;
   padding-top: 15px;
 }
 input {
+    padding: 8px;
     border-radius: 25px;
   border-bottom: solid 3px;
-  padding: 15px;
+  display: grid;
+  justify-content: center;
+
 }
 #buttons {
-    display: inline-block;
+ display: flex;
+justify-content:space-around ;
+grid-area: button;
+margin-top: 1em;
+
+
 }
-button {
+/* button {
 margin-right: 20px;
-}
+} */
+/* .course-maker-form {
+      background-color: transparent;
+} */
 </style>
