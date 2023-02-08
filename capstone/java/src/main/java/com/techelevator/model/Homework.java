@@ -5,12 +5,14 @@ public class Homework {
     private int courseId;
     private int studentId;
     private String hwSubmission;
+    private int grade;
 
-    public Homework(int homeworkId, int courseId, int studentId, String hwSubmission) {
+    public Homework(int homeworkId, int courseId, int studentId, String hwSubmission, int grade) {
         this.homeworkId = homeworkId;
         this.courseId = courseId;
         this.studentId = studentId;
         this.hwSubmission = hwSubmission;
+        this.grade = grade;
     }
 
     public Homework() {
@@ -48,6 +50,14 @@ public class Homework {
         this.hwSubmission = hwSubmission;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
     @Override
     public String toString() {
         return "Homework{" +
@@ -55,6 +65,7 @@ public class Homework {
                 ", courseId=" + courseId +
                 ", studentId=" + studentId +
                 ", hwSubmission='" + hwSubmission + '\'' +
+                ", grade=" + grade +
                 '}';
     }
 }

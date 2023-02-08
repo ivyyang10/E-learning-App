@@ -108,4 +108,10 @@ public class CourseController {
     public Homework getHwById(@PathVariable int courseId, @PathVariable int studentId){
         return homeworkDao.getHwById(courseId,studentId);
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/grade")
+    public void postGrade(@RequestBody Homework hw){
+        homeworkDao.postGrade(hw);
+    }
 }
