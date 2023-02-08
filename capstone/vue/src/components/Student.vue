@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-/* #course-style {
+/* #student-style {
   border: 2px solid black;
   border-radius: 10px;
   padding: 15px;

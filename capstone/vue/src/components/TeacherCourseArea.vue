@@ -92,6 +92,9 @@ export default {
 #add-students {
   display: flex;
   justify-content: center;
+  padding: 20px;
+  border: solid 2px #75b9be;
+  border-radius: 25px;
 }
 #button-div {
   display: flex;

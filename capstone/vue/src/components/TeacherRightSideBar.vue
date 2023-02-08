@@ -22,25 +22,20 @@
     >
       <label id="difficulty-labelID" for="difficulty-label">Difficulty:</label>
       <br />
-      {{ course.difficulty }}
+      <div id="difficulty-div">
+        {{ course.difficulty }}
+      </div>
     </div>
     <br />
 
     <div id="enrolled-students">
       <label id="enrolled-labelID" for="enrolled-label">Homework Progress:</label>
-      <!-- <table>
-        <tr v-for="student in hwNotificationArr" v-bind:key="student.id">{{student.name}}</tr>
-      </table> -->
+      
+      <br>
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
-       <!-- <th scope="column"></th>   -->
        <td>{{student.name}}</td> 
        <td>{{student.completed}}</td>  
     </tr>
-
-      <!-- <p id="student-para" v-for="student in hwNotificationArr" v-bind:key="student.id">
-        {{student.name}} ~ {{student.completed}}
-        <span id="hw-completed">{{student.completed}}</span>
-      </p> -->
     </div>
     <br />
   </div>
@@ -95,6 +90,7 @@ td {
 label {
   background-color: white;
   text-decoration: underline;
+  white-space: nowrap;
 }
 #class-details {
   display: flex;
@@ -125,6 +121,15 @@ label {
   padding: 15px;
   grid-area: difficulty;
   border-color: rgb(221, 221, 221);
+}
+#difficulty-div {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background-color: white;
+}
+td {
+  padding: 0 15px
 }
 #enrolled-students {
   border: solid;

@@ -1,7 +1,8 @@
 <template>
+
   <div v-show="$store.state.user.authorities[0].name === 'ROLE_ADMIN'" id="teacherPermission"> 
- <router-link v-bind:to="{ name: 'createcourse' }"><button>Create New Course</button></router-link>
- <router-link v-bind:to="{ name: 'viewallstudents' }"><button>View All Students</button></router-link>
+ <router-link id="router-link" v-bind:to="{ name: 'createcourse' }"><button>Create New Course</button></router-link>
+ <router-link id="router-link" v-bind:to="{ name: 'viewallstudents' }"><button>View All Students</button></router-link>
   </div>
   
 </template>

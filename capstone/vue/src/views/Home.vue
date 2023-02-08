@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <h1 id="school-name">Inquisit Course Page</h1>
-
+    <h1 id="school-name">Thwin's Secondary School</h1>
     <teacher-portal-buttons id="teacher-buttons" />
-    <student-progress v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
+    <student-progress id="progress" v-show="$store.state.user.authorities[0].name === 'ROLE_USER'"/>
 
-    <course-list id="course-list" />
+    <course-list id="course-list"/>
   </div>
 </template>
 
@@ -27,20 +26,28 @@ export default {
   grid-auto-columns: 1fr 1fr 1fr;
   grid-auto-rows: 150px 1fr;
   grid-template-areas:
-    "school-name school-name teacher-buttons"
+    "school-name teacher-buttons progress"
     "course-list course-list course-list";
 }
 #school-name {
   grid-area: school-name;
   justify-content: left;
-  padding: 10px;
-  margin-left: 0px;
+  margin: 50px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+#progress {
+  grid-area: progress;
+  justify-content: right;
+  margin: 50px;
+  text-decoration: underline;
 }
 #teacher-buttons {
   grid-area: teacher-buttons;
-  padding: 35px;
+  justify-content: center;
+  /* padding: 10px; */
   padding-right: 50px;
-  margin-top: 20px;
+  margin-top: 33px;
 }
 #course-list {
   grid-area: course-list;
