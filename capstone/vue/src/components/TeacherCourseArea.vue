@@ -1,9 +1,7 @@
 <template>
   <div id="teacher-center-view">
     <div id="teacher-area-header">
-      <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
-        {{ course.courseName }}
-      </h1>
+      <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }"></h1>
     </div>
     <div id="row-two">
       <label id="instruction-label" for="instruction">Daily Instruction</label>
@@ -19,10 +17,9 @@
 
       <div id="button-div">
         <button id="show-form-button" v-on:click.prevent="showForm = !showForm">
-        Add Students to Class
-      </button>
+          Add Students to Class
+        </button>
       </div>
-      
     </div>
 
     <add-students-to-course id="add-students" v-if="showForm === true" />
@@ -65,11 +62,9 @@ export default {
   grid-template-areas:
     "teacher-area-header"
     "row-two";
-    
 }
 #teacher-area-header {
   grid-area: teacher-area-header;
-  
 }
 #row-two {
   grid-area: row-two;

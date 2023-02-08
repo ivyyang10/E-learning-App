@@ -1,5 +1,8 @@
 <template>
   <div id="teacher-right-view">
+    {{ hwNotificationArr }}
+
+    {{ routeId }}
     <h2 id="class-details">Class Details</h2>
     <br />
     <div
@@ -34,13 +37,21 @@
       <br />
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
         <td>{{ student.name }}</td>
-        <td id="submitted" v-if="student.completed == true">Submitted</td>
-        <td id="notsubmitted" v-else-if="student.completed == false">
+
+        <router-link
+          v-bind:to="{
+            name: 'homework',
+            params: { courseId: routeId, studentid: student.id },
+          }"
+        >
+          <td id="submitted" v-if="student.completed == true">Submitted</td>
+        </router-link>
+
+        <td id="notsubmitted" v-if="student.completed == false">
           Not Submitted
         </td>
       </tr>
-      <br>
-       <router-link v-bind:to="{ name: 'homework' }"><button>View Homework Submissions</button></router-link>
+      <br />
     </div>
     <br />
   </div>
@@ -65,6 +76,7 @@ export default {
         hwAssignment: "",
         teacherId: "",
       },
+      routeId: this.$route.params.id,
     };
   },
   created() {

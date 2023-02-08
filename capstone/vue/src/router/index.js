@@ -76,7 +76,7 @@ const router = new Router({
       }
     },
     {
-      path: "/homework",
+      path: "/homework/:courseid/:studentid",
       name: "homework",
       component: Homework,
       meta: {
