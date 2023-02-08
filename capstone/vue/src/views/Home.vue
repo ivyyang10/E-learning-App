@@ -26,14 +26,14 @@ export default {
   grid-auto-columns: 1fr 1fr 1fr;
   grid-auto-rows: 150px 1fr;
   grid-template-areas:
-    "school-name teacher-buttons progress"
+    "school-name progress teacher-buttons "
     "course-list course-list course-list";
 }
 #school-name {
   grid-area: school-name;
   justify-content: left;
   margin: 50px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   white-space: nowrap;
 }
 #progress {

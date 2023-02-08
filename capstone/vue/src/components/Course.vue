@@ -35,7 +35,9 @@ export default {
 
 <style>
 #course-card {
-  background-color: transparent;
+ 
+   background-color: white;
+   justify-content: flex-start; 
 }
 #books-image {
   display: flex;
@@ -44,41 +46,45 @@ export default {
   width: 75px;
   border-radius: 25px;
 }
-#course-name-card-title {
-  background-color: transparent;
-}
+/* #course-name-card-title {
+  background-color: white;
+} */
 #course-name-card-link {
   display: flex;
   justify-content: center;
-  background-color: transparent;
+ /* background-color: white; */
 }
 #course-card-difficulty {
   display: flex;
   justify-content: center;
-  background-color: white;
+  /* background-color: white; */
   border: solid lightgrey;
   border-radius: 25px;
 }
 #course-card-description {
   display: flex;
   justify-content: center;
-  background-color:transparent;
+  /* background-color: white; */
 }
-#course-name-card {
-  background-color: transparent;
-}
+/* #course-name-card {
+  background-color: white;
+} */
 #course-style {
   border: 2px solid;
   border-color: #75b9be;
   background-color: white;
   border-radius: 10px;
-  width: 150px;
-  height: 250px;
+  width: 200px;
+  height: 300px;
   margin: 20px;
-  padding: 15px;
-  background-image: url("../assets/books2.jpg");
+  padding: 30px;
+  /* background-image: url("../assets/books2.jpg"); */
+  background-image: url("../assets/notebook.png");
   background-size: 300px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  
+
+ 
 }
 </style>
