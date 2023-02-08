@@ -10,6 +10,7 @@ import ViewAllStudents from '../views/ViewAllStudents.vue'
 import QuizView from '../views/QuizView.vue'
 // import TeacherCourseDetail from '../views/TeacherCourseDetail.vue'
 import StudentCourseDetail from '../views/StudentCourseDetail.vue'
+import Homework from '../views/Home.vue'
 
 Vue.use(Router)
 
@@ -74,14 +75,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "/homeworkview",
-    //   name: "homeworkview",
-    //   component: HomeworkView,
-    //   meta: {
-    //     requiresAuth: true
-    //   }
-    // },
+    {
+      path: "/homework",
+      name: "homework",
+      component: Homework,
+      meta: {
+        requiresAuth: true
+      }
+    },
     {
       path: "/course/:id",
       name: "courseDetails",

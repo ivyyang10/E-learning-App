@@ -39,6 +39,8 @@
           Not Submitted
         </td>
       </tr>
+      <br>
+       <router-link v-bind:to="{ name: 'homework' }"><button>View Homework Submissions</button></router-link>
     </div>
     <br />
   </div>
