@@ -15,7 +15,7 @@
       <form id="homework-submission" v-on:submit.prevent="saveHomework">
         
         <br />
-        <input
+        <textarea cols="100" rows="20"
           placeholder="Please write your essay here"
           id="homework-textbox"
           type="text"
@@ -98,9 +98,11 @@ export default {
   justify-content: center;
   grid-area: homework-submission;
 }
-#homework-textbox {
-  padding: 150px;
-}
+ #homework-textbox {
+  padding: 15px;
+  white-space: wrap;
+  
+} 
 #button-div-2 {
   display: flex;
   justify-content: center;
