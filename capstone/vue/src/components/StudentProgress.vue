@@ -26,8 +26,12 @@ export default {
         }
         score = this.progressArr[i].grade + score;
       }
-      return (score / length) * 10 + "%";
-    },
+      if(length === 0) {
+        return 0 + "%";
+      } else {
+        return (score / length) * 10 + "%";
+      }
+    }
   },
   created() {
     PortalServices.studentProgress().then((response) => {

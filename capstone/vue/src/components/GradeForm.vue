@@ -1,6 +1,5 @@
 <template>
   <div>
-     {{homework}}
     <div id="grading-div" >
       <form class="grade-homework-form" v-bind:key="homework.homeworkId" id="gradeform" v-on:submit.prevent="postGrade">
         <select
