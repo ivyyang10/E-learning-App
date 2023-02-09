@@ -135,6 +135,7 @@ label {
   padding: 15px;
   grid-area: description;
   border-color: rgb(221, 221, 221);
+  text-align: center;
 }
 #difficulty {
   border: solid;

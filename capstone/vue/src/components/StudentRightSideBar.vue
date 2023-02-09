@@ -1,22 +1,27 @@
 <template>
   <div id="student-right-view">
     <h2 id="student-class-details-title">Class Details</h2>
-    <br>
-    <div id="description"
+    <br />
+    <div
+      id="description"
       v-bind:to="{ name: 'courses', params: { id: course.id } }"
     >
-    <label id="description-labelID" for="description-label">Class Description:</label>
-    <br>
+      <label id="description-labelID" for="description-label"
+        >Class Description:</label
+      >
+      <br />
       {{ course.description }}
     </div>
-    <br>
+    <br />
     <div id="curricula-side">
-      <label id="class-instructions-labelID" for="instruction">Class Instructions:</label>
-      <br>
+      <label id="class-instructions-labelID" for="instruction"
+        >Class Instructions:</label
+      >
+      <br />
       <div id="instruction-student">{{ course.dailyInstruction }}</div>
-      <br>
+      <br />
       <label id="links-labelID" for="links-label">Class Resources:</label>
-      <br>
+      <br />
       <div id="links">{{ course.links }}</div>
     </div>
   </div>
@@ -51,7 +56,6 @@ export default {
 </script>
 
 <style scoped>
-
 #student-class-details-title {
   display: flex;
   justify-content: center;
@@ -59,20 +63,22 @@ export default {
 }
 label {
   background-color: white;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 #links {
-  background-color: white;  
+  background-color: white;
+  text-align: center;
 }
 #instruction-student {
   background-color: white;
+  text-align: center;
 }
 #student-right-view {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-  'description'
-  'curricula';
+  grid-template-areas:
+    "description"
+    "curricula";
 }
 #description {
   border: solid;
@@ -81,6 +87,7 @@ label {
   border-color: rgb(221, 221, 221);
   padding: 15px;
   grid-area: description;
+  text-align: center;
 }
 #curricula-side {
   border: solid;
