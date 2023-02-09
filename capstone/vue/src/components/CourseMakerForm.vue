@@ -26,8 +26,8 @@
         />
         <br>
         <div id="togglelevel">
-        <select name="Difficulty" v-on:change="onChange($event)" class="form-select">
-            <option value = ""> Select Difficulty Level</option>
+        <select name="Difficulty" v-on:change="onChange($event)" class="form-select" required>
+            <option >Select Difficulty Level</option>
             <option value ="Easy"> Easy</option>
             <option value ="Medium"> Medium</option>
             <option value ="Difficult"> Difficult</option>

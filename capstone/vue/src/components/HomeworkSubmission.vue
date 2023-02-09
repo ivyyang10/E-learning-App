@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div id="all-homework">
+    <br>
     <h1>Homework Submissions:</h1>
     {{ homework.hwSubmission }}
     <grade-homework/>
@@ -31,5 +32,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

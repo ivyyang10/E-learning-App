@@ -52,6 +52,7 @@
 #viewerName {
   display: flex;
   justify-content: right;
+  font-weight: bold;
 }
 #nav-right {
   margin-right: 25px;

@@ -1,8 +1,9 @@
 <template>
   <div>
-      <form class="grade-homework-form" id = "gradeform" v-on:submit.prevent = "postGrade">
-            <select name="Difficulty" v-on:change="onChange($event)" class="form-select">
-            <option value = ""> Select Difficulty Level</option>
+     <div id="grading-div">
+        <form class="grade-homework-form" id = "gradeform" v-on:submit.prevent = "postGrade">
+            <select id="grading-options" name="grading" v-on:change="onChange($event)" class="form-select">
+            <option value = ""> Grade Submission Here</option>
             <option value ="1"> 1</option>
             <option value ="2"> 2</option>
             <option value ="3"> 3</option>
@@ -15,6 +16,7 @@
             <option value ="10"> 10</option>
         </select>
       </form>
+     </div>
   </div>
 </template>
 
@@ -24,6 +26,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#grading-div {
+   display: flex;
+   justify-content: flex-end;
+   margin: 50px
+}
+#grading-options {
+   padding: 35px;
+   border-radius: 25px;
+   font-weight: bold;
+   font-size: 1rem;
+}
 </style>
