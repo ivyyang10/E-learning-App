@@ -2,8 +2,9 @@
   <div id="all-homework">
     <br />
     <h1>Homework Submissions:</h1>
-    {{ homework.hwSubmission }}
-    <div id ="hwcomp"><grade-homework /></div>
+    <div id ="hwcomp">
+      <div id="resp">Student's Response: {{ homework.hwSubmission }}</div>
+    <grade-homework /></div>
     
   </div>
 </template>
@@ -36,7 +37,14 @@ export default {
 <style scoped>
 #hwcomp {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 70px;
+}
+#resp {
+  border-style: solid;
+  padding: 100px;
+  border-radius: 20px;
 }
 
 
