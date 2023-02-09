@@ -1,6 +1,5 @@
 <template>
   <div id="all-homework">
-    {{ homework }}
     <br />
     <h1>Homework Submissions:</h1>
     {{ homework.hwSubmission }}
