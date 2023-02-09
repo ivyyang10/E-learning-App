@@ -20,6 +20,7 @@ export default {
       homework: {},
     };
   },
+ 
   created() {
     PortalServices.getHWByCourseStudentId(
       this.$route.params.courseId,
@@ -27,7 +28,8 @@ export default {
     ).then((response) => {
       this.homework = response.data;
     });
-  },
+
+  }
 };
 </script>
 

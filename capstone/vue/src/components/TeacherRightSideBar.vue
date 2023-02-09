@@ -1,6 +1,7 @@
 <template>
   <div id="teacher-right-view">
     <h2 id="class-details">Class Details</h2>
+
     <br />
     <div
       id="description"
@@ -35,6 +36,7 @@
 
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
         <td>{{ student.name }}</td>
+       {{student.grade}}
 
         <router-link
           v-bind:to="{
@@ -46,11 +48,13 @@
           }"
         >
           <td id="submitted" v-if="student.completed == true">Submitted</td>
-        </router-link>
+       
 
         <td id="notsubmitted" v-if="student.completed == false">
           Not Submitted
         </td>
+         </router-link>
+          
       </tr>
       <br />
     </div>

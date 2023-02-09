@@ -2,7 +2,7 @@
   <div>
      {{homework}}
     <div id="grading-div" >
-      <form class="grade-homework-form" id="gradeform" v-on:submit.prevent="postGrade">
+      <form class="grade-homework-form" v-bind:key="homework.homeworkId" id="gradeform" v-on:submit.prevent="postGrade">
         <select
           id="grading-options"
           name="grading"
@@ -44,7 +44,7 @@ export default {
       this.$route.params.studentId
     ).then((response) => {
       this.homework = response.data;
-    });
+  })
   },
   methods: {
     onChange(event) {
@@ -71,8 +71,8 @@ export default {
       }
     },
 
-    postGrade(homework) {
-      PortalServices.postGrade(homework)
+    postGrade() {
+      PortalServices.postGrade(this.homework)
         .then((response) => {
           if (response.status === 201) {
             alert("Your grade has been submitted");
