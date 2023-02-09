@@ -53,6 +53,7 @@
   display: flex;
   justify-content: right;
   font-weight: bold;
+  margin-top: 5px;
 }
 #nav-right {
   margin-right: 25px;
