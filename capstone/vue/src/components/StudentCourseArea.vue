@@ -22,11 +22,13 @@
           required
         />
         <br />
-      </form>
-    </div>
         <div id="button-div-2">
           <button type="submit" class="u-margin-y">Submit Homework</button>
         </div>
+      </form>
+      
+    </div>
+        
         
 
   </div>
@@ -95,6 +97,8 @@ export default {
 #homework-submission {
   display: flex;  
   justify-content: center;
+  /* display: block; */
+  flex-direction: column;
   grid-area: homework-submission;
 }
  #homework-textbox {
