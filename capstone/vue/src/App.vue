@@ -44,7 +44,8 @@
 }
 #nav {
   border-bottom: solid;
-  border-color: #75b9be;
+  /* border-color: #75b9be; */
+  border-color: #2d565a56;
   display: flex;
   justify-content: space-between;
   background-color: #75b9be;
@@ -59,11 +60,6 @@
   margin-right: 25px;
   margin-top: 15px;
 }
-/* footer {
-  border-top: solid;
-  border-color: #75b9be;
-  height: 35px;
-} */
 #app {
   height: 100%;
 }

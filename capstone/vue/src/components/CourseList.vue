@@ -52,7 +52,8 @@ export default {
 <style scoped>
 #course-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin: 1rem;
 }
 </style>

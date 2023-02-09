@@ -50,5 +50,7 @@ export default {
   border: solid;
   padding: 10px;
   border-radius: 25px;
+  background: #75b9be63;
+  border-color: #56858833;
 }
 </style>
