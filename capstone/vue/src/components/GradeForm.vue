@@ -74,16 +74,12 @@ export default {
     },
 
     postGrade() {
-      PortalServices.postGrade(this.homework)
-        .then((response) => {
-          if (response.status === 201) {
-            alert("Your grade has been submitted");
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-          alert("Please submit a grade");
-        });
+      PortalServices.postGrade(this.homework);
+      alert("Your grade has been submitted");
+      this.$router.push({
+        name: "courseDetails",
+        params: { id: this.homework.courseId },
+      });
     },
   },
 };
@@ -102,6 +98,6 @@ export default {
   font-size: 1rem;
 }
 button {
-   margin-left: 50px;
+  margin-left: 50px;
 }
 </style>
