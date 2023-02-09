@@ -12,9 +12,7 @@
     required 
     />
     <br>
-        <input class="description" type="text" placeholder="Description" v-model="course.description" required/>
-        
-        <br>
+    
         <input 
         class="cost" 
         type="number" 
@@ -24,6 +22,8 @@
         v-model="course.cost"
         required 
         />
+        <br>
+        <textarea class="description" rows="5" cols="26" type="text" placeholder="Description" v-model="course.description" required/>
         <br>
         <div id="togglelevel">
         <select name="Difficulty" v-on:change="onChange($event)" class="form-select" required>
@@ -45,7 +45,7 @@
     <br>
     <input class="link" type="text" placeholder="Classroom Resources" v-model="course.links" required/>
     <br>
-    <input class="hwAssignment" type="text" placeholder="HW Assignments" v-model="course.hwAssignment" required/>
+    <textarea class="hwAssignment" rows="5" cols="26" type="text" placeholder="HW Assignments" v-model="course.hwAssignment" required/>
   
   </div>
 
@@ -132,8 +132,8 @@ padding: 3em;
 
 }
 .description {
-    padding-top: 35px;
-padding-bottom: 35px;
+    padding-top: 15px;
+margin-bottom: 10px;
 }
 #all-description {
         grid-area: description;
@@ -142,8 +142,8 @@ padding-bottom: 35px;
     grid-area: curricula;
 }
 .hwAssignment {
-    padding-top: 35px;
-padding-bottom: 35px;
+    padding-top: 15px;
+padding-bottom: 5px;
 }
 input, label {
   display: block;
@@ -158,7 +158,7 @@ input {
   border-bottom: solid 3px;
   display: grid;
   justify-content: center;
-
+ white-space: wrap;
 }
 #buttons {
  display: flex;
@@ -170,10 +170,10 @@ margin-top: 1em;
     display: flex;
     justify-content: center;
 }
-/* button {
-margin-right: 20px;
-} */
-/* .course-maker-form {
-      background-color: transparent;
-} */
+textarea {
+    border-radius: 25px;
+    padding: 10px;
+    border-radius: 25px;
+  border-style: solid 3px;
+}
 </style>

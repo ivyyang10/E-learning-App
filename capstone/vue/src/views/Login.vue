@@ -121,8 +121,10 @@ export default {
 }
 #login-photo {
   display: grid;
-  height: 100%;
-  width: 100%;
+  height: 93vh;
+  width: 63vw;
+  border-right: solid 0.33rem;
+  border-color: #759b9ec0;
 }
 #sign-in-text {
   display: flex;
@@ -161,7 +163,7 @@ input {
 }
 #need-account {
   padding: 7px;
-  padding-top: 10px;
+  padding-top: 25px;
 }
 #loginbutton {
   display: flex;

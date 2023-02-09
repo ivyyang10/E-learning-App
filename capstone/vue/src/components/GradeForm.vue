@@ -92,7 +92,7 @@ export default {
   margin: 50px;
 }
 #grading-options {
-  padding: 35px;
+  padding: 18px;
   border-radius: 25px;
   font-weight: bold;
   font-size: 1rem;

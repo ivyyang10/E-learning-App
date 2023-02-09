@@ -43,9 +43,9 @@
   margin-top: 15px;
 }
 #nav {
-  border-bottom: solid;
+  border-bottom: solid 0.33rem;
   /* border-color: #75b9be; */
-  border-color: #2d565a56;
+  border-color: #759b9ec0;
   display: flex;
   justify-content: space-between;
   background-color: #75b9be;

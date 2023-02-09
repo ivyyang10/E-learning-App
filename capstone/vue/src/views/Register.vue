@@ -194,7 +194,7 @@ input {
 }
 #haveaccount {
   padding-left: 30px;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 #role {
   margin-top: 10px;

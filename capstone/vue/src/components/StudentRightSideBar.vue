@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style scoped>
+
 #student-class-details-title {
   display: flex;
   justify-content: center;

@@ -1,5 +1,5 @@
 *, html {
-    font-family: "Roboto", "Veranda", "Segoe", sans-serif;
+    font-family: "Helvetica", "Veranda", "Segoe", sans-serif;
     padding: 0px;
     margin: 0px;
 }
@@ -35,10 +35,14 @@ label {
 button {
     outline: unset;
     border: unset;
-    transition-duration: 0.4s;
+    border-bottom: solid;
+    border-color: #dae6e5;
+    transition-duration: 0.2s;
     padding: 18px;
+
 }
-  button:hover {
+button:hover {
     background-color: #75b9be; /* Green */
     color: white;
-  }
+}    
+    

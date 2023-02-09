@@ -1,9 +1,11 @@
 <template>
   <div id="all-homework">
     <br />
-    <h1>Homework Submissions:</h1>
-    <div id ="hwcomp">
-      <div id="resp">Student's Response: {{ homework.hwSubmission }}</div>
+    <h1>Homework Submissions</h1>
+    <div id ="hwcomp">Student's Response:
+      <br>
+      <br>
+      <div id="resp"> {{ homework.hwSubmission }}</div>
     <grade-homework /></div>
     
   </div>
@@ -39,11 +41,13 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 70px;
+  padding: 30px;
+  white-space: wrap;
+
 }
 #resp {
   border-style: solid;
-  padding: 100px;
+  padding: 50px;
   border-radius: 20px;
 }
 
