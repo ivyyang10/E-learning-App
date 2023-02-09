@@ -29,15 +29,12 @@ public class JdbcHomeworkDao implements HomeworkDao{
     }
 
     @Override
-    public Homework submitHomework(int courseId, int studentId, String hwSubmission) {
-        String sql1= "INSERT INTO homework (course_id, student_id, hw_submission, completed)"+
-                "VALUES (?,?,?,?) RETURNING homework_id";
+    public void submitHomework(int courseId, int studentId, Homework hw) {
+        String sql= "UPDATE homework SET hw_submission = ?, completed = ? " +
+                "WHERE course_id = ? AND student_id = ?;";
         boolean isCompleted=true;
 
-        Integer homeworkId= jdbcTemplate.queryForObject(sql1,Integer.class,courseId,studentId,hwSubmission,isCompleted);
-
-
-        return findHomeworkById(homeworkId);
+        jdbcTemplate.update(sql, hw.getHwSubmission(), isCompleted, courseId, studentId);
     }
 
     @Override
@@ -78,6 +75,7 @@ public class JdbcHomeworkDao implements HomeworkDao{
         List<Homework> homeworks = new ArrayList<>();
         String sql="SELECT * FROM homework AS h " +
                 "JOIN users AS u on h.student_id = u.user_id " +
+                "JOIN users_course AS uc ON u.user_id = uc.user_id " +
                 "WHERE h.course_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
         while(results.next()){

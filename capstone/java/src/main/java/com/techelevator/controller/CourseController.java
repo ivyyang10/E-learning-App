@@ -68,12 +68,12 @@ public class CourseController {
         return userDao.getAllStudents();
     }
 
-    @PostMapping("/course/{courseId}/homework")
+    @PutMapping("/course/{courseId}/homework")
     @ResponseStatus(HttpStatus.CREATED)
-    public Homework submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
+    public void submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
         String loggedInUser = principal.getName();
         int studentId = userDao.findIdByUsername(loggedInUser);
-        return homeworkDao.submitHomework(courseId,studentId,hw.getHwSubmission());
+        homeworkDao.submitHomework(courseId, studentId, hw);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
