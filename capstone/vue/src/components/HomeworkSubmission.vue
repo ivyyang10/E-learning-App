@@ -26,7 +26,6 @@ export default {
       this.$route.params.studentId
     ).then((response) => {
       this.homework = response.data;
-      console.log(response);
     });
   },
 };
