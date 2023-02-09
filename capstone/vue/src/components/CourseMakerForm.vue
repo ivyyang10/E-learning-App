@@ -25,12 +25,14 @@
         required 
         />
         <br>
+        <div id="togglelevel">
         <select name="Difficulty" v-on:change="onChange($event)" class="form-select">
             <option value = ""> Select Difficulty Level</option>
             <option value ="Easy"> Easy</option>
             <option value ="Medium"> Medium</option>
             <option value ="Difficult"> Difficult</option>
         </select>
+        </div>
         <br>
         <br>
         </div>
@@ -114,9 +116,8 @@ export default {
   display: flex;
   justify-content: center;
   padding-top: 30px;
-   padding-bottom: 500px;
+   padding-bottom: 175px;
    justify-items: center;
-   
 }
 #courseform {
  display: grid;
@@ -124,15 +125,15 @@ grid-template-columns: 1fr 1fr;
 grid-template-areas: 
 "description curricula"
 "button button" ;
-grid-column-gap: 2em;
+grid-column-gap: 3em;
 border-style: solid;
 border-radius: 25px;
-padding: 2em;
+padding: 3em;
 
 }
 .description {
-    padding-top: 30px;
-padding-bottom: 30px;
+    padding-top: 35px;
+padding-bottom: 35px;
 }
 #all-description {
         grid-area: description;
@@ -141,8 +142,8 @@ padding-bottom: 30px;
     grid-area: curricula;
 }
 .hwAssignment {
-    padding-top: 30px;
-padding-bottom: 30px;
+    padding-top: 35px;
+padding-bottom: 35px;
 }
 input, label {
   display: block;
@@ -151,7 +152,8 @@ label {
   padding-top: 15px;
 }
 input {
-    padding: 8px;
+    padding: 18px;
+    padding-right: 30px;
     border-radius: 25px;
   border-bottom: solid 3px;
   display: grid;
@@ -163,8 +165,10 @@ input {
 justify-content:space-around ;
 grid-area: button;
 margin-top: 1em;
-
-
+}
+#togglelevel{
+    display: flex;
+    justify-content: center;
 }
 /* button {
 margin-right: 20px;

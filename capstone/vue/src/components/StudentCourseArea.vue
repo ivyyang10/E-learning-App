@@ -1,16 +1,15 @@
 <template>
   <div id="student-center-view">
+    <div id="hwArea">
     <div id="student-area-header" >
       <h1 v-bind:to="{ name: 'courses', params: { id: course.courseId } }">
         {{ course.courseName }}
       </h1>
     </div>
     <br>
-    <div class="flex-container-column flex-container-center">
+    
       <h3 class="u-text-center u-margin-top" id="hw-prompt-text">
-        <h3>Homework Prompt:</h3>
-        <br>
-        {{ course.hwAssignment }}
+        <h3>Assignment: {{ course.hwAssignment }}</h3>
       </h3>
       <form id="homework-submission" v-on:submit.prevent="saveHomework">
         
@@ -23,13 +22,13 @@
           required
         />
         <br />
-
+      </form>
+    </div>
         <div id="button-div-2">
           <button type="submit" class="u-margin-y">Submit Homework</button>
         </div>
         
-      </form>
-    </div>
+
   </div>
 </template>
 
@@ -94,17 +93,27 @@ export default {
   grid-area: student-area-header;
 }
 #homework-submission {
-  display: block;
+  display: flex;  
   justify-content: center;
   grid-area: homework-submission;
 }
  #homework-textbox {
   padding: 15px;
   white-space: wrap;
+  margin-bottom: 30px;
   
 } 
 #button-div-2 {
   display: flex;
   justify-content: center;
+}
+#hwArea {
+  margin-top: 30px;
+  padding: 30px;
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 10px;
+  border-radius: 25px;
+   border-image-source: linear-gradient(to left, #75b9be, #c7d66d);
 }
 </style>

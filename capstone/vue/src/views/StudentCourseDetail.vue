@@ -43,13 +43,17 @@ export default {
 <style scoped>
 #student-working-area {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas: "student-course-area student-side-bar";
+  grid-column-gap: 3em;
+   padding-left: 50px;
 }
 #teacher-working-area {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas: "teacher-course-area teacher-side-bar";
+  grid-column-gap: 3em;
+  padding-left: 50px;
 }
 #class-title-header {
   grid-area: class-title-header;
@@ -67,7 +71,10 @@ export default {
   grid-area: student-side-bar;
   padding: 10px;
   height: 100%;
+   padding-top: 30px;
   margin: 20px;
+   width: 50%;
+     padding-left: 80px;
 }
 #teacher-course-area {
   /* border-right: solid; */
@@ -78,6 +85,9 @@ export default {
 #teacher-side-bar {
   grid-area: teacher-side-bar;
   padding: 10px;
+  padding-top: 30px;
   height: 100%;
+  width: 50%;
+    padding-left: 80px;
 }
 </style>

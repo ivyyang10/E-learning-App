@@ -13,20 +13,23 @@
         <div id="login" class="text-center">
           <form class="form-signin" @submit.prevent="login">
             <h1 id="sign-in-text" class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+            <br>
             <div
               class="alert alert-danger"
               role="alert"
               v-if="invalidCredentials"
             >
-              Invalid username and password!
+              Sorry, invalid username and password.
             </div>
+            
             <div
               class="alert alert-success"
               role="alert"
               v-if="this.$route.query.registration"
             >
-              Thank you for registering, please sign in.
+              Thank you for registering! Please sign in.
             </div>
+            <br>
             <label id="username-prompt" for="username" class="sr-only"></label>
             <input
               type="text"
@@ -49,7 +52,7 @@
             />
             <br>
             <div id ="loginbutton">
-            <button id="submit-button" type="submit">Sign in</button>
+            <button id="submit-button" type="submit">Sign In</button>
           
            <br>
             <div id="need-account">
@@ -122,7 +125,8 @@ export default {
   width: 100%;
 }
 #sign-in-text {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 #login {
   padding: 50px;
@@ -163,6 +167,11 @@ input {
   display: flex;
   justify-content: center;
   padding-top: 20px;;
+}
+.form-signin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
 

@@ -7,7 +7,7 @@
      
 <div id="right-user">
 <router-link v-bind:to="{ name: 'home' }"
-        ><img id="logo2" src="./assets/textlogo.png" alt="School Logo2" align="right" /></router-link>
+        ><img id="logo2" src="./assets/lightlogo.png" alt="School Logo2" align="right" /></router-link>
     <br>
       <span id="nav-right">
         <router-link
@@ -39,14 +39,15 @@
 }
 #logo2 {
   width: 60px;
-  padding-right: 20px;;
+  padding-right: 20px;
+  margin-top: 15px;
 }
 #nav {
   border-bottom: solid;
   border-color: #75b9be;
   display: flex;
   justify-content: space-between;
-  /* background-color: #f5f5f5; */
+  background-color: #75b9be;
 }
 #viewerName {
   display: flex;
@@ -54,7 +55,7 @@
 }
 #nav-right {
   margin-right: 25px;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 /* footer {
   border-top: solid;

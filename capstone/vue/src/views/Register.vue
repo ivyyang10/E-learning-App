@@ -37,13 +37,9 @@
           autofocus
         />
 
-        <!-- <h3>Role:</h3>
-  <input type="radio" v-model="color" value="0">Student
-  <input type="radio" v-model="color" value="1">Teacher
-  <br /> <br> -->
+  
         <br />
-        <label for="role" class="sr-only">Are you an educator?</label>
-        <input
+        <label for="role" class="sr-only">Are you an educator?<input
           v-on:click="checked = !checked"
           type="checkbox"
           value="teacher"
@@ -53,10 +49,8 @@
           v-model="checked"
           v-bind:role="setRole"
           autofocus
-        />
-
-        <!-- <button id="teacher-button">Teacher</button>
-      <button id="student-button" v-on:click="">Student</button> -->
+        /></label>
+        
 
         <label for="password" class="sr-only"></label>
         <input
@@ -156,14 +150,10 @@ export default {
 </script>
 
 <style scoped>
-* {
-  font-family: Roboto, Verdana, Segoe, sans-serif;
-}
 #register {
-  grid-area: register;
   display: flex;
   justify-content: center;
-  background: linear-gradient(90deg, #75b9be 0%, #c7d66d 100%);
+  background: #f5f5f5;
 
   /* border-style: solid;
   border-color: #75b9be; */
@@ -174,13 +164,16 @@ export default {
   background-color: transparent;
 }
 #registerform {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   border-style: solid;
   border-radius: 25px;
   padding: 20px;
   padding-right: 100px;
   padding-left: 100px;
   margin: 25px 50px;
-  background-color: white;
+  background-color: #f5f5f5;
 }
 input,
 label {
@@ -202,5 +195,8 @@ input {
 #haveaccount {
   padding-left: 30px;
   padding-top: 10px;
+}
+#role {
+  margin-top: 10px;
 }
 </style>

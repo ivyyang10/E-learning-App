@@ -32,6 +32,7 @@
       >
 
       <br />
+      
       <tr v-for="student in hwNotificationArr" v-bind:key="student.id">
         <td>{{ student.name }}</td>
 

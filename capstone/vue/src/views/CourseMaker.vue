@@ -1,6 +1,6 @@
 <template>
   <div class="coursemaker">
-      <h1 id="page-title">Course Maker</h1>
+      <h1 id="page-title">Create A Course</h1>
     <course-maker-form />
 
   </div>
@@ -20,8 +20,8 @@ export default {
 
 <style>
 .coursemaker {
-  background: linear-gradient(90deg, #75b9be 0%, #c7d66d 100%);
-  padding: 10px;
+   background-color: #f5f5f5;
+  padding: 20px;
 }
 h1 {
   display: flex;
