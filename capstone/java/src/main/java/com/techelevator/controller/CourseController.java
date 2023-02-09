@@ -3,7 +3,6 @@ package com.techelevator.controller;
 import com.techelevator.dao.CourseDao;
 import com.techelevator.dao.HomeworkDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.dao.UsersCourseDao;
 import com.techelevator.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +26,7 @@ public class CourseController {
     UserDao userDao;
     @Autowired
     HomeworkDao homeworkDao;
-    @Autowired
-    UsersCourseDao usersCourseDao;
+
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createcourse")
@@ -70,12 +68,12 @@ public class CourseController {
         return userDao.getAllStudents();
     }
 
-    @PostMapping("/course/{courseId}/homework")
+    @PutMapping("/course/{courseId}/homework")
     @ResponseStatus(HttpStatus.CREATED)
-    public Homework submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
+    public void submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
         String loggedInUser = principal.getName();
         int studentId = userDao.findIdByUsername(loggedInUser);
-        return homeworkDao.submitHomework(courseId,studentId,hw.getHwSubmission());
+        homeworkDao.submitHomework(courseId, studentId, hw);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -91,17 +89,17 @@ public class CourseController {
     }
 
     @GetMapping("/homework")
-    public List<UsersCourse> checkHwByStudentId(Principal principal){
+    public List<Homework> checkHwByStudentId(Principal principal){
         String loggedInUser = principal.getName();
         int studentId = userDao.findIdByUsername(loggedInUser);
         
-        return usersCourseDao.checkHwByStudentId(studentId);
+        return homeworkDao.checkHwByStudentId(studentId);
     }
 
 
     @GetMapping("/homework/{id}")
-    public  List<UsersCourse> checkHwByCourseId(@PathVariable int id){
-        return usersCourseDao.checkHwByCourseId(id);
+    public  List<Homework> checkHwByCourseId(@PathVariable int id){
+        return homeworkDao.checkHwByCourseId(id);
     }
 
     @GetMapping("/homework/{courseId}/{studentId}")

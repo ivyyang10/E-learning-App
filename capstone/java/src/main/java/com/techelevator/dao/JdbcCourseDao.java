@@ -79,10 +79,14 @@ public class JdbcCourseDao  implements CourseDao{
     @Override
     public boolean submitStudentIntoCourse(int courseId, UserDTO userDTO){
         int userId = userDTO.getId();
-        boolean hwBoolean = false;
-        String sql = "INSERT INTO users_course (user_id, course_id, completed) " +
-                "VALUES (?,?,?)";
-        return jdbcTemplate.update(sql, userId, courseId, hwBoolean) == 1;
+        boolean completed = false;
+        String sql = "INSERT INTO users_course (user_id, course_id) " +
+                "VALUES (?,?)";
+        String sql2 = "INSERT INTO homework (student_id, course_id, completed) " +
+                "VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql2, userId, courseId, completed);
+        return jdbcTemplate.update(sql, userId, courseId) == 1;
+
 
     }
 

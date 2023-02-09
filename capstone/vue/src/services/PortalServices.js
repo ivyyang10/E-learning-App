@@ -23,7 +23,7 @@ export default {
         return axios.post(`/course/${id}`, userObject)
     },
     submitHomework(id, homeworkObject) {
-        return axios.post(`/course/${id}/homework`, homeworkObject)
+        return axios.put(`/course/${id}/homework`, homeworkObject)
     },
     getCourseByStudentId() {
         return axios.get(`/studentcourses`)
