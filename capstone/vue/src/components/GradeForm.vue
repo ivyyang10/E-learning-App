@@ -1,6 +1,5 @@
 <template>
   <div>
-     {{homework}}
     <div id="grading-div" >
       <form class="grade-homework-form" id="gradeform" v-on:submit.prevent="postGrade">
         <select
@@ -71,8 +70,8 @@ export default {
       }
     },
 
-    postGrade(homework) {
-      PortalServices.postGrade(homework)
+    postGrade() {
+      PortalServices.postGrade(this.homework)
         .then((response) => {
           if (response.status === 201) {
             alert("Your grade has been submitted");
