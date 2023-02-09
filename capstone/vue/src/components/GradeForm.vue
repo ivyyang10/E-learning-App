@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="grading-div">
-      {{ homework }}
       <form
         class="grade-homework-form"
         v-bind:key="homework.homeworkId"
