@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div id="grading-div" >
-      <form class="grade-homework-form" v-bind:key="homework.homeworkId" id="gradeform" v-on:submit.prevent="postGrade">
+    <div id="grading-div">
+      {{ homework }}
+      <form
+        class="grade-homework-form"
+        v-bind:key="homework.homeworkId"
+        id="gradeform"
+        v-on:submit.prevent="postGrade"
+      >
         <select
           id="grading-options"
           name="grading"
@@ -32,9 +38,7 @@ export default {
   name: "homework-grader-form",
   data() {
     return {
-      homework: {
-
-      }
+      homework: {},
     };
   },
   created() {
@@ -43,7 +47,7 @@ export default {
       this.$route.params.studentId
     ).then((response) => {
       this.homework = response.data;
-  })
+    });
   },
   methods: {
     onChange(event) {

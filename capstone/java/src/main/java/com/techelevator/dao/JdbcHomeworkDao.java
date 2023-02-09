@@ -75,7 +75,7 @@ public class JdbcHomeworkDao implements HomeworkDao{
     @Override
     public List<Homework> checkHwByCourseId(int id) {
         List<Homework> homeworks = new ArrayList<>();
-        String sql="SELECT DISTINCT name, h.course_id, completed, h.student_id FROM homework AS h " +
+        String sql="SELECT DISTINCT name, h.course_id, completed, h.student_id, grade FROM homework AS h " +
                 "JOIN users AS u on h.student_id = u.user_id " +
                 "JOIN users_course AS uc ON u.user_id = uc.user_id " +
                 "WHERE h.course_id = ?;";
@@ -105,6 +105,7 @@ public class JdbcHomeworkDao implements HomeworkDao{
         homework.setStudentId(result.getInt("student_id"));
         homework.setCompleted(result.getBoolean("completed"));
         homework.setName(result.getString("name"));
+        homework.setGrade(result.getInt("grade"));
 
         return homework;
     }

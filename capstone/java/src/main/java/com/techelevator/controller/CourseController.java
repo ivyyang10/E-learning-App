@@ -109,7 +109,6 @@ public class CourseController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/grade")
-    @ResponseStatus(HttpStatus.CREATED)
     public void postGrade(@RequestBody Homework hw){
         homeworkDao.postGrade(hw);
     }
