@@ -7,7 +7,7 @@ import java.util.List;
 public interface HomeworkDao {
     Homework findHomeworkById(int HomeworkId);
 
-    void submitHomework(int courseId, int studentId, Homework hw);
+    Homework submitHomework(int courseId, int studentId, Homework hw);
 
     Homework getHwById(int courseId, int studentId);
 

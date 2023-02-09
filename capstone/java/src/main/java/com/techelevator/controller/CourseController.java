@@ -70,10 +70,10 @@ public class CourseController {
 
     @PutMapping("/course/{courseId}/homework")
     @ResponseStatus(HttpStatus.CREATED)
-    public void submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
+    public Homework submitHomework(@PathVariable int courseId, Principal principal, @RequestBody Homework hw){
         String loggedInUser = principal.getName();
         int studentId = userDao.findIdByUsername(loggedInUser);
-        homeworkDao.submitHomework(courseId, studentId, hw);
+        return homeworkDao.submitHomework(courseId, studentId, hw);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
