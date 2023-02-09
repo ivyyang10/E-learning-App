@@ -101,4 +101,7 @@ export default {
   font-weight: bold;
   font-size: 1rem;
 }
+button {
+   margin-left: 50px;
+}
 </style>

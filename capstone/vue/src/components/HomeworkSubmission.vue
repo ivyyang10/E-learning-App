@@ -3,7 +3,8 @@
     <br />
     <h1>Homework Submissions:</h1>
     {{ homework.hwSubmission }}
-    <grade-homework />
+    <div id ="hwcomp"><grade-homework /></div>
+    
   </div>
 </template>
 
@@ -33,4 +34,10 @@ export default {
 </script>
 
 <style scoped>
+#hwcomp {
+  display: flex;
+  justify-content: center;
+}
+
+
 </style>
